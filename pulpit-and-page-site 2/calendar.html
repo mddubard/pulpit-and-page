@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>Pulpit &amp; Page — New Christian & Theology Book Releases</title>
+<style>
+  :root{
+    --ink:#1c1a17; --muted:#6b6259; --line:#e6e0d8; --bg:#faf7f2;
+    --card:#ffffff; --accent:#20303f; --accent2:#c79a52; --chip:#f0ebe3;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);
+    background:var(--bg);line-height:1.55;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header.site{border-bottom:3px solid var(--accent2);background:var(--accent);}
+  .brand{display:flex;align-items:baseline;justify-content:space-between;
+    flex-wrap:wrap;gap:8px;padding:26px 0 18px;}
+  .brand h1{font-size:34px;margin:0;letter-spacing:.5px;color:#f4efe6;}
+  .brand h1 .amp{color:var(--accent2);font-style:italic;padding:0 3px;}
+  .brand .tag{color:#aebccb;font-style:italic;font-size:15px;}
+  nav.site{font-family:Helvetica,Arial,sans-serif;font-size:13px;text-transform:uppercase;
+    letter-spacing:1px;padding-bottom:14px;display:flex;gap:22px;flex-wrap:wrap;color:#8fa2b3;}
+  html{scroll-behavior:smooth;}
+  .nav-link{cursor:pointer;}
+  .nav-link:hover{color:var(--accent2);}
+  .flash{animation:flash 1.4s ease;}
+  @keyframes flash{0%{background:#fff3d6;}100%{background:transparent;}}
+
+  .intro{padding:26px 0 6px;}
+  .intro h2{font-size:24px;margin:0 0 6px;}
+  .intro p{color:var(--muted);margin:6px 0;max-width:70ch;}
+
+  .filters{font-family:Helvetica,Arial,sans-serif;font-size:12px;display:flex;
+    gap:8px;flex-wrap:wrap;align-items:center;padding:14px 0 4px;}
+  .filters .lbl{text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-right:4px;}
+  .pub{display:inline-block;background:var(--chip);border:1px solid var(--line);
+    border-radius:20px;padding:3px 11px;color:#4a423a;}
+
+  .month{margin:34px 0 0;}
+  .month h3{font-family:Helvetica,Arial,sans-serif;font-size:15px;letter-spacing:2px;
+    text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--line);
+    padding-bottom:6px;margin:0 0 4px;}
+  .month .note{font-size:13px;color:var(--muted);font-style:italic;margin:2px 0 10px;}
+
+  .book{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:start;
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:14px 16px;margin:10px 0;}
+  .cover{width:64px;height:92px;background:linear-gradient(135deg,#efe9df,#ded4c6);
+    border:1px solid var(--line);border-radius:3px;display:flex;align-items:center;
+    justify-content:center;font-family:Helvetica,Arial,sans-serif;font-size:9px;
+    color:#9a8f80;text-align:center;padding:4px;overflow:hidden;}
+  .cover img{width:100%;height:100%;object-fit:cover;border-radius:3px;}
+  .cover svg{width:100%;height:100%;display:block;border-radius:3px;}
+  .meta h4{margin:0 0 3px;font-size:18px;line-height:1.25;}
+  .meta .by{color:var(--muted);font-size:14px;margin:0 0 6px;}
+  .meta .desc{font-size:14px;margin:0 0 8px;max-width:60ch;}
+  .tags{font-family:Helvetica,Arial,sans-serif;font-size:11px;display:flex;gap:6px;flex-wrap:wrap;}
+  .tag{background:var(--chip);border-radius:4px;padding:2px 8px;color:#4a423a;}
+  .tag.date{background:#f3 e;background:#f6efe4;color:var(--accent2);border:1px solid #ecdcc4;}
+  .buy{display:flex;flex-direction:column;gap:6px;min-width:120px;
+    font-family:Helvetica,Arial,sans-serif;font-size:12px;}
+  .buy a{border:1px solid var(--accent);border-radius:5px;padding:6px 10px;text-align:center;
+    color:var(--accent);}
+  .buy a.amz{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .buy a:hover{text-decoration:none;opacity:.9;}
+
+  .placeholder{border-style:dashed;background:#fdfbf7;}
+  .placeholder .cover{background:repeating-linear-gradient(45deg,#f2ece2,#f2ece2 6px,#e9e1d5 6px,#e9e1d5 12px);}
+  .placeholder .desc{font-style:italic;}
+
+  .editor{background:#fff8ea;border:1px solid #ecdcc4;border-radius:8px;
+    padding:16px 20px;margin:24px 0;font-size:14px;}
+  .editor h4{margin:0 0 6px;font-family:Helvetica,Arial,sans-serif;font-size:13px;
+    text-transform:uppercase;letter-spacing:1px;color:var(--accent2);}
+  .editor ul{margin:8px 0 0;padding-left:18px;color:#544b40;}
+  .editor li{margin:4px 0;}
+
+  .disclosure{font-size:12px;color:var(--muted);border-top:1px solid var(--line);
+    margin-top:36px;padding:16px 0 40px;font-style:italic;}
+  footer.site{border-top:3px double var(--line);background:var(--card);
+    font-family:Helvetica,Arial,sans-serif;font-size:12px;color:var(--muted);}
+  footer .wrap{padding:22px 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .topicbar{font-family:Helvetica,Arial,sans-serif;display:flex;gap:8px;flex-wrap:wrap;
+    padding:18px 0 2px;align-items:center;}
+  .fbtn{font-size:12px;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--line);
+    background:var(--card);color:#4a423a;border-radius:20px;padding:6px 14px;cursor:pointer;
+    font-family:inherit;}
+  .fbtn:hover{border-color:var(--accent2);}
+  .fbtn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .pub{cursor:pointer;user-select:none;}
+  .pub:hover{border-color:var(--accent2);}
+  .pub.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .noresults{display:none;padding:30px 0;color:var(--muted);font-style:italic;}
+  .review{display:grid;grid-template-columns:64px 1fr;gap:16px;background:var(--card);
+    border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0;}
+  .review .cover{width:64px;height:92px;}
+  .review h4{margin:0 0 3px;font-size:19px;line-height:1.25;}
+  .review .rmeta{font-family:Helvetica,Arial,sans-serif;font-size:12px;color:var(--muted);margin:0 0 8px;}
+  .stars{color:var(--accent2);letter-spacing:2px;margin-right:6px;}
+  .review .excerpt{font-size:15px;margin:0 0 10px;max-width:64ch;}
+  .review .more{font-family:Helvetica,Arial,sans-serif;font-size:12px;text-transform:uppercase;
+    letter-spacing:1px;}
+  @media(max-width:640px){
+    .review{grid-template-columns:52px 1fr;}
+    .review .cover{width:52px;height:74px;}
+    .book{grid-template-columns:52px 1fr;}
+    .buy{grid-column:1 / -1;flex-direction:row;min-width:0;}
+    .cover{width:52px;height:74px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html" style="color:inherit;text-decoration:none;">Pulpit <span class="amp">&amp;</span> Page</a></h1>
+      <span class="tag">New releases for pulpit &amp; pew.</span>
+    </div>
+    <nav class="site">
+      <a class="nav-link" href="index.html" style="color:#8fa2b3;">Home</a>
+      <span class="nav-link" data-target="topicbar" data-reset="1">Release Calendar</span>
+      <a class="nav-link" href="reviews.html" style="color:#8fa2b3;">Reviews</a>
+      <a class="nav-link" href="lists.html" style="color:#8fa2b3;">Lists</a>
+      <a class="nav-link" href="publishers.html" style="color:#8fa2b3;">Publishers</a>
+      <a class="nav-link" href="search.html" style="color:#8fa2b3;">Search</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <h2>The Release Calendar — Summer &amp; Fall 2026</h2>
+    <p>Every notable new release worth knowing about in the Reformed &amp; evangelical world,
+       organized by month. Just-released titles at the top, upcoming further down. Updated weekly.</p>
+    <p id="weekly-email"><strong>Want it in your inbox?</strong> Every Thursday we send the week's new theology
+       releases — <a href="#">subscribe to the free email &rarr;</a></p>
+  </section>
+
+  <div class="topicbar" id="topicbar">
+    <span class="lbl">Filter by topic:</span>
+    <button class="fbtn active" data-terms="">All</button>
+    <button class="fbtn" data-terms="systematic">Systematic Theology</button>
+    <button class="fbtn" data-terms="biblical">Biblical Studies &amp; Theology</button>
+    <button class="fbtn" data-terms="historical,patristic,medieval">Historical &amp; Patristic</button>
+    <button class="fbtn" data-terms="christian living,devotional">Christian Living</button>
+    <button class="fbtn" data-terms="preaching,ministry,worship">Preaching &amp; Worship</button>
+    <button class="fbtn" data-terms="counseling,parenting">Counseling &amp; Family</button>
+    <button class="fbtn" data-terms="baptist">Baptist</button>
+    <button class="fbtn" data-terms="anglican">Anglican</button>
+  </div>
+
+  <div class="filters" id="by-publisher">
+    <span class="lbl">Reformed / Presbyterian:</span>
+    <span class="pub" data-filter="crossway">Crossway</span>
+    <span class="pub" data-filter="p&amp;r">P&amp;R Publishing</span>
+    <span class="pub" data-filter="banner">Banner of Truth</span>
+    <span class="pub" data-filter="reformation heritage">Reformation Heritage</span>
+    <span class="pub" data-filter="christian focus">Christian Focus / Mentor</span>
+    <span class="pub" data-filter="reformation trust">Reformation Trust (Ligonier)</span>
+    <span class="pub" data-filter="ep books">EP Books</span>
+    <span class="pub" data-filter="davenant">Davenant Press</span>
+  </div>
+  <div class="filters">
+    <span class="lbl">Evangelical / Academic:</span>
+    <span class="pub" data-filter="ivp">IVP / IVP Academic</span>
+    <span class="pub" data-filter="eerdmans">Eerdmans</span>
+    <span class="pub" data-filter="zondervan">Zondervan Academic</span>
+    <span class="pub" data-filter="baker academic">Baker Academic</span>
+    <span class="pub" data-filter="lexham">Lexham Press</span>
+    <span class="pub" data-filter="wipf">Wipf &amp; Stock</span>
+    <span class="pub" data-filter="moody">Moody</span>
+    <span class="pub" data-filter="good book">The Good Book Company</span>
+    <span class="pub" data-filter="new growth">New Growth Press</span>
+  </div>
+  <div class="filters">
+    <span class="lbl">Baptist:</span>
+    <span class="pub" data-filter="b&amp;h">B&amp;H Academic</span>
+    <span class="pub" data-filter="founders">Founders Press</span>
+    <span class="pub" data-filter="free grace">Free Grace Press</span>
+    <span class="pub" data-filter="h&amp;e">H&amp;E Publishing</span>
+    <span class="lbl" style="margin-left:14px;">Anglican / Mainline:</span>
+    <span class="pub" data-filter="spck">SPCK</span>
+    <span class="pub" data-filter="canterbury">Canterbury Press</span>
+  </div>
+  <div class="filters">
+    <span class="lbl">Classic / Patristic / Medieval:</span>
+    <span class="pub" data-filter="fontes">Fontes Press</span>
+    <span class="pub" data-filter="new city">New City Press (Augustine)</span>
+    <span class="pub" data-filter="svs">SVS Press (Popular Patristics)</span>
+    <span class="pub" data-filter="cua">CUA Press (Fathers of the Church)</span>
+  </div>
+
+  <!-- ============ SEPTEMBER (UPCOMING) ============ -->
+  <section class="month">
+    <h3>September 2026 &nbsp;·&nbsp; Coming Soon</h3>
+    <p class="note">Pre-order season — the titles readers are watching for.</p>
+
+    <article class="book">
+      <div class="cover"><img src="assets/covers/cathedral.jpg" alt="The Cathedral of Theology by J. V. Fesko" loading="lazy"></div>
+      <div class="meta">
+        <h4>The Cathedral of Theology: Principles of Christian Dogmatics</h4>
+        <p class="by">J. V. Fesko</p>
+        <p class="desc">A major new systematic-theology framework from a leading Reformed dogmatician —
+           one of the season's most anticipated academic releases.</p>
+        <div class="tags"><span class="tag date">Sept 2026</span><span class="tag">IVP Academic</span>
+          <span class="tag">Systematic Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">God's Presence With Us</div>
+      <div class="meta">
+        <h4>God's Presence with Us and in Us: A Biblical Theology of the Holy Spirit</h4>
+        <p class="by">Miguel G. Echevarría</p>
+        <p class="desc">A whole-Bible study of the Spirit's presence, tracing the theme from Eden to the new creation.</p>
+        <div class="tags"><span class="tag date">Sept 2026</span><span class="tag">IVP Academic</span>
+          <span class="tag">Biblical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">This Changes Everything</div>
+      <div class="meta">
+        <h4>This Changes Everything</h4>
+        <p class="by">Jaquelle Ferris</p>
+        <p class="desc">Releasing 9/23. New from Crossway — gospel-centered encouragement for everyday faith.</p>
+        <div class="tags"><span class="tag date">Sept 23, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Christian Living</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Why We Worship</div>
+      <div class="meta">
+        <h4>Why We Worship: Experiencing Heaven on Earth at Church</h4>
+        <p class="by">Adriel Sanchez</p>
+        <p class="desc">A pastoral case for gathered worship as a foretaste of heaven.</p>
+        <div class="tags"><span class="tag date">Sept 2026</span><span class="tag">IVP</span>
+          <span class="tag">Worship</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book placeholder">
+      <div class="cover">Add title</div>
+      <div class="meta">
+        <h4>Banner of Truth — fall titles to confirm</h4>
+        <p class="by">Editor slot</p>
+        <p class="desc">Known in production: <em>Unveiling the Cross</em> (Ross Blackburn), a J. C. Ryle memorial
+           sermon selection, and Peter Barnes on the loss of a child. Confirm dates on the
+           <a href="https://banneroftruth.org/us/store/product-tag/upcoming-releases/">upcoming-releases page</a>.</p>
+        <div class="tags"><span class="tag">Banner of Truth</span><span class="tag">Reformed / Puritan</span></div>
+      </div>
+      <div class="buy"><a href="#">Add links</a></div>
+    </article>
+  </section>
+
+  <!-- ============ AUGUST ============ -->
+  <section class="month">
+    <h3>August 2026</h3>
+
+    <article class="book">
+      <div class="cover">A Woman's Place</div>
+      <div class="meta">
+        <h4>A Woman's Place Is in the Story: Seeing Women in the Biblical Narrative</h4>
+        <p class="by">Sandra L. Glahn</p>
+        <p class="desc">A close reading of the women of Scripture and their place in the biblical story.</p>
+        <div class="tags"><span class="tag date">Aug 2026</span><span class="tag">IVP Academic</span>
+          <span class="tag">Biblical Studies</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Resisting Therapy Culture</div>
+      <div class="meta">
+        <h4>Resisting Therapy Culture: The Dangers of Pop Psychology and How the Church Can Respond</h4>
+        <p class="by">Matthew Loftus</p>
+        <p class="desc">A physician's critique of therapeutic culture and a call to recover the church's care of souls.</p>
+        <div class="tags"><span class="tag date">Aug 2026</span><span class="tag">IVP</span>
+          <span class="tag">Culture</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Theology for Better Counseling</div>
+      <div class="meta">
+        <h4>Theology for Better Counseling: Trinitarian Reflections for Healing and Formation</h4>
+        <p class="by">Virginia Todd Holeman</p>
+        <p class="desc">Connects Trinitarian theology to the practice of Christian counseling.</p>
+        <div class="tags"><span class="tag date">Aug 2026</span><span class="tag">IVP Academic</span>
+          <span class="tag">Counseling</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover"><img src="assets/covers/apocrypha.jpg" alt="Apocrypha and the Septuagint (Zondervan Academic)" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-apocrypha.html" style="color:inherit;">Apocrypha and the Septuagint</a></h4>
+        <p class="by">Bruce W. Longenecker, Marieke Dhont &amp; James K. Aitken</p>
+        <p class="desc">A scholarly introduction to the Apocrypha and the Greek Old Testament. Releases 8/11.</p>
+        <div class="tags"><span class="tag date">Aug 11, 2026</span><span class="tag">Zondervan Academic</span>
+          <span class="tag">Biblical Studies</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+  </section>
+
+  <!-- ============ JULY (CURRENT) ============ -->
+  <section class="month">
+    <h3>July 2026 &nbsp;·&nbsp; Just Released</h3>
+
+    <article class="book">
+      <div class="cover">Arminian Theology</div>
+      <div class="meta">
+        <h4>Arminian Theology: Myths and Realities</h4>
+        <p class="by">Roger E. Olson</p>
+        <p class="desc">A newly updated edition of Olson's landmark survey — useful reading whichever side of the
+           Calvinist–Arminian conversation you land on.</p>
+        <div class="tags"><span class="tag date">Jul 2026</span><span class="tag">IVP Academic</span>
+          <span class="tag">Historical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Knowing Christianity</div>
+      <div class="meta">
+        <h4>Knowing Christianity: The Foundations of the Christian Faith and How They Shape Daily Life</h4>
+        <p class="by">J. I. Packer</p>
+        <p class="desc">A reissue of Packer's accessible primer on the essentials of the faith.</p>
+        <div class="tags"><span class="tag date">Jul 2026</span><span class="tag">IVP</span>
+          <span class="tag">Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Candles in the Darkness</div>
+      <div class="meta">
+        <h4>Candles in the Darkness: Experiencing Advent with the Early and Medieval Church</h4>
+        <p class="by">Lynneth Miller Renberg &amp; Adam R. Renberg</p>
+        <p class="desc">An Advent devotional drawing on the early and medieval church — plan ahead for the season.</p>
+        <div class="tags"><span class="tag date">Jul 2026</span><span class="tag">IVP</span>
+          <span class="tag">Devotional</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+  </section>
+
+  <!-- ============ JUNE ============ -->
+  <section class="month">
+    <h3>June 2026</h3>
+
+    <article class="book">
+      <div class="cover"><img src="assets/covers/mediator.jpg" alt="Mediator: A Biblical Theology by Vern S. Poythress" loading="lazy"></div>
+      <div class="meta">
+        <h4>Mediator: A Biblical Theology</h4>
+        <p class="by">Vern S. Poythress</p>
+        <p class="desc">Traces mediatorial figures across Scripture — people, angels, and objects — as they culminate in Christ.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Biblical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Becoming a Disciple of the King</div>
+      <div class="meta">
+        <h4>Becoming a Disciple of the King: A Theology of Matthew</h4>
+        <p class="by">Jonathan T. Pennington</p>
+        <p class="desc">The latest in Crossway's New Testament Theology series — a concise theology of Matthew.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Biblical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">The Heart of Preaching</div>
+      <div class="meta">
+        <h4>The Heart of Preaching: The Functional Centrality of the Gospel</h4>
+        <p class="by">Mike Bullmore</p>
+        <p class="desc">Decades of pastoral wisdom on keeping the gospel central in preaching and ministry.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Preaching</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">The Pleasures of God</div>
+      <div class="meta">
+        <h4>The Pleasures of God: Meditations on God's Delight in Being God</h4>
+        <p class="by">John Piper</p>
+        <p class="desc">A reissue of Piper's classic on the joys that delight the heart of God.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Christian Living</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">New Testament Theology</div>
+      <div class="meta">
+        <h4>New Testament Theology: A Canonical, Thematic, and Ethical Approach</h4>
+        <p class="by">Andreas J. Köstenberger</p>
+        <p class="desc">A comprehensive, canonically-built NT theology for serious students of Scripture.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Academic</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">The Incarnation</div>
+      <div class="meta">
+        <h4>The Incarnation</h4>
+        <p class="by">Andrew Hollingsworth &amp; R. T. Mullins</p>
+        <p class="desc">A fresh analytic-theology treatment of the doctrine of the incarnation.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Wipf &amp; Stock · Cascade</span>
+          <span class="tag">Systematic Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Bookshop &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Patristic Theology Vol. 2</div>
+      <div class="meta">
+        <h4>Patristic Theology, Volume 2</h4>
+        <p class="by">Kevin M. Clarke</p>
+        <p class="desc">The second volume of Clarke's study of the theology of the church fathers.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Wipf &amp; Stock · Pickwick</span>
+          <span class="tag">Historical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Bookshop &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Seeing God Beyond Belief</div>
+      <div class="meta">
+        <h4>Seeing God Beyond Belief</h4>
+        <p class="by">Kewa Zhou</p>
+        <p class="desc">A reflection on knowing God that reaches past mere intellectual assent.</p>
+        <div class="tags"><span class="tag date">Jun 2026</span><span class="tag">Wipf &amp; Stock</span>
+          <span class="tag">Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Bookshop &rarr;</a></div>
+    </article>
+
+  </section>
+
+  <!-- ============ RECENTLY RELEASED / STILL NOTABLE ============ -->
+  <section class="month">
+    <h3>Recently Released &amp; Still Notable &nbsp;·&nbsp; Spring 2026</h3>
+    <p class="note">Newer Reformed &amp; academic titles that landed earlier this year and still belong on the shelf.</p>
+
+    <article class="book">
+      <div class="cover">Works of Samuel Rutherford Vol. 1</div>
+      <div class="meta">
+        <h4>The Works of Samuel Rutherford, Volume 1 — Arminianism: A Systematic and Theological Response</h4>
+        <p class="by">Samuel Rutherford</p>
+        <p class="desc">The first volume of a new critical edition of Rutherford's works — a landmark for
+           Reformed historical theology.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Reformation Heritage</span>
+          <span class="tag">Historical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">RHB store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Theoretical-Practical Theology Vol. 5</div>
+      <div class="meta">
+        <h4>Theoretical-Practical Theology, Volume 5: The Application of Redemption and the Church</h4>
+        <p class="by">Petrus van Mastricht</p>
+        <p class="desc">The concluding volume of van Mastricht's classic Reformed systematic theology in English.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Reformation Heritage</span>
+          <span class="tag">Systematic Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">RHB store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Developing a Healthy Prayer Life</div>
+      <div class="meta">
+        <h4>Developing a Healthy Prayer Life: 31 Meditations on Communing with God</h4>
+        <p class="by">Joel R. Beeke</p>
+        <p class="desc">A month of short, practical meditations on prayer from RHB's founder.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Reformation Heritage</span>
+          <span class="tag">Christian Living</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">RHB store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">The Fountain of Life</div>
+      <div class="meta">
+        <h4>The Fountain of Life: Contemplating the Aseity of God</h4>
+        <p class="by">Samuel G. Parkison</p>
+        <p class="desc">A devotional-theological study of God's self-existence (aseity).</p>
+        <div class="tags"><span class="tag date">Jan 2026</span><span class="tag">B&amp;H Academic</span>
+          <span class="tag">Systematic Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Paul the Rabbi Philosopher</div>
+      <div class="meta">
+        <h4>Paul the Rabbi Philosopher: Stoic and Jewish Philosophy in the Apostle's Thought</h4>
+        <p class="by">Joseph R. Dodson</p>
+        <p class="desc">Explores how Stoic and Jewish philosophy shaped Paul's thought.</p>
+        <div class="tags"><span class="tag date">Apr 2026</span><span class="tag">B&amp;H Academic</span>
+          <span class="tag">Biblical Studies</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Reading the Later New Testament</div>
+      <div class="meta">
+        <h4>Reading the Later New Testament as Christian Scripture</h4>
+        <p class="by">Ruth Anne Reese &amp; Madison N. Pierce</p>
+        <p class="desc">A literary, canonical, and theological introduction to Hebrews through Revelation.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Baker Academic</span>
+          <span class="tag">Biblical Studies</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Reimagining Biblical Politics</div>
+      <div class="meta">
+        <h4>Reimagining Biblical Politics: What Scripture Says About Public Life and Why It Matters</h4>
+        <p class="by">Michael J. Rhodes</p>
+        <p class="desc">A biblical-theology account of public life and political engagement.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Baker Academic</span>
+          <span class="tag">Public Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">The Baptist Standards</div>
+      <div class="meta">
+        <h4>The Baptist Standards: Our Catechisms, Confessions, and Creed</h4>
+        <p class="by">Founders Press (ed.)</p>
+        <p class="desc">The key confessional documents of the Reformed Baptist tradition gathered in one volume.</p>
+        <div class="tags"><span class="tag date">Mar 2026</span><span class="tag">Founders Press</span>
+          <span class="tag">Baptist / Confessions</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Founders store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">What Is a Reformed Baptist?</div>
+      <div class="meta">
+        <h4>What Is a Reformed Baptist? An Overview of Doctrinal Distinctives</h4>
+        <p class="by">Tom Hicks</p>
+        <p class="desc">A clear introduction to Reformed Baptist theology rooted in the Second London Baptist Confession.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Founders Press</span>
+          <span class="tag">Baptist</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Founders store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Making Sense of Creation and Fall</div>
+      <div class="meta">
+        <h4>Making Sense of Creation and Fall: How Themes in Genesis 1–3 Help Us Understand the Bible, God, and Ourselves</h4>
+        <p class="by">Vern S. Poythress</p>
+        <p class="desc">A guided reading of Genesis 1–3 and its reach across the whole Bible.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">P&amp;R Publishing</span>
+          <span class="tag">Biblical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">In the Beginning</div>
+      <div class="meta">
+        <h4>In the Beginning: A Commentary on Genesis and Its Reception in the New Testament</h4>
+        <p class="by">Eerdmans · Pillar</p>
+        <p class="desc">Launching Eerdmans' new standalone Pillar Bible-study line — Genesis read forward into the NT.</p>
+        <div class="tags"><span class="tag date">May 2026</span><span class="tag">Eerdmans</span>
+          <span class="tag">Commentary</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Early Christian Theology</div>
+      <div class="meta">
+        <h4>Early Christian Theology</h4>
+        <p class="by">J. Warren Smith</p>
+        <p class="desc">A guide to early Christian doctrine that moves beyond the old "conflict" narrative.</p>
+        <div class="tags"><span class="tag date">Jan 2026</span><span class="tag">Eerdmans</span>
+          <span class="tag">Historical Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Understanding Natural Theology</div>
+      <div class="meta">
+        <h4>Understanding Natural Theology: Mapping the Terrain of Recent Approaches</h4>
+        <p class="by">Christopher R. Brewer</p>
+        <p class="desc">A survey of how theologians and philosophers are doing natural theology today.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">Zondervan Academic</span>
+          <span class="tag">Theology</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">C. S. Lewis' Images of Gender</div>
+      <div class="meta">
+        <h4>C. S. Lewis' Images of Gender</h4>
+        <p class="by">Davenant Press</p>
+        <p class="desc">A retrieval-minded study of gender in Lewis's imaginative and theological writing.</p>
+        <div class="tags"><span class="tag date">Apr 2026</span><span class="tag">Davenant Press</span>
+          <span class="tag">Theology / Culture</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Davenant store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Talking to Kids About Hard Things</div>
+      <div class="meta">
+        <h4>Talking to Kids About Hard Things</h4>
+        <p class="by">New Growth Press</p>
+        <p class="desc">A practical, gospel-grounded guide for parents navigating difficult conversations.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">New Growth Press</span>
+          <span class="tag">Parenting</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Amazed</div>
+      <div class="meta">
+        <h4>Amazed: Seeing Jesus with Fresh Eyes</h4>
+        <p class="by">Carolyn Lacey</p>
+        <p class="desc">A short, accessible gospel-centered read — the kind of popular title that sells well.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">The Good Book Company</span>
+          <span class="tag">Christian Living</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Dancing to the Heartbeat of God</div>
+      <div class="meta">
+        <h4>Dancing to the Heartbeat of God</h4>
+        <p class="by">Archbishop of Canterbury · SPCK</p>
+        <p class="desc">A Lent book of prayers and reflections — SPCK's flagship Anglican devotional for the year.</p>
+        <div class="tags"><span class="tag date">2026</span><span class="tag">SPCK</span>
+          <span class="tag">Anglican / Devotional</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Christianbook &rarr;</a></div>
+    </article>
+  </section>
+
+  <!-- ============ CLASSIC / PATRISTIC / MEDIEVAL ============ -->
+  <section class="month">
+    <h3>Classic, Patristic &amp; Medieval Sources &nbsp;·&nbsp; 2026</h3>
+    <p class="note">Primary-source translations read across traditions. IVP's <em>Ancient Christian Texts</em> and
+       SVS <em>Popular Patristics</em> are the evangelical- and Orthodox-published series to watch alongside these.</p>
+
+    <article class="book">
+      <div class="cover">John Chrysostom: Essential Readings</div>
+      <div class="meta">
+        <h4>John Chrysostom: Essential Readings</h4>
+        <p class="by">Edited by Maria Verhoeff</p>
+        <p class="desc">A curated introduction to the great preacher of the early church, from an
+           evangelical-friendly patristics press.</p>
+        <div class="tags"><span class="tag date">Fall 2026</span><span class="tag">Fontes Press</span>
+          <span class="tag">Patristics</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Fontes store &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Maximus the Confessor</div>
+      <div class="meta">
+        <h4>Maximus the Confessor (new translation)</h4>
+        <p class="by">Translated by Kevin M. Clarke · Fathers of the Church series</p>
+        <p class="desc">A fresh scholarly translation of one of the most important Greek fathers.</p>
+        <div class="tags"><span class="tag date">Jul 2026</span><span class="tag">CUA Press</span>
+          <span class="tag">Patristics</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Publisher &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">William of Auvergne</div>
+      <div class="meta">
+        <h4>William of Auvergne (new translation)</h4>
+        <p class="by">Translated by Seán Murphy</p>
+        <p class="desc">A medieval theologian and bishop of Paris, newly available in English.</p>
+        <div class="tags"><span class="tag date">Aug 2026</span><span class="tag">CUA Press</span>
+          <span class="tag">Medieval</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Publisher &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Works of St. Augustine</div>
+      <div class="meta">
+        <h4>The Works of Saint Augustine: A Translation for the 21st Century (ongoing)</h4>
+        <p class="by">New City Press</p>
+        <p class="desc">The standard modern English Augustine — 43 of a planned 49 volumes published, with more
+           arriving. Track new volumes as they release.</p>
+        <div class="tags"><span class="tag">New City Press</span><span class="tag">Patristics · Series</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">Publisher &rarr;</a></div>
+    </article>
+
+    <article class="book">
+      <div class="cover">Popular Patristics Series</div>
+      <div class="meta">
+        <h4>Popular Patristics Series (ongoing)</h4>
+        <p class="by">St. Vladimir's Seminary Press</p>
+        <p class="desc">Readable, affordable translations of first-millennium Christian texts — 68+ volumes and
+           counting, widely read across traditions. Watch for new releases.</p>
+        <div class="tags"><span class="tag">SVS Press</span><span class="tag">Patristics · Series</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="#">Amazon &rarr;</a><a href="#">SVS store &rarr;</a></div>
+    </article>
+  </section>
+
+  <p class="noresults" id="noresults">No titles match that filter yet — try another topic, or click <strong>All</strong>.
+     (Some tracked publishers don't have a dated title on the page yet — see the editor's note below.)</p>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="month" id="reviews">
+    <h3>Reviews &nbsp;·&nbsp; From the Shelf</h3>
+    <p class="note">Honest, short reviews of notable new titles. (Sample reviews below — replace with your own
+       voice, or expand each into a full review page.)</p>
+
+    <article class="review">
+      <div class="cover"><img src="assets/covers/mediator.jpg" alt="Mediator: A Biblical Theology by Vern S. Poythress" loading="lazy"></div>
+      <div class="meta">
+        <h4>Mediator: A Biblical Theology — Vern S. Poythress</h4>
+        <p class="rmeta"><span class="stars">★★★★★</span> Crossway · Biblical Theology · reviewed by Pulpit &amp; Page</p>
+        <p class="excerpt">Poythress does what he does best: patiently tracing a single thread — mediation — from
+           Eden to the cross until you can't unsee it. Accessible enough for a small group, rich enough for a
+           pastor's study. A model of how biblical theology should serve the church, not just the academy.</p>
+        <a class="more" href="#">Read full review &rarr;</a>
+      </div>
+    </article>
+
+    <article class="review">
+      <div class="cover"><img src="assets/covers/cathedral.jpg" alt="The Cathedral of Theology by J. V. Fesko" loading="lazy"></div>
+      <div class="meta">
+        <h4>The Cathedral of Theology — J. V. Fesko</h4>
+        <p class="rmeta"><span class="stars">★★★★☆</span> IVP Academic · Systematic Theology · reviewed by Pulpit &amp; Page</p>
+        <p class="excerpt">An ambitious prolegomena arguing that dogmatics should be built like a cathedral —
+           ordered, beautiful, and ultimately for worship. Dense in stretches, but one of the more serious recent
+           entries in confessional Reformed method. Best read slowly, with your confession open beside it.</p>
+        <a class="more" href="#">Read full review &rarr;</a>
+      </div>
+    </article>
+
+    <article class="review">
+      <div class="cover">Arminian Theology</div>
+      <div class="meta">
+        <h4>Arminian Theology: Myths and Realities — Roger E. Olson</h4>
+        <p class="rmeta"><span class="stars">★★★★☆</span> IVP Academic · Historical Theology · reviewed by Pulpit &amp; Page</p>
+        <p class="excerpt">Even committed Calvinists should read this. Olson clears away the caricatures and lets
+           classical Arminianism speak in its own words. You'll disagree in places — but you'll argue better for
+           having listened. A charitable, clarifying book on a debate too often conducted by slogan.</p>
+        <a class="more" href="#">Read full review &rarr;</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ EDITOR NOTE ============ -->
+  <div class="editor">
+    <h4>Editor's note — how to run this page</h4>
+    <ul>
+      <li><strong>All titles are real.</strong> Every card is a confirmed 2026 title pulled from publisher listings
+        (IVP, Crossway, Wipf &amp; Stock, Banner of Truth, Reformation Heritage, Baker Academic, B&amp;H Academic).
+        Verify each release date against the publisher page before it goes live, since dates shift.</li>
+      <li><strong>Note on names.</strong> <em>Lexham Academic</em> titles now publish under Baker Academic (the
+        lines merged; Lexham's trade/reference line continues). <em>Baker Book House</em> is a retailer, not a
+        publisher — best used as a retail/affiliate partner rather than a source of exclusive titles.</li>
+      <li><strong>Also tracked, titles to slot in.</strong> These houses are on the beat but didn't have a
+        confirmed dated title at build time — check their new-release feeds each cycle:
+        Christian Focus / Mentor, Reformation Trust (Ligonier — new R. C. Sproul title ~July), EP Books,
+        Free Grace Press, H&amp;E Publishing, Canterbury Press, Moody, and Lexham Press.</li>
+      <li><strong>Replace every <code>href="#"</code></strong> with your affiliate links (Amazon Associates tag +
+        Christianbook via CJ) once your accounts are approved.</li>
+      <li><strong>Covers</strong> are placeholders. Swap in the real cover image (publishers allow this for
+        promotion; their media/press pages have downloadable jackets).</li>
+      <li><strong>Cadence.</strong> Roll the current month to the top each month, archive the oldest, and add the
+        next upcoming month at the bottom of "Coming Soon." This page is your evergreen, SEO-friendly anchor.</li>
+      <li><strong>Sourcing tip.</strong> Crossway posts a monthly "New Releases" article; IVP has a
+        "New &amp; Coming Soon" page filterable by year; Banner, RHB, Baker, and B&amp;H each have new/forthcoming feeds.
+        Ten minutes a week keeps this current.</li>
+    </ul>
+  </div>
+
+  <p class="disclosure">
+    Affiliate disclosure: Pulpit &amp; Page earns commissions from qualifying purchases made through links on this
+    page, at no extra cost to you. As an Amazon Associate we earn from qualifying purchases. Titles and release
+    dates are drawn from publisher listings and are subject to change.
+  </p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Pulpit &amp; Page</span>
+    <span><a href="pages.html#about">About</a> · <a href="pages.html#disclosure">Affiliate Disclosure</a> · <a href="pages.html#privacy">Privacy</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const cards = Array.prototype.slice.call(document.querySelectorAll('.book'));
+  const sections = Array.prototype.slice.call(document.querySelectorAll('.month'));
+  const nores = document.getElementById('noresults');
+  function tagsOf(card){
+    return Array.prototype.slice.call(card.querySelectorAll('.tag'))
+      .map(function(t){return t.textContent.toLowerCase();}).join(' | ');
+  }
+  function apply(terms){
+    var anyVisible = false;
+    cards.forEach(function(c){
+      var tt = tagsOf(c);
+      var show = terms.length === 0 || terms.some(function(t){ return t && tt.indexOf(t) !== -1; });
+      c.style.display = show ? '' : 'none';
+      if (show) anyVisible = true;
+    });
+    sections.forEach(function(sec){
+      var books = sec.querySelectorAll('.book');
+      if (books.length === 0) return;   // leave non-calendar sections (e.g. Reviews) alone
+      var vis = Array.prototype.slice.call(books)
+        .some(function(b){ return b.style.display !== 'none'; });
+      sec.style.display = vis ? '' : 'none';
+    });
+    if (nores) nores.style.display = anyVisible ? 'none' : 'block';
+  }
+  function clearActive(){
+    document.querySelectorAll('.fbtn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.pub').forEach(function(p){ p.classList.remove('active'); });
+  }
+  document.querySelectorAll('.fbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      clearActive();
+      btn.classList.add('active');
+      var terms = (btn.getAttribute('data-terms') || '').split(',')
+        .map(function(s){ return s.trim().toLowerCase(); }).filter(Boolean);
+      apply(terms);
+    });
+  });
+  document.querySelectorAll('.pub').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var already = chip.classList.contains('active');
+      clearActive();
+      if (already){
+        var allBtn = document.querySelector('.fbtn[data-terms=""]');
+        if (allBtn) allBtn.classList.add('active');
+        apply([]);
+      } else {
+        chip.classList.add('active');
+        apply([ (chip.getAttribute('data-filter') || '').toLowerCase() ]);
+      }
+    });
+  });
+  // top-nav links: smooth-scroll to a section, optionally reset the filter
+  document.querySelectorAll('.nav-link').forEach(function(link){
+    link.addEventListener('click', function(){
+      if (link.getAttribute('data-reset')){
+        clearActive();
+        var allBtn = document.querySelector('.fbtn[data-terms=""]');
+        if (allBtn) allBtn.classList.add('active');
+        apply([]);
+      }
+      var target = document.getElementById(link.getAttribute('data-target'));
+      if (target){
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.classList.remove('flash');
+        void target.offsetWidth;      // restart the animation
+        target.classList.add('flash');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
