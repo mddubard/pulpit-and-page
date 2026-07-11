@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 210" role="img" aria-label="Pulpit & Page — New releases for pulpit and pew">
+  <title>Pulpit &amp; Page</title>
+
+  <!-- Circular seal -->
+  <g>
+    <circle cx="96" cy="105" r="58" fill="#20303f"/>
+    <circle cx="96" cy="105" r="58" fill="none" stroke="#c79a52" stroke-width="3"/>
+    <circle cx="96" cy="105" r="48" fill="none" stroke="#c79a52" stroke-width="0.8" opacity="0.6"/>
+    <text x="96" y="112" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="bold" fill="#f4efe6">P<tspan fill="#c79a52" font-style="italic">&amp;</tspan>P</text>
+    <text x="96" y="140" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8" letter-spacing="3" fill="#aebccb">EST. 2026</text>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="182" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#20303f">Pulpit <tspan fill="#c79a52" font-style="italic">&amp;</tspan> Page</text>
+
+  <!-- Rule -->
+  <line x1="184" y1="123" x2="470" y2="123" stroke="#c79a52" stroke-width="1.4"/>
+
+  <!-- Tagline -->
+  <text x="185" y="147" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#6b6259">NEW RELEASES FOR PULPIT &amp; PEW</text>
+</svg>
