@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 210" role="img" aria-label="Pulpit & Page — New releases for pulpit and pew">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 210" role="img" aria-label="Pulpit & Page — Ancient paths, new pages">
   <title>Pulpit &amp; Page</title>
 
   <!-- Circular seal -->
@@ -17,5 +17,5 @@
   <line x1="184" y1="123" x2="470" y2="123" stroke="#c79a52" stroke-width="1.4"/>
 
   <!-- Tagline -->
-  <text x="185" y="147" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#6b6259">NEW RELEASES FOR PULPIT &amp; PEW</text>
+  <text x="185" y="147" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#6b6259">ANCIENT PATHS, NEW PAGES</text>
 </svg>
