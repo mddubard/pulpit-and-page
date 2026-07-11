@@ -44,7 +44,7 @@
       <h2>This Week's Picks</h2>
       <a class="more" href="calendar.html">Full calendar →</a>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-3" id="picks-grid">
 
       <article class="card">
         <div class="cover">
@@ -61,14 +61,13 @@
 
       <article class="card">
         <div class="cover">
-          <img src="mediator.jpg" alt="Mediator: A Biblical Theology by Vern S. Poythress" loading="lazy">
+          <img src="godspresence.jpg" alt="God's Presence with Us and in Us by Miguel Echevarría" loading="lazy">
         </div>
         <div class="body">
-          <h3>Mediator: A Biblical Theology</h3>
-          <p class="by">Vern S. Poythress · Crossway</p>
-          <p>Traces the theme of mediation from Eden to the cross — accessible for a small group, rich enough for
-             a pastor's study.</p>
-          <div class="tags"><span class="tag date">Just released</span><span class="tag">Biblical Theology</span></div>
+          <h3><a href="book-gods-presence.html" style="color:inherit;">God's Presence with Us and in Us</a></h3>
+          <p class="by">Miguel Echevarría · IVP Academic</p>
+          <p>A whole-Bible theology of the Holy Spirit, tracing the Spirit's presence from Eden to the new creation.</p>
+          <div class="tags"><span class="tag date">Sept 2026</span><span class="tag">Biblical Theology</span></div>
         </div>
       </article>
 
@@ -95,43 +94,67 @@
       <h2>From the Shelf — Book Spotlights</h2>
       <a class="more" href="reviews.html">All reviews →</a>
     </div>
-    <div class="grid grid-3">
-
-      <article class="card"><a href="review-mediator.html">
-        <div class="cover">
-          <img src="mediator.jpg" alt="Mediator: A Biblical Theology by Vern S. Poythress" loading="lazy">
-        </div>
-        <div class="body">
-          <p class="by">Crossway · Biblical Theology</p>
-          <h3>Mediator: A Biblical Theology</h3>
-          <p>A model of how biblical theology should serve the church, not just the academy.</p>
-        </div></a>
-      </article>
-
-      <article class="card"><a href="review-cathedral.html">
-        <div class="cover">
-          <img src="cathedral.jpg" alt="The Cathedral of Theology by J. V. Fesko" loading="lazy">
-        </div>
-        <div class="body">
-          <p class="by">IVP Academic</p>
-          <h3>The Cathedral of Theology</h3>
-          <p>A serious entry in confessional Reformed method — best read slowly, confession open beside it.</p>
-        </div></a>
-      </article>
-
-      <article class="card"><a href="review-arminian.html">
-        <div class="cover">
-          <img src="arminian.jpg" alt="Arminian Theology: Myths and Realities by Roger E. Olson" loading="lazy">
-        </div>
-        <div class="body">
-          <p class="by">IVP Academic</p>
-          <h3>Arminian Theology: Myths &amp; Realities</h3>
-          <p>Even committed Calvinists should read this — a charitable, clarifying book.</p>
-        </div></a>
-      </article>
-
+    <div class="grid grid-3" id="shelf-grid">
+      <!-- Rendered by script below; excludes any title already in This Week's Picks. -->
+      <noscript>
+        <article class="card"><a href="review-mediator.html">
+          <div class="cover"><img src="mediator.jpg" alt="Mediator: A Biblical Theology by Vern S. Poythress" loading="lazy"></div>
+          <div class="body"><p class="by">Crossway · Biblical Theology</p><h3>Mediator: A Biblical Theology</h3>
+            <p>A model of how biblical theology should serve the church, not just the academy.</p></div></a>
+        </article>
+        <article class="card"><a href="review-arminian.html">
+          <div class="cover"><img src="arminian.jpg" alt="Arminian Theology: Myths and Realities by Roger E. Olson" loading="lazy"></div>
+          <div class="body"><p class="by">IVP Academic</p><h3>Arminian Theology: Myths &amp; Realities</h3>
+            <p>Even committed Calvinists should read this — a charitable, clarifying book.</p></div></a>
+        </article>
+        <article class="card"><a href="book-pleasures-of-god.html">
+          <div class="cover"><img src="pleasuresofgod.jpg" alt="The Pleasures of God by John Piper" loading="lazy"></div>
+          <div class="body"><p class="by">Crossway · Christian Living</p><h3>The Pleasures of God</h3>
+            <p>A beloved classic on God's delight in being God, freshly reissued.</p></div></a>
+        </article>
+      </noscript>
     </div>
   </section>
+
+  <script>
+  // From the Shelf pulls from this spotlight pool, always skipping any book
+  // that's currently featured in "This Week's Picks" above. Edit Picks freely —
+  // the two sections will never show the same title.
+  (function(){
+    var POOL = [
+      {t:"Mediator: A Biblical Theology", u:"review-mediator.html", by:"Crossway · Biblical Theology", img:"mediator.jpg",
+       d:"A model of how biblical theology should serve the church, not just the academy."},
+      {t:"Arminian Theology: Myths & Realities", u:"review-arminian.html", by:"IVP Academic", img:"arminian.jpg",
+       d:"Even committed Calvinists should read this — a charitable, clarifying book."},
+      {t:"The Cathedral of Theology", u:"review-cathedral.html", by:"IVP Academic", img:"cathedral.jpg",
+       d:"A serious entry in confessional Reformed method — best read slowly, confession open beside it."},
+      {t:"The Pleasures of God", u:"book-pleasures-of-god.html", by:"Crossway · Christian Living", img:"pleasuresofgod.jpg",
+       d:"A beloved classic on God's delight in being God, freshly reissued."},
+      {t:"The Heart of Preaching", u:"book-heart-of-preaching.html", by:"Crossway · Preaching", img:"heartofpreaching.jpg",
+       d:"Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson."},
+      {t:"New Testament Theology", u:"book-nt-theology.html", by:"Crossway · Academic", img:"newtesttheology.jpg",
+       d:"Köstenberger's canonical, thematic, and ethical survey of the New Testament."},
+      {t:"God's Presence with Us and in Us", u:"book-gods-presence.html", by:"IVP Academic", img:"godspresence.jpg",
+       d:"A whole-Bible theology of the Holy Spirit, from Eden to the new creation."},
+      {t:"The Works of Samuel Rutherford, Volume 1", u:"book-rutherford-works.html", by:"Reformation Heritage", img:"rutherford.jpg",
+       d:"The inaugural volume of the first complete English edition of Rutherford's works."}
+    ];
+    function norm(s){ return (s||"").replace(/&amp;/g,"&").replace(/\s+/g," ").trim().toLowerCase(); }
+    var grid = document.getElementById('shelf-grid');
+    var picks = document.getElementById('picks-grid');
+    if(!grid || !picks) return;
+    var taken = {};
+    Array.prototype.forEach.call(picks.querySelectorAll('h3'), function(h){ taken[norm(h.textContent)] = true; });
+    var chosen = POOL.filter(function(b){ return !taken[norm(b.t)]; }).slice(0,3);
+    grid.innerHTML = chosen.map(function(b){
+      var title = b.t.replace(/&/g,'&amp;');
+      return '<article class="card"><a href="'+b.u+'">'+
+             '<div class="cover"><img src="'+b.img+'" alt="'+title+'" loading="lazy"></div>'+
+             '<div class="body"><p class="by">'+b.by+'</p><h3>'+title+'</h3>'+
+             '<p>'+b.d+'</p></div></a></article>';
+    }).join('');
+  })();
+  </script>
 
   <!-- EMAIL CTA -->
   <section class="cta-band" id="subscribe">
