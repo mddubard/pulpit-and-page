@@ -94,7 +94,7 @@
       <h2>From the Shelf — Book Spotlights</h2>
       <a class="more" href="reviews.html">All reviews →</a>
     </div>
-    <div class="grid grid-3" id="shelf-grid">
+    <div class="grid grid-5" id="shelf-grid">
       <!-- Rendered by script below; excludes any title already in This Week's Picks. -->
       <noscript>
         <article class="card"><a href="review-mediator.html">
@@ -111,6 +111,16 @@
           <div class="cover"><img src="pleasuresofgod.jpg" alt="The Pleasures of God by John Piper" loading="lazy"></div>
           <div class="body"><p class="by">Crossway · Christian Living</p><h3>The Pleasures of God</h3>
             <p>A beloved classic on God's delight in being God, freshly reissued.</p></div></a>
+        </article>
+        <article class="card"><a href="book-heart-of-preaching.html">
+          <div class="cover"><img src="heartofpreaching.jpg" alt="The Heart of Preaching by Mike Bullmore" loading="lazy"></div>
+          <div class="body"><p class="by">Crossway · Preaching</p><h3>The Heart of Preaching</h3>
+            <p>Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson.</p></div></a>
+        </article>
+        <article class="card"><a href="book-nt-theology.html">
+          <div class="cover"><img src="newtesttheology.jpg" alt="New Testament Theology by Andreas Köstenberger" loading="lazy"></div>
+          <div class="body"><p class="by">Crossway · Academic</p><h3>New Testament Theology</h3>
+            <p>Köstenberger's canonical, thematic, and ethical survey of the New Testament.</p></div></a>
         </article>
       </noscript>
     </div>
@@ -137,7 +147,9 @@
       {t:"God's Presence with Us and in Us", u:"book-gods-presence.html", by:"IVP Academic", img:"godspresence.jpg",
        d:"A whole-Bible theology of the Holy Spirit, from Eden to the new creation."},
       {t:"The Works of Samuel Rutherford, Volume 1", u:"book-rutherford-works.html", by:"Reformation Heritage", img:"rutherford.jpg",
-       d:"The inaugural volume of the first complete English edition of Rutherford's works."}
+       d:"The inaugural volume of the first complete English edition of Rutherford's works."},
+      {t:"Becoming a Disciple of the King", u:"book-becoming-disciple.html", by:"Crossway · Biblical Theology", img:"becomingdisciple.jpg",
+       d:"Jonathan Pennington on Matthew's Gospel and life under King Jesus."}
     ];
     function norm(s){ return (s||"").replace(/&amp;/g,"&").replace(/\s+/g," ").trim().toLowerCase(); }
     var grid = document.getElementById('shelf-grid');
@@ -145,7 +157,7 @@
     if(!grid || !picks) return;
     var taken = {};
     Array.prototype.forEach.call(picks.querySelectorAll('h3'), function(h){ taken[norm(h.textContent)] = true; });
-    var chosen = POOL.filter(function(b){ return !taken[norm(b.t)]; }).slice(0,3);
+    var chosen = POOL.filter(function(b){ return !taken[norm(b.t)]; }).slice(0,5);
     grid.innerHTML = chosen.map(function(b){
       var title = b.t.replace(/&/g,'&amp;');
       return '<article class="card"><a href="'+b.u+'">'+
