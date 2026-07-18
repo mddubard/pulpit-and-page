@@ -112,6 +112,14 @@
     .buy{grid-column:1 / -1;flex-direction:row;min-width:0;}
     .cover{width:52px;height:74px;}
   }
+  .monthjump{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);
+    display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:9px 0;margin:6px 0 2px;
+    font-family:Helvetica,Arial,sans-serif;}
+  .monthjump .lbl{text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-size:12px;margin-right:2px;}
+  .monthjump a{font-size:12px;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--line);
+    background:var(--card);color:#4a423a;border-radius:20px;padding:5px 12px;text-decoration:none;}
+  .monthjump a:hover{border-color:var(--accent2);color:var(--accent);text-decoration:none;}
+  .month{scroll-margin-top:58px;}
 </style>
 </head>
 <body>
@@ -143,6 +151,18 @@
     <p id="weekly-email"><strong>Want it in your inbox?</strong> Every Thursday we send the week's new theology
        releases — <a href="index.html#subscribe">subscribe to the free email &rarr;</a></p>
   </section>
+
+  <nav class="monthjump" aria-label="Jump to month">
+    <span class="lbl">Jump to:</span>
+    <a href="#recently">Recently Released</a>
+    <a href="#jul">July</a>
+    <a href="#aug">Aug</a>
+    <a href="#sep">Sept</a>
+    <a href="#oct">Oct</a>
+    <a href="#nov">Nov</a>
+    <a href="#dec">Dec</a>
+    <a href="#beyond">Fall &amp; Beyond</a>
+  </nav>
 
   <div class="topicbar" id="topicbar">
     <span class="lbl">Filter by topic:</span>
@@ -198,7 +218,7 @@
   </div>
 
   <!-- ============ RECENTLY RELEASED / STILL NOTABLE ============ -->
-  <section class="month">
+  <section class="month" id="recently">
     <h3>Recently Released &amp; Still Notable</h3>
     <p class="note">Newer Reformed &amp; academic titles that landed earlier this year and still belong on the shelf.</p>
     <!--INSERT:recent-->
@@ -1069,7 +1089,7 @@
   </section>
 
   <!-- ============ JULY (CURRENT) ============ -->
-  <section class="month">
+  <section class="month" id="jul">
     <h3>July 2026 &nbsp;·&nbsp; Just Released</h3>
     <!--INSERT:jul-->
 <!--A91-->
@@ -1257,7 +1277,7 @@
   </section>
 
   <!-- ============ AUGUST ============ -->
-  <section class="month">
+  <section class="month" id="aug">
     <h3>August 2026</h3>
     <!--INSERT:aug-->
 <!--A111-->
@@ -1459,7 +1479,7 @@
   </section>
 
   <!-- ============ SEPTEMBER (UPCOMING) ============ -->
-  <section class="month">
+  <section class="month" id="sep">
     <h3>September 2026 &nbsp;·&nbsp; Coming Soon</h3>
     <p class="note">Pre-order season — the titles readers are watching for.</p>
     <!--INSERT:sep-->
@@ -1687,7 +1707,7 @@
   </section>
 
   <!-- ============ OCTOBER 2026 ============ -->
-  <section class="month">
+  <section class="month" id="oct">
     <h3>October 2026 &nbsp;·&nbsp; Coming Soon</h3>
     <p class="note">Pre-order season — the titles readers are watching for.</p>
     <!--INSERT:oct-->
@@ -1799,7 +1819,7 @@
   </section>
 
   <!-- ============ NOVEMBER 2026 ============ -->
-  <section class="month">
+  <section class="month" id="nov">
     <h3>November 2026 &nbsp;·&nbsp; On Preorder</h3>
     <p class="note">Further out, but open for preorder now.</p>
     <!--INSERT:nov-->
@@ -1885,7 +1905,7 @@
   </section>
 
   <!-- ============ DECEMBER 2026 ============ -->
-  <section class="month">
+  <section class="month" id="dec">
     <h3>December 2026 &nbsp;·&nbsp; On Preorder</h3>
     <p class="note">Further out, but open for preorder now.</p>
     <!--INSERT:dec-->
@@ -1906,7 +1926,7 @@
   </section>
 
   <!-- ============ FALL 2026 (FURTHER OUT) ============ -->
-  <section class="month">
+  <section class="month" id="beyond">
     <h3>Fall 2026 &amp; Beyond &nbsp;·&nbsp; On Preorder</h3>
     <p class="note">Further out, but open for preorder now — worth getting on your radar early.</p>
     <!--INSERT:beyond-->
