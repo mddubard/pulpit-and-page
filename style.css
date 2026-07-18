@@ -26,8 +26,9 @@ img{max-width:100%;display:block;}
 .brand:hover{text-decoration:none;}
 .brand .name{font-size:26px;color:var(--cream);letter-spacing:.5px;line-height:1;}
 .brand .name .amp{color:var(--gold);font-style:italic;padding:0 2px;}
-.brand .tag{font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;
-  text-transform:uppercase;color:var(--slate);}
+.brand .tag{font-family:Helvetica,Arial,sans-serif;font-size:10.5px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--gold-soft);background:none;padding:0 0 0 10px;
+  border:0;border-left:2px solid var(--gold);border-radius:0;}
 .nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap;
   font-family:Helvetica,Arial,sans-serif;font-size:13px;text-transform:uppercase;
   letter-spacing:1px;}
