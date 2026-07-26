@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Library — The Picky Reader</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#26291f; --muted:#6f7161; --line:#e2dccb; --bg:#f4efe4; --card:#fffdf7;
+  --green:#3d4b3b; --green-deep:#2c362b; --cream:#f4f1e9; --accent:#a8562f; --chip:#eae3d3; --maxw:1080px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* header (matches hub) */
+.site-head{background:var(--cream);border-bottom:1px solid var(--line)}
+.bar{max-width:var(--maxw);margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{height:76px;width:auto;display:block}
+.brand-text{display:inline-flex;flex-direction:column}
+.brand .name{font-family:'Open Sans',sans-serif;font-weight:700;letter-spacing:3px;font-size:20px;color:var(--green);line-height:1}
+.brand .tag{font-family:'Open Sans',sans-serif;font-size:12.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:1px;display:block;background:none;padding:0;border-radius:0;border:0}
+.nav{display:flex;align-items:center;gap:22px;font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink);opacity:.85}
+.nav a.active{color:var(--green);opacity:1;font-weight:700}
+.nav .btn-sm{background:var(--green);color:var(--cream);padding:9px 16px;border-radius:6px;opacity:1}
+
+/* library hero */
+.lib-hero{background:var(--green);color:var(--cream);padding:48px 24px}
+.lib-hero .inner{max-width:var(--maxw);margin:0 auto}
+.lib-hero .kicker{font-family:'Open Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#d8c9a8;margin-bottom:12px}
+.lib-hero h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:42px;margin:0 0 10px}
+.lib-hero p{max-width:620px;margin:0;font-size:17px;color:#e7e2d5}
+
+/* tabs */
+.tabs{max-width:var(--maxw);margin:26px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap}
+.tab{font-family:'Open Sans',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:20px;border:1px solid var(--line);color:var(--ink);background:var(--card);cursor:pointer;text-decoration:none}
+.tab.on{background:var(--green);color:var(--cream);border-color:var(--green)}
+.tab.soon{opacity:.45;cursor:default}
+
+/* spine accent strip */
+.stacks{background:var(--green-deep);margin-top:26px;padding:26px 0 30px}
+.stacks .inner{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.stacks .lab{font-family:'Open Sans',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#93a08b;margin-bottom:16px}
+.spine-row{display:flex;align-items:flex-end;gap:6px;overflow-x:auto;padding-bottom:4px}
+.spine{flex:0 0 auto;border-radius:2px 3px 3px 2px;border-left:2px solid rgba(0,0,0,.22);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:12px 0;color:#f4f1e9;transition:transform .15s ease}
+.spine:hover{transform:translateY(-10px)}
+.spine .t{writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;font-weight:700;line-height:1.1;max-height:150px;overflow:hidden}
+.spine .a{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9.5px;font-family:'Open Sans',sans-serif;opacity:.85}
+.spine .cap{width:66%;height:3px;background:rgba(244,241,233,.45);border-radius:2px}
+
+/* cover shelves */
+.shelf-sec{max-width:var(--maxw);margin:0 auto;padding:34px 24px 0}
+.shelf-sec h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:26px;margin:0 0 4px}
+.shelf-sec .sub{font-family:'Open Sans',sans-serif;font-size:12.5px;color:var(--muted);margin:0 0 16px}
+.shelf-row{display:flex;align-items:flex-start;gap:22px;overflow-x:auto;padding:6px 2px 0}
+.book{flex:0 0 auto;width:128px;cursor:pointer;text-align:center;transition:transform .15s ease}
+.book:hover{transform:translateY(-8px)}
+.book .cov{width:128px;height:192px;border-radius:2px 5px 5px 2px;overflow:hidden;box-shadow:0 8px 18px rgba(38,41,31,.22);border-left:3px solid rgba(0,0,0,.18);background:var(--chip)}
+.book .cov img{width:100%;height:100%;object-fit:cover;display:block}
+.book .bt{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:14px;color:var(--ink);margin:10px 0 1px;line-height:1.2}
+.book .ba{font-family:'Open Sans',sans-serif;font-size:11px;color:var(--muted)}
+.book .price{font-family:'Open Sans',sans-serif;font-size:11px;color:var(--accent);font-weight:700;margin-top:2px}
+.ledge{height:10px;background:#d8cdb0;border-top:2px solid #b7a988;border-radius:0 0 3px 3px;margin:8px 2px 0}
+
+/* detail */
+.detail{max-width:var(--maxw);margin:0 auto;padding:34px 24px}
+.back{font-family:'Open Sans',sans-serif;font-size:12px;letter-spacing:1px;background:transparent;border:1px solid var(--line);color:var(--ink);padding:8px 15px;border-radius:20px;cursor:pointer;margin-bottom:22px}
+.d-grid{display:flex;gap:32px;flex-wrap:wrap}
+.d-cov{flex:0 0 190px;height:285px;border-radius:2px 6px 6px 2px;overflow:hidden;box-shadow:0 12px 28px rgba(38,41,31,.25);background:var(--chip)}
+.d-cov img{width:100%;height:100%;object-fit:cover}
+.d-info{flex:1 1 300px;min-width:260px}
+.d-info h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:30px;margin:0 0 4px;color:var(--ink)}
+.d-info .by{font-family:'Open Sans',sans-serif;font-size:13px;color:var(--muted);margin:0 0 16px}
+.d-info p.blurb{font-size:16px;margin:0 0 22px;max-width:560px}
+.buys{display:flex;gap:9px;flex-wrap:wrap}
+.buy{font-family:'Open Sans',sans-serif;font-size:12px;letter-spacing:1px;padding:10px 16px;border-radius:7px;background:var(--green);color:var(--cream);font-weight:700;text-decoration:none}
+.buy.alt{background:transparent;color:var(--green);border:1px solid var(--green)}
+.take{font-family:'Open Sans',sans-serif;font-size:12px;color:var(--accent);margin-top:16px;letter-spacing:1px;font-weight:700}
+
+/* footer */
+.site-foot{background:var(--green-deep);color:var(--cream);padding:48px 24px 28px;margin-top:44px}
+.foot-grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.site-foot .name{font-family:'Fraunces',Georgia,serif;font-size:24px;margin:0 0 8px}
+.site-foot .blurb{color:#bcc3b4;font-size:14px;max-width:260px}
+.site-foot .col h4{font-family:'Open Sans',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#93a08b;margin:0 0 12px}
+.site-foot .col a{display:block;color:#d8d3c6;font-family:'Open Sans',sans-serif;font-size:13px;text-decoration:none;margin-bottom:9px}
+.foot-note{max-width:var(--maxw);margin:32px auto 0;border-top:1px solid rgba(244,241,233,.15);padding-top:20px;font-family:'Open Sans',sans-serif;font-size:11px;color:#8f9a86;text-align:center}
+@media(max-width:760px){
+  .lib-hero h1{font-size:32px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav{gap:14px;font-size:12px}
+}
+
+/* header: cream, big P mark */
+.brandmark{height:88px;width:auto;display:block}
+.brand{display:flex;flex-direction:row;align-items:center;gap:12px}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img class="brandmark" src="logo.svg" alt="The Picky Reader">
+      <span class="brand-text">
+        <span class="name">THE PICKY READER</span>
+        <span class="tag">A curated bookstore</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="library.html" class="active">Library</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="lists.html">Lists</a>
+      <a href="publishers.html">Publishers</a>
+      <a href="used.html">Used Books</a>
+      <a href="search.html" class="search-link">Search</a>
+    </nav>
+  </div>
+</header>
+
+<section class="lib-hero">
+  <div class="inner">
+    <div class="kicker">The Theology Shelf · Library</div>
+    <h1>Step into the stacks.</h1>
+    <p>Browse the shelves like you would in the shop — covers face-out, grouped by section, with a wall of spines to run your eye across. Click any book for the details and where to buy.</p>
+  </div>
+</section>
+
+<div class="tabs">
+  <a class="tab on">Theology</a>
+  <a class="tab soon">Fiction · soon</a>
+  <a class="tab soon">History · soon</a>
+  <a class="tab soon">Kids · soon</a>
+</div>
+
+<div id="view">
+
+  <section class="stacks">
+    <div class="inner">
+      <div class="lab">Browse the stacks — pull one off the shelf</div>
+      <div class="spine-row">
+        <button class="spine" style="background:#6b4f3a;width:44px;height:186px" data-t="Lamentations" data-a="Mark J. Boda" data-p="Baker Academic · Biblical Studies" data-img="covers/lamentations.webp" data-b="A major new commentary from a leading Old Testament scholar — reckoning honestly with communal grief."><span class="cap"></span><span class="t">Lamentations</span><span class="a">Boda</span></button>
+        <button class="spine" style="background:#2f4858;width:50px;height:198px" data-t="Mediator: A Biblical Theology" data-a="Vern S. Poythress" data-p="Crossway · Biblical Theology" data-img="covers/mediator.jpg" data-b="A model of how biblical theology should serve the church, not just the academy."><span class="cap"></span><span class="t">Mediator</span><span class="a">Poythress</span></button>
+        <button class="spine" style="background:#9a7b33;width:46px;height:190px" data-t="Arminian Theology: Myths &amp; Realities" data-a="Roger E. Olson" data-p="IVP Academic" data-img="covers/arminian.jpg" data-b="Even committed Calvinists should read this — a charitable, clarifying book."><span class="cap"></span><span class="t">Arminian Theology</span><span class="a">Olson</span></button>
+        <button class="spine" style="background:#7c3b2e;width:42px;height:180px" data-t="Pastoral Mentoring" data-a="Jared C. Wilson" data-p="Baker Academic · Ministry" data-img="covers/pastoral-mentoring.webp" data-b="The local church — not just the seminary — is uniquely equipped to train its shepherds."><span class="cap"></span><span class="t">Pastoral Mentoring</span><span class="a">Wilson</span></button>
+        <button class="spine" style="background:#455a3e;width:48px;height:200px" data-t="The Pleasures of God" data-a="John Piper" data-p="Crossway · Christian Living" data-img="covers/pleasuresofgod.jpg" data-b="A beloved classic on God's delight in being God, freshly reissued."><span class="cap"></span><span class="t">The Pleasures of God</span><span class="a">Piper</span></button>
+        <button class="spine" style="background:#5b3a58;width:44px;height:188px" data-t="The Heart of Preaching" data-a="Mike Bullmore" data-p="Crossway · Preaching" data-img="covers/heartofpreaching.jpg" data-b="Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson."><span class="cap"></span><span class="t">The Heart of Preaching</span><span class="a">Bullmore</span></button>
+        <button class="spine" style="background:#734b2a;width:46px;height:194px" data-t="The Works of Samuel Rutherford, Vol. 1" data-a="Samuel Rutherford" data-p="Reformation Heritage" data-img="covers/rutherford.jpg" data-b="The inaugural volume of the first complete English edition of Rutherford's works."><span class="cap"></span><span class="t">Rutherford, Vol. 1</span><span class="a">Rutherford</span></button>
+        <button class="spine" style="background:#4a5568;width:44px;height:184px" data-t="New Testament Theology" data-a="Andreas Köstenberger" data-p="Crossway · Academic" data-img="covers/newtesttheology.jpg" data-b="A canonical, thematic, and ethical survey of the New Testament."><span class="cap"></span><span class="t">NT Theology</span><span class="a">Köstenberger</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="shelf-sec">
+    <h2>New this week</h2>
+    <p class="sub">The newest releases on the Theology Shelf.</p>
+    <div class="shelf-row">
+      <div class="book" data-t="Lamentations" data-a="Mark J. Boda" data-p="Baker Academic · Biblical Studies" data-img="covers/lamentations.webp" data-b="A major new commentary from a leading Old Testament scholar — reckoning honestly with communal grief and the strategies Scripture gives for processing pain."><div class="cov"><img src="lamentations.webp" alt="Lamentations"></div><div class="bt">Lamentations</div><div class="ba">Mark J. Boda</div></div>
+      <div class="book" data-t="The Works of Thomas Watson" data-a="Thomas Watson" data-p="Banner of Truth · Puritan Works" data-img="covers/the-works-of-thomas-watson.jpg" data-b="The collected works of one of the most quoted Puritans, in a uniform set — full of matter and interest three centuries on."><div class="cov"><img src="the-works-of-thomas-watson.jpg" alt="The Works of Thomas Watson"></div><div class="bt">The Works of Thomas Watson</div><div class="ba">Thomas Watson</div></div>
+      <div class="book" data-t="Pastoral Mentoring" data-a="Jared C. Wilson" data-p="Baker Academic · Ministry" data-img="covers/pastoral-mentoring.webp" data-b="The local church — not just the seminary — is uniquely equipped to train its shepherds, and to mentor future ministers right where they are."><div class="cov"><img src="pastoral-mentoring.webp" alt="Pastoral Mentoring"></div><div class="bt">Pastoral Mentoring</div><div class="ba">Jared C. Wilson</div></div>
+      <div class="book" data-t="New Testament Theology" data-a="Andreas Köstenberger" data-p="Crossway · Academic" data-img="covers/newtesttheology.jpg" data-b="Köstenberger's canonical, thematic, and ethical survey of the New Testament."><div class="cov"><img src="newtesttheology.jpg" alt="New Testament Theology"></div><div class="bt">New Testament Theology</div><div class="ba">A. Köstenberger</div></div>
+      <div class="book" data-t="God's Presence with Us and in Us" data-a="Wonsuk &amp; Julie Ma" data-p="IVP Academic" data-img="covers/godspresence.jpg" data-b="A whole-Bible theology of the Holy Spirit, from Eden to the new creation."><div class="cov"><img src="godspresence.jpg" alt="God's Presence with Us and in Us"></div><div class="bt">God's Presence with Us</div><div class="ba">Wonsuk &amp; Julie Ma</div></div>
+    </div>
+    <div class="ledge"></div>
+  </section>
+
+  <section class="shelf-sec">
+    <h2>Books that belong on every shelf</h2>
+    <p class="sub">The foundational picks we think every reader should own.</p>
+    <div class="shelf-row">
+      <div class="book" data-t="Institutes of the Christian Religion" data-a="John Calvin" data-p="Banner of Truth" data-img="covers/institutes.jpg" data-b="Calvin's towering summary of the Christian faith — the fountainhead of Reformed theology, and still unmatched five centuries on."><div class="cov"><img src="institutes.jpg" alt="Institutes of the Christian Religion"></div><div class="bt">Institutes of the Christian Religion</div><div class="ba">John Calvin</div></div>
+      <div class="book" data-t="Knowing God" data-a="J. I. Packer" data-p="Crossway" data-img="covers/knowing-god.jpg" data-b="Packer's modern classic on the character of God and what it means to truly know him — as warm as it is weighty."><div class="cov"><img src="knowing-god.jpg" alt="Knowing God"></div><div class="bt">Knowing God</div><div class="ba">J. I. Packer</div></div>
+      <div class="book" data-t="The Wonderful Works of God" data-a="Herman Bavinck" data-p="Westminster Seminary Press" data-img="covers/wonderful-works.jpg" data-b="Bavinck's warm, accessible one-volume dogmatics — the whole sweep of the faith, written for the church."><div class="cov"><img src="wonderful-works.jpg" alt="The Wonderful Works of God"></div><div class="bt">The Wonderful Works of God</div><div class="ba">Herman Bavinck</div></div>
+      <div class="book" data-t="Essentials of Reformed Systematic Theology" data-a="Joel Beeke" data-p="Crossway" data-img="covers/beeke-systematic.jpg" data-b="Beeke's one-volume distillation of Reformed systematic theology — doctrine for the head and the heart."><div class="cov"><img src="beeke-systematic.jpg" alt="Essentials of Reformed Systematic Theology"></div><div class="bt">Essentials of Reformed Systematic Theology</div><div class="ba">Joel Beeke</div></div>
+      <div class="book" data-t="Desiring God" data-a="John Piper" data-p="Crossway" data-img="covers/desiring-god.jpg" data-b="Piper's landmark case for Christian Hedonism — that God is most glorified in us when we are most satisfied in him."><div class="cov"><img src="desiring-god.jpg" alt="Desiring God"></div><div class="bt">Desiring God</div><div class="ba">John Piper</div></div>
+    </div>
+    <div class="ledge"></div>
+  </section>
+
+  <section class="shelf-sec">
+    <h2>Recent releases</h2>
+    <p class="sub">The last few weeks on the shelf.</p>
+    <div class="shelf-row">
+      <div class="book" data-t="Mediator: A Biblical Theology" data-a="Vern S. Poythress" data-p="Crossway · Biblical Theology" data-img="covers/mediator.jpg" data-b="A model of how biblical theology should serve the church, not just the academy — tracing how the Bible's mediators point to final redemption in Jesus."><div class="cov"><img src="mediator.jpg" alt="Mediator"></div><div class="bt">Mediator</div><div class="ba">Vern S. Poythress</div></div>
+      <div class="book" data-t="The Cathedral of Theology" data-a="J. V. Fesko" data-p="IVP Academic" data-img="covers/cathedral.jpg" data-b="A serious entry in confessional Reformed method — best read slowly, confession open beside it."><div class="cov"><img src="cathedral.jpg" alt="The Cathedral of Theology"></div><div class="bt">The Cathedral of Theology</div><div class="ba">J. V. Fesko</div></div>
+      <div class="book" data-t="The Pleasures of God" data-a="John Piper" data-p="Crossway · Christian Living" data-img="covers/pleasuresofgod.jpg" data-b="A beloved classic on God's delight in being God, freshly reissued."><div class="cov"><img src="pleasuresofgod.jpg" alt="The Pleasures of God"></div><div class="bt">The Pleasures of God</div><div class="ba">John Piper</div></div>
+      <div class="book" data-t="Becoming a Disciple of the King" data-a="Jonathan Pennington" data-p="Crossway · Biblical Theology" data-img="covers/becomingdisciple.jpg" data-b="Jonathan Pennington on Matthew's Gospel and life under King Jesus."><div class="cov"><img src="becomingdisciple.jpg" alt="Becoming a Disciple of the King"></div><div class="bt">Becoming a Disciple</div><div class="ba">Jonathan Pennington</div></div>
+    </div>
+    <div class="ledge"></div>
+  </section>
+
+  <section class="shelf-sec">
+    <h2>The used shelf</h2>
+    <p class="sub">One copy each — first come, first served.</p>
+    <div class="shelf-row">
+      <div class="book" data-used="1" data-price="$25.00" data-cond="Very Good" data-t="Primitive Theology" data-a="John Gerstner" data-p="Soli Deo Gloria" data-img="https://i.ebayimg.com/images/g/NpkAAeSw6o1pwyAQ/s-l500.webp" data-b="A sharp, readable collection from a formidable Reformed teacher — hard to find in print. Ships from Chattanooga."><div class="cov"><img src="https://i.ebayimg.com/images/g/NpkAAeSw6o1pwyAQ/s-l500.webp" alt="Primitive Theology"></div><div class="bt">Primitive Theology</div><div class="ba">John Gerstner</div><div class="price">Very Good · $25.00</div></div>
+      <div class="book" data-used="1" data-price="$10.00" data-cond="Used" data-t="The Church" data-a="Hans Küng" data-p="1967 · Hardcover w/ dust jacket" data-img="https://i.ebayimg.com/images/g/-ZAAAeSwwtlp6o1Y/s-l500.webp" data-b="Hans Küng's landmark ecclesiology, in a 1967 hardcover with dust jacket. Ships from Chattanooga."><div class="cov"><img src="https://i.ebayimg.com/images/g/-ZAAAeSwwtlp6o1Y/s-l500.webp" alt="The Church by Hans Küng"></div><div class="bt">The Church</div><div class="ba">Hans Küng</div><div class="price">Used · $10.00</div></div>
+      <div class="book" data-used="1" data-price="$12.00" data-cond="Good" data-t="Payday Everyday" data-a="Robert G. Lee" data-p="1974 · Broadman Press" data-img="https://i.ebayimg.com/images/g/B8QAAeSw16ZpzcXf/s-l500.webp" data-b="Memoirs of a pulpit giant — Robert G. Lee's 1974 recollections. Ships from Chattanooga."><div class="cov"><img src="https://i.ebayimg.com/images/g/B8QAAeSw16ZpzcXf/s-l500.webp" alt="Payday Everyday by Robert G. Lee"></div><div class="bt">Payday Everyday</div><div class="ba">Robert G. Lee</div><div class="price">Good · $12.00</div></div>
+      <div class="book" data-used="1" data-price="$10.00" data-cond="Very Good" data-t="The Temple and Bible Prophecy" data-a="Randall Price" data-p="Harvest House · Hardcover" data-img="https://i.ebayimg.com/images/g/XY8AAeSwJy5p~p1R/s-l500.webp" data-b="Randall Price on the temple in Scripture and prophecy — Harvest House hardcover. Ships from Chattanooga."><div class="cov"><img src="https://i.ebayimg.com/images/g/XY8AAeSwJy5p~p1R/s-l500.webp" alt="The Temple and Bible Prophecy by Randall Price"></div><div class="bt">The Temple &amp; Bible Prophecy</div><div class="ba">Randall Price</div><div class="price">Very Good · $10.00</div></div>
+    </div>
+    <div class="ledge"></div>
+  </section>
+
+</div>
+
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div>
+      <p class="name">The Picky Reader</p>
+      <p class="blurb">A curated bookstore and a family of newsletters — good books, chosen with care, one shelf at a time.</p>
+    </div>
+    <div class="col"><h4>Shelves</h4><a href="#">The Theology Shelf</a><a href="#">The Fiction Shelf</a><a href="#">The History Shelf</a><a href="#">The Kids' Shelf</a></div>
+    <div class="col"><h4>Store</h4><a href="library.html">The Library</a><a href="#">Used Shelf</a><a href="#">Release Calendar</a></div>
+    <div class="col"><h4>About</h4><a href="#">Our story</a><a href="#">Affiliate disclosure</a><a href="#">Privacy</a></div>
+  </div>
+  <div class="foot-note">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
+</footer>
+
+<script>
+(function(){
+  var view=document.getElementById('view');
+  var shelvesHTML=view.innerHTML;
+  function openBook(el){
+    var d=el.dataset, buys;
+    if(d.used){buys='<div class="buys"><a class="buy" href="#">Add to cart · '+d.price+'</a><a class="buy alt" href="#">Browse the used shelf</a></div>';}
+    else{buys='<div class="buys"><a class="buy" href="#">Amazon</a><a class="buy alt" href="#">Christianbook</a><a class="buy alt" href="#">Publisher</a></div>';}
+    var meta=d.used?(d.a+' &middot; '+d.p+' &middot; Used, '+d.cond):(d.a+' &middot; '+d.p);
+    view.innerHTML='<div class="detail"><button class="back" id="back">← Back to the library</button><div class="d-grid">'+
+      '<div class="d-cov"><img src="'+d.img+'" alt="'+d.t+'"></div>'+
+      '<div class="d-info"><h2>'+d.t+'</h2><div class="by">'+meta+'</div><p class="blurb">'+d.b+'</p>'+buys+'<div class="take">Read our take →</div></div>'+
+      '</div></div>';
+    window.scrollTo({top:0,behavior:'smooth'});
+    document.getElementById('back').onclick=function(){view.innerHTML=shelvesHTML;bind();};
+  }
+  function bind(){
+    var els=view.querySelectorAll('.book,.spine');
+    for(var i=0;i<els.length;i++){els[i].onclick=function(){openBook(this);};}
+  }
+  bind();
+})();
+</script>
+</body>
+</html>

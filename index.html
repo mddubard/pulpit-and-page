@@ -3,20 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=2">
-<title>The Theology Shelf — New Theology Book Releases, Every Week</title>
+<title>The Picky Reader — A curated bookstore, shelf by shelf</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#26291f; --muted:#6f7161; --line:#e2dccb; --bg:#f4efe4; --card:#fffdf7;
+  --green:#3d4b3b; --green-deep:#2c362b; --cream:#f4f1e9; --accent:#a8562f; --chip:#eae3d3;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);line-height:1.6}
+.serif{font-family:Georgia,'Times New Roman',serif}
+.sans{font-family:'Open Sans',Helvetica,Arial,sans-serif}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* header */
+.site-head{background:var(--cream);border-bottom:1px solid var(--line)}
+.bar{max-width:var(--maxw);margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{height:94px;width:auto;display:block}
+.brand .name{font-family:'Open Sans',sans-serif;font-weight:700;letter-spacing:3px;font-size:20px;color:var(--green);line-height:1}
+.brand .tag{font-family:'Open Sans',sans-serif;font-size:12.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:1px;display:block;background:none;padding:0;border-radius:0;border:0}
+.nav{display:flex;align-items:center;gap:22px;font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink);opacity:.85}
+.nav a:hover{opacity:1}
+.nav .btn-sm{background:var(--green);color:var(--cream);padding:9px 16px;border-radius:6px;opacity:1}
+
+/* hero */
+.hero{background:var(--green);color:var(--cream);padding:64px 24px;overflow:hidden}
+.hero-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:56px}
+.hero .mark{height:320px;width:auto;flex:0 0 auto}
+.hero-copy{text-align:left}
+.hero .kicker{font-family:'Open Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#d8c9a8;margin-bottom:18px}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:56px;line-height:1.05;margin:0 0 18px}
+.hero p{max-width:560px;margin:0 0 30px;font-size:18px;color:#e7e2d5}
+.btn{display:inline-block;font-family:'Open Sans',sans-serif;font-size:14px;letter-spacing:1px;text-decoration:none;padding:13px 24px;border-radius:7px;margin:6px}
+.btn-cream{background:var(--cream);color:var(--green);font-weight:700}
+.btn-ghost{border:1px solid rgba(244,241,233,.5);color:var(--cream)}
+.btn-green{background:var(--green);color:var(--cream);font-weight:700}
+
+/* sections */
+.section{padding:64px 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+.section-head h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:32px;margin:0}
+.section-head .more{font-family:'Open Sans',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);text-decoration:none}
+.lead{color:var(--muted);font-size:17px;max-width:620px;margin:0 0 30px}
+
+/* shelves */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.shelf-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 24px;display:flex;flex-direction:column;min-height:210px;transition:transform .15s ease,box-shadow .15s ease}
+.shelf-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(38,41,31,.08)}
+.shelf-card .sname{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:23px;margin:0 0 6px;color:var(--green)}
+.shelf-card .sdesc{color:var(--muted);font-size:15px;flex:1;margin:0 0 18px}
+.badge{align-self:flex-start;font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.badge.live{background:var(--accent);color:#fff}
+.badge.soon{background:var(--chip);color:var(--muted)}
+.shelf-card .link{font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:.5px;text-decoration:none;color:var(--green);font-weight:700}
+.shelf-card.disabled{opacity:.7}
+.shelf-card.disabled:hover{transform:none;box-shadow:none}
+
+/* book cards (Picks + Shelf) — matches current site */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(38,41,31,.10)}
+.card a{text-decoration:none;color:inherit;display:block}
+.card .cover{aspect-ratio:2/3;background:linear-gradient(135deg,#efe9df,#ded4c6);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card .cover img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:16px 18px 18px}
+.card .by{font-family:'Open Sans',sans-serif;font-size:12.5px;color:var(--muted);margin:0 0 6px}
+.card h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;margin:0 0 6px;line-height:1.22;color:var(--ink)}
+.card p.desc{font-size:14.5px;margin:0 0 10px;color:var(--ink)}
+.card .tags{font-family:'Open Sans',sans-serif;font-size:11px;display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.tag{background:var(--chip);color:var(--muted);padding:3px 10px;border-radius:20px}
+.tag.date{background:transparent;border:1px solid var(--line)}
+
+/* bookstore teaser */
+.store{background:var(--green-deep);color:var(--cream)}
+.store .inner{max-width:var(--maxw);margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.store h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:32px;margin:0 0 14px}
+.store p{color:#e0dccf;font-size:17px;margin:0 0 24px}
+.spines{display:flex;align-items:flex-end;gap:6px;justify-content:center}
+.sp{border-radius:2px 3px 3px 2px;border-left:2px solid rgba(0,0,0,.2)}
+
+/* newsletter */
+.news{text-align:center;padding:66px 24px}
+.news h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:30px;margin:0 0 10px}
+.news p{color:var(--muted);max-width:520px;margin:0 auto 24px;font-size:16px}
+.news form{display:flex;gap:8px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.news input{flex:1;min-width:220px;padding:13px 15px;border:1px solid var(--line);border-radius:7px;font-family:'Open Sans',sans-serif;font-size:14px;background:var(--card)}
+
+/* footer */
+.site-foot{background:var(--green-deep);color:var(--cream);padding:52px 24px 30px}
+.foot-grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.site-foot .name{font-family:'Fraunces',Georgia,serif;font-size:24px;color:var(--cream);margin:0 0 8px}
+.site-foot .blurb{color:#bcc3b4;font-size:14px;max-width:260px}
+.site-foot .col h4{font-family:'Open Sans',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#93a08b;margin:0 0 12px}
+.site-foot .col a{display:block;color:#d8d3c6;font-family:'Open Sans',sans-serif;font-size:13px;text-decoration:none;margin-bottom:9px}
+.foot-note{max-width:var(--maxw);margin:34px auto 0;border-top:1px solid rgba(244,241,233,.15);padding-top:20px;font-family:'Open Sans',sans-serif;font-size:11px;color:#8f9a86;text-align:center}
+@media(max-width:980px){
+  .grid5{grid-template-columns:repeat(3,1fr)}
+  .grid3{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .hero-inner{flex-direction:column;text-align:center;gap:22px}
+  .hero .mark{height:170px}
+  .hero-copy{text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero h1{font-size:40px}
+  .store .inner{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .grid5{grid-template-columns:repeat(2,1fr)}
+  .grid3{grid-template-columns:1fr}
+  .nav{gap:14px;font-size:12px}
+}
+
+/* header: cream, big P mark */
+.brandmark{height:88px;width:auto;display:block}
+.brand{display:flex;flex-direction:row;align-items:center;gap:12px}
+</style>
 </head>
 <body>
 
 <header class="site-head">
   <div class="bar">
     <a class="brand" href="index.html">
-      <span class="name">The Theology <span class="amp">Shelf</span></span>
-      <span class="tag">Ancient paths, new pages</span>
+      <img class="brandmark" src="logo.svg" alt="The Picky Reader">
+      <span class="brand-text">
+        <span class="name">THE PICKY READER</span>
+        <span class="tag">A curated bookstore</span>
+      </span>
     </a>
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
+      <a href="library.html">Library</a>
       <a href="calendar.html">Calendar</a>
       <a href="lists.html">Lists</a>
       <a href="publishers.html">Publishers</a>
@@ -26,203 +147,181 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="kicker">★ New &amp; notable theology books</div>
-  <h1>Old truth.<br>New books.<br>Every week.</h1>
-  <p>The Theology Shelf tracks the newest and most notable theology books, every week.</p>
-  <a href="calendar.html" class="btn btn-gold">Browse the Release Calendar</a>
-  <a href="#subscribe" class="btn btn-ghost">Get the weekly email</a>
+  <div class="hero-inner">
+    <svg class="mark" viewBox="67.0 99.4 128.4 138.0" xmlns="http://www.w3.org/2000/svg"><path d="M116.53,229.31l-10.29-13.45-6.22-8.13-11.89,15.74-4.52,5.98-.1-51.99v-21.06s.09-40.65.09-40.65l-8.61-.16v-8.02s12.07-.14,12.07-.14l71.14.1c2.57,0,5.89-.1,8.09.64,19.4,6.52,26.24,32.53,17.08,52.61-3.74,8.19-13,16.05-21.47,16.08l-45.43.14.06,52.31ZM158.74,158.62l-13.96.24h-6.8s-47.18-.04-47.18-.04v9.64s66.66.04,66.66.04c5.84,0,10.32-1.95,13.92-6.62,7.27-9.44,8.01-25.74,1.53-36.75-2.12-3.61-6.91-8.95-11.93-8.96l-70.2-.17.03,10.33,68.53-.02c.57.55,1.3,1.46,1.55,2.01s-1.29,1.74-1.91,1.74h-68.18s0,10.67,0,10.67l77.9-.02,1.95,1.86c.44.42-1.39,1.73-1.94,1.9h-77.9s0,10.65,0,10.65l68.21-.22c.74.59,1.59,1.38,1.95,1.89s-1.48,1.81-2.2,1.83Z" fill="#f4f1e9"/><path d="M158.74,158.62c.72-.01,2.57-1.31,2.2-1.83s-1.21-1.31-1.95-1.89l-68.21.22v-10.66s77.91,0,77.91,0c.56-.17,2.38-1.48,1.94-1.9l-1.95-1.86-77.9.02v-10.67s68.19,0,68.19,0c.62,0,2.16-1.18,1.91-1.74s-.97-1.46-1.55-2.01l-68.53.02-.03-10.33,70.2.17c5.02.01,9.81,5.35,11.93,8.96,6.48,11.01,5.75,27.32-1.53,36.75-3.6,4.67-8.08,6.62-13.92,6.62l-66.67-.04v-9.64s47.19.04,47.19.04h6.8s13.96-.25,13.96-.25Z" fill="#3d4b3b"/></svg>
+    <div class="hero-copy">
+      <div class="kicker">A curated bookstore &amp; weekly newsletters</div>
+      <h1>Not every book is<br>worthy of shelf space.</h1>
+      <p>Curated shelves for careful readers — a bookstore and weekly newsletters covering theology, fiction, history, and more, one shelf at a time.</p>
+      <a href="#shelves" class="btn btn-cream">Browse the shelves</a>
+      <a href="#subscribe" class="btn btn-ghost">Get a newsletter</a>
+    </div>
+  </div>
 </section>
 
 <main class="wrap">
-
-  <!-- THIS WEEK'S PICKS -->
-  <section class="section">
-    <div class="section-head">
-      <h2>This Week's Picks</h2>
-      <a class="more" href="calendar.html">Full calendar →</a>
-    </div>
-    <div class="grid grid-3" id="picks-grid">
-
-      <article class="card">
-        <div class="cover">
-          <img src="lamentations.webp" alt="Lamentations by Mark J. Boda" loading="lazy">
-        </div>
-        <div class="body">
-          <h3><a href="book-lamentations.html" style="color:inherit;">Lamentations</a></h3>
-          <p class="by">Mark J. Boda · Baker Academic</p>
-          <p>A major new commentary on Lamentations from a leading Old Testament scholar — reckoning honestly with
-             communal grief and the strategies Scripture gives for processing pain.</p>
-          <div class="tags"><span class="tag date">July 29, 2026</span><span class="tag">Biblical Studies</span></div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="cover">
-          <img src="the-works-of-thomas-watson.jpg" alt="The Works of Thomas Watson" loading="lazy">
-        </div>
-        <div class="body">
-          <h3><a href="book-the-works-of-thomas-watson.html" style="color:inherit;">The Works of Thomas Watson</a></h3>
-          <p class="by">Thomas Watson · Banner of Truth</p>
-          <p>The collected works of one of the most quoted Puritans, in a uniform set — full of matter and interest
-             three centuries on, from a preacher of rare warmth.</p>
-          <div class="tags"><span class="tag date">July 2026</span><span class="tag">Puritan Works</span></div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="cover">
-          <img src="pastoral-mentoring.webp" alt="Pastoral Mentoring by Jared Wilson" loading="lazy">
-        </div>
-        <div class="body">
-          <h3><a href="book-pastoral-mentoring.html" style="color:inherit;">Pastoral Mentoring</a></h3>
-          <p class="by">Jared Wilson · Baker Academic</p>
-          <p>Jared Wilson makes the case that the local church — not just the seminary — is uniquely equipped to
-             train its shepherds, and shows leaders how to identify and mentor future ministers right where they are.</p>
-          <div class="tags"><span class="tag date">July 21, 2026</span><span class="tag">Ministry</span></div>
-        </div>
-      </article>
-
+  <section class="section" id="shelves">
+    <div class="section-head"><h2>The Shelves</h2></div>
+    <p class="lead">Each shelf is its own weekly newsletter and its own corner of the store. Subscribe to the ones you love — start with the one that's open.</p>
+    <div class="grid">
+      <div class="shelf-card">
+        <span class="badge live">Now open</span>
+        <h3 class="sname">The Theology Shelf</h3>
+        <p class="sdesc">New and notable theology books, tracked every week — biblical studies, apologetics, ministry, and the backlist worth pulling down.</p>
+        <a class="link" href="https://thetheologyshelf.beehiiv.com/subscribe">Visit the shelf →</a>
+      </div>
+      <div class="shelf-card disabled">
+        <span class="badge soon">Coming soon</span>
+        <h3 class="sname">The Fiction Shelf</h3>
+        <p class="sdesc">Novels and short stories worth the hours — literary picks and story-first recommendations for careful readers.</p>
+        <a class="link" href="#subscribe">Notify me →</a>
+      </div>
+      <div class="shelf-card disabled">
+        <span class="badge soon">Coming soon</span>
+        <h3 class="sname">The History Shelf</h3>
+        <p class="sdesc">The past, told well — new and classic history books that reward a slow, attentive read.</p>
+        <a class="link" href="#subscribe">Notify me →</a>
+      </div>
+      <div class="shelf-card disabled">
+        <span class="badge soon">Coming soon</span>
+        <h3 class="sname">The Kids' Shelf</h3>
+        <p class="sdesc">Books worth reading aloud — picture books and early readers chosen with the same picky care.</p>
+        <a class="link" href="#subscribe">Notify me →</a>
+      </div>
     </div>
   </section>
 
-  <!-- FEATURED REVIEWS -->
-  <section class="section">
-    <div class="section-head">
-      <h2>From the Shelf — Book Spotlights</h2>
-      <a class="more" href="reviews.html">All reviews →</a>
+  <section class="section" id="picks">
+    <div class="section-head"><h2>This Week's Picks</h2><a class="more" href="#">Full calendar →</a></div>
+    <div class="grid3" id="picks-grid">
+      <article class="card"><a href="#">
+        <div class="cover"><img src="lamentations.webp" alt="Lamentations by Mark J. Boda"></div>
+        <div class="body">
+          <h3>Lamentations</h3>
+          <p class="by">Mark J. Boda · Baker Academic</p>
+          <p class="desc">A major new commentary from a leading Old Testament scholar — reckoning honestly with communal grief and the strategies Scripture gives for processing pain.</p>
+          <div class="tags"><span class="tag date">July 29, 2026</span><span class="tag">Biblical Studies</span></div>
+        </div></a>
+      </article>
+      <article class="card"><a href="#">
+        <div class="cover"><img src="the-works-of-thomas-watson.jpg" alt="The Works of Thomas Watson"></div>
+        <div class="body">
+          <h3>The Works of Thomas Watson</h3>
+          <p class="by">Thomas Watson · Banner of Truth</p>
+          <p class="desc">The collected works of one of the most quoted Puritans, in a uniform set — full of matter and interest three centuries on.</p>
+          <div class="tags"><span class="tag date">July 2026</span><span class="tag">Puritan Works</span></div>
+        </div></a>
+      </article>
+      <article class="card"><a href="#">
+        <div class="cover"><img src="pastoral-mentoring.webp" alt="Pastoral Mentoring by Jared Wilson"></div>
+        <div class="body">
+          <h3>Pastoral Mentoring</h3>
+          <p class="by">Jared Wilson · Baker Academic</p>
+          <p class="desc">The local church — not just the seminary — is uniquely equipped to train its shepherds, and to mentor future ministers right where they are.</p>
+          <div class="tags"><span class="tag date">July 21, 2026</span><span class="tag">Ministry</span></div>
+        </div></a>
+      </article>
     </div>
-    <div class="grid grid-5" id="shelf-grid">
-      <!-- Rendered by script below; excludes any title already in This Week's Picks. -->
+  </section>
+
+  <section class="section" id="spotlights">
+    <div class="section-head"><h2>From the Shelf — Book Spotlights</h2><a class="more" href="#">All reviews →</a></div>
+    <div class="grid5" id="shelf-grid">
       <noscript>
-        <article class="card"><a href="review-mediator.html">
-          <div class="cover"><img src="mediator.jpg" alt="Mediator: A Biblical Theology by Vern S. Poythress" loading="lazy"></div>
-          <div class="body"><p class="by">Crossway · Biblical Theology</p><h3>Mediator: A Biblical Theology</h3>
-            <p>A model of how biblical theology should serve the church, not just the academy.</p></div></a>
-        </article>
-        <article class="card"><a href="review-arminian.html">
-          <div class="cover"><img src="arminian.jpg" alt="Arminian Theology: Myths and Realities by Roger E. Olson" loading="lazy"></div>
-          <div class="body"><p class="by">IVP Academic</p><h3>Arminian Theology: Myths &amp; Realities</h3>
-            <p>Even committed Calvinists should read this — a charitable, clarifying book.</p></div></a>
-        </article>
-        <article class="card"><a href="book-pleasures-of-god.html">
-          <div class="cover"><img src="pleasuresofgod.jpg" alt="The Pleasures of God by John Piper" loading="lazy"></div>
-          <div class="body"><p class="by">Crossway · Christian Living</p><h3>The Pleasures of God</h3>
-            <p>A beloved classic on God's delight in being God, freshly reissued.</p></div></a>
-        </article>
-        <article class="card"><a href="book-heart-of-preaching.html">
-          <div class="cover"><img src="heartofpreaching.jpg" alt="The Heart of Preaching by Mike Bullmore" loading="lazy"></div>
-          <div class="body"><p class="by">Crossway · Preaching</p><h3>The Heart of Preaching</h3>
-            <p>Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson.</p></div></a>
-        </article>
-        <article class="card"><a href="book-nt-theology.html">
-          <div class="cover"><img src="newtesttheology.jpg" alt="New Testament Theology by Andreas Köstenberger" loading="lazy"></div>
-          <div class="body"><p class="by">Crossway · Academic</p><h3>New Testament Theology</h3>
-            <p>Köstenberger's canonical, thematic, and ethical survey of the New Testament.</p></div></a>
-        </article>
+        <article class="card"><a href="#"><div class="cover"><img src="mediator.jpg" alt="Mediator"></div><div class="body"><p class="by">Crossway · Biblical Theology</p><h3>Mediator: A Biblical Theology</h3><p class="desc">A model of how biblical theology should serve the church, not just the academy.</p></div></a></article>
+        <article class="card"><a href="#"><div class="cover"><img src="arminian.jpg" alt="Arminian Theology"></div><div class="body"><p class="by">IVP Academic</p><h3>Arminian Theology: Myths &amp; Realities</h3><p class="desc">Even committed Calvinists should read this — a charitable, clarifying book.</p></div></a></article>
+        <article class="card"><a href="#"><div class="cover"><img src="cathedral.jpg" alt="The Cathedral of Theology"></div><div class="body"><p class="by">IVP Academic</p><h3>The Cathedral of Theology</h3><p class="desc">A serious entry in confessional Reformed method — best read slowly.</p></div></a></article>
+        <article class="card"><a href="#"><div class="cover"><img src="pleasuresofgod.jpg" alt="The Pleasures of God"></div><div class="body"><p class="by">Crossway · Christian Living</p><h3>The Pleasures of God</h3><p class="desc">A beloved classic on God's delight in being God, freshly reissued.</p></div></a></article>
+        <article class="card"><a href="#"><div class="cover"><img src="heartofpreaching.jpg" alt="The Heart of Preaching"></div><div class="body"><p class="by">Crossway · Preaching</p><h3>The Heart of Preaching</h3><p class="desc">Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson.</p></div></a></article>
       </noscript>
     </div>
   </section>
 
   <script>
-  // From the Shelf pulls from this spotlight pool, always skipping any book
-  // that's currently featured in "This Week's Picks" above. Edit Picks freely —
-  // the two sections will never show the same title.
   (function(){
-    var POOL = [
-      {t:"Mediator: A Biblical Theology", u:"review-mediator.html", by:"Crossway · Biblical Theology", img:"mediator.jpg",
-       d:"A model of how biblical theology should serve the church, not just the academy."},
-      {t:"Arminian Theology: Myths & Realities", u:"review-arminian.html", by:"IVP Academic", img:"arminian.jpg",
-       d:"Even committed Calvinists should read this — a charitable, clarifying book."},
-      {t:"The Cathedral of Theology", u:"review-cathedral.html", by:"IVP Academic", img:"cathedral.jpg",
-       d:"A serious entry in confessional Reformed method — best read slowly, confession open beside it."},
-      {t:"The Pleasures of God", u:"book-pleasures-of-god.html", by:"Crossway · Christian Living", img:"pleasuresofgod.jpg",
-       d:"A beloved classic on God's delight in being God, freshly reissued."},
-      {t:"The Heart of Preaching", u:"book-heart-of-preaching.html", by:"Crossway · Preaching", img:"heartofpreaching.jpg",
-       d:"Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson."},
-      {t:"New Testament Theology", u:"book-nt-theology.html", by:"Crossway · Academic", img:"newtesttheology.jpg",
-       d:"Köstenberger's canonical, thematic, and ethical survey of the New Testament."},
-      {t:"God's Presence with Us and in Us", u:"book-gods-presence.html", by:"IVP Academic", img:"godspresence.jpg",
-       d:"A whole-Bible theology of the Holy Spirit, from Eden to the new creation."},
-      {t:"The Works of Samuel Rutherford, Volume 1", u:"book-rutherford-works.html", by:"Reformation Heritage", img:"rutherford.jpg",
-       d:"The inaugural volume of the first complete English edition of Rutherford's works."},
-      {t:"Becoming a Disciple of the King", u:"book-becoming-disciple.html", by:"Crossway · Biblical Theology", img:"becomingdisciple.jpg",
-       d:"Jonathan Pennington on Matthew's Gospel and life under King Jesus."}
+    var POOL=[
+     {t:"Mediator: A Biblical Theology",by:"Crossway · Biblical Theology",img:"mediator.jpg",d:"A model of how biblical theology should serve the church, not just the academy."},
+     {t:"Arminian Theology: Myths & Realities",by:"IVP Academic",img:"arminian.jpg",d:"Even committed Calvinists should read this — a charitable, clarifying book."},
+     {t:"The Cathedral of Theology",by:"IVP Academic",img:"cathedral.jpg",d:"A serious entry in confessional Reformed method — best read slowly, confession open beside it."},
+     {t:"The Pleasures of God",by:"Crossway · Christian Living",img:"pleasuresofgod.jpg",d:"A beloved classic on God's delight in being God, freshly reissued."},
+     {t:"The Heart of Preaching",by:"Crossway · Preaching",img:"heartofpreaching.jpg",d:"Mike Bullmore on the pastor's central task, with a foreword by D. A. Carson."},
+     {t:"New Testament Theology",by:"Crossway · Academic",img:"newtesttheology.jpg",d:"Köstenberger's canonical, thematic, and ethical survey of the New Testament."},
+     {t:"God's Presence with Us and in Us",by:"IVP Academic",img:"godspresence.jpg",d:"A whole-Bible theology of the Holy Spirit, from Eden to the new creation."},
+     {t:"The Works of Samuel Rutherford, Volume 1",by:"Reformation Heritage",img:"rutherford.jpg",d:"The inaugural volume of the first complete English edition of Rutherford's works."},
+     {t:"Becoming a Disciple of the King",by:"Crossway · Biblical Theology",img:"becomingdisciple.jpg",d:"Jonathan Pennington on Matthew's Gospel and life under King Jesus."}
     ];
-    function norm(s){ return (s||"").replace(/&amp;/g,"&").replace(/\s+/g," ").trim().toLowerCase(); }
-    var grid = document.getElementById('shelf-grid');
-    var picks = document.getElementById('picks-grid');
-    if(!grid || !picks) return;
-    var taken = {};
-    Array.prototype.forEach.call(picks.querySelectorAll('h3'), function(h){ taken[norm(h.textContent)] = true; });
-    var chosen = POOL.filter(function(b){ return !taken[norm(b.t)]; }).slice(0,5);
-    grid.innerHTML = chosen.map(function(b){
-      var title = b.t.replace(/&/g,'&amp;');
-      return '<article class="card"><a href="'+b.u+'">'+
-             '<div class="cover"><img src="'+b.img+'" alt="'+title+'" loading="lazy"></div>'+
-             '<div class="body"><p class="by">'+b.by+'</p><h3>'+title+'</h3>'+
-             '<p>'+b.d+'</p></div></a></article>';
+    function norm(s){return (s||"").replace(/&amp;/g,"&").replace(/\s+/g," ").trim().toLowerCase();}
+    function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+    var grid=document.getElementById('shelf-grid'), picks=document.getElementById('picks-grid');
+    if(!grid) return;
+    var taken={};
+    if(picks){Array.prototype.forEach.call(picks.querySelectorAll('h3'),function(h){taken[norm(h.textContent)]=true;});}
+    var chosen=shuffle(POOL.filter(function(b){return !taken[norm(b.t)];})).slice(0,5);
+    grid.innerHTML=chosen.map(function(b){
+      var title=b.t.replace(/&/g,'&amp;');
+      return '<article class="card"><a href="#"><div class="cover"><img src="'+b.img+'" alt="'+title+'" loading="lazy"></div><div class="body"><p class="by">'+b.by+'</p><h3>'+title+'</h3><p class="desc">'+b.d+'</p></div></a></article>';
     }).join('');
   })();
   </script>
-
-  <!-- EMAIL CTA -->
-  <section class="cta-band" id="subscribe">
-    <h2>New This Week in Theology <span class="amp">&amp;</span> your inbox</h2>
-    <p>Every Thursday: the newest and most notable releases, with a two-minute skim to find your next read.
-       Free, and no spam.</p>
-    <div class="subscribe-embed" style="max-width:540px;margin:6px auto 0;">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d1f5884e-7988-4c6b-be96-5e8f5cb9c3a1"></script>
-    </div>
-  </section>
-
-  <!-- BROWSE BY TRADITION -->
-  <section class="section">
-    <div class="section-head">
-      <h2>Browse by Tradition</h2>
-      <a class="more" href="publishers.html">All publishers →</a>
-    </div>
-    <div class="grid grid-2">
-      <a class="card" href="publishers.html"><div class="body">
-        <h3>Reformed &amp; Presbyterian</h3>
-        <p class="muted">Crossway · P&amp;R · Banner of Truth · Reformation Heritage · Christian Focus · Ligonier · Davenant</p>
-      </div></a>
-      <a class="card" href="publishers.html"><div class="body">
-        <h3>Evangelical &amp; Academic</h3>
-        <p class="muted">IVP · Eerdmans · Zondervan Academic · Baker Academic · Lexham · The Good Book Co.</p>
-      </div></a>
-      <a class="card" href="publishers.html"><div class="body">
-        <h3>Baptist</h3>
-        <p class="muted">B&amp;H Academic · Founders Press · Free Grace Press · H&amp;E Publishing</p>
-      </div></a>
-    </div>
-  </section>
-
 </main>
 
-<footer class="site-foot">
-  <div class="cols">
-    <div class="col">
-      <div class="name">The Theology <span class="amp">Shelf</span></div>
-      <p class="sans" style="color:#8fa2b3;font-size:13px;max-width:36ch;margin-top:8px;">Ancient paths, new pages —
-         a weekly guide to the newest theological books.</p>
+<section class="store" id="bookstore">
+  <div class="inner">
+    <div>
+      <h2>Step into the bookstore</h2>
+      <p>Browse the shelves like you would in the shop — covers face-out, grouped by section, with a few spines tucked in for good measure. Click any book for the details and where to buy, new or used.</p>
+      <a href="#" class="btn btn-cream">Enter the library</a>
     </div>
-    <div class="col"><h4>Explore</h4>
-      <a href="calendar.html">Release Calendar</a>
-      <a href="lists.html">Lists</a><a href="publishers.html">Publishers</a><a href="search.html">Search</a></div>
-    <div class="col"><h4>About</h4>
-      <a href="pages.html#about">About</a><a href="pages.html#disclosure">Affiliate Disclosure</a>
-      <a href="pages.html#privacy">Privacy</a></div>
-    <div class="col"><h4>Newsletter</h4>
-      <a href="#subscribe">The weekly email</a></div>
+    <div class="spines">
+      <div class="sp" style="background:#6b4f3a;width:26px;height:120px"></div>
+      <div class="sp" style="background:#2f4858;width:30px;height:140px"></div>
+      <div class="sp" style="background:#a8562f;width:24px;height:128px"></div>
+      <div class="sp" style="background:#9a7b33;width:28px;height:150px"></div>
+      <div class="sp" style="background:#f4f1e9;width:96px;height:150px;border-radius:2px 5px 5px 2px;border-left:4px solid rgba(0,0,0,.2)"></div>
+      <div class="sp" style="background:#5b3a58;width:24px;height:132px"></div>
+      <div class="sp" style="background:#455a3e;width:30px;height:146px"></div>
+    </div>
   </div>
-  <div style="text-align:center;font-family:Georgia,serif;font-style:italic;color:#8fa2b3;font-size:13px;line-height:1.5;padding:8px 22px 0;">&ldquo;Ask for the ancient paths, where the good way is, and walk in it.&rdquo; &mdash; Jeremiah 6:16</div>
-  <div class="legal">© 2026 The Theology Shelf · As an Amazon Associate we earn from qualifying purchases.</div>
-</footer>
+</section>
 
-<!-- beehiiv attribution: forwards UTM params to the signup form -->
-<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+<section class="news" id="subscribe">
+  <h2>New books, chosen with care — in your inbox</h2>
+  <p>Pick a shelf and we'll send you the newest and most notable each week. Free, and no spam. Start with The Theology Shelf; more shelves are opening soon.</p>
+  <form onsubmit="return false;">
+    <input type="email" placeholder="you@email.com" aria-label="Email address">
+    <button class="btn btn-green" type="submit">Get the weekly email</button>
+  </form>
+</section>
+
+<footer class="site-foot" id="about">
+  <div class="foot-grid">
+    <div>
+      <p class="name">The Picky Reader</p>
+      <p class="blurb">A curated bookstore and a family of newsletters — good books, chosen with care, one shelf at a time.</p>
+    </div>
+    <div class="col">
+      <h4>Shelves</h4>
+      <a href="https://thetheologyshelf.beehiiv.com/subscribe">The Theology Shelf</a>
+      <a href="#subscribe">The Fiction Shelf</a>
+      <a href="#subscribe">The History Shelf</a>
+      <a href="#subscribe">The Kids' Shelf</a>
+    </div>
+    <div class="col">
+      <h4>Store</h4>
+      <a href="#bookstore">The Library</a>
+      <a href="#">Used Shelf</a>
+      <a href="#">Release Calendar</a>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="#about">Our story</a>
+      <a href="#">Affiliate disclosure</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+  <div class="foot-note">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
+</footer>
 
 </body>
 </html>
