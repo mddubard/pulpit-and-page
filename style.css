@@ -24,7 +24,7 @@ h1,h2,h3,.hero h1,.section-head h2,.post h1,.post h2,.card h3,.cta-band h2,.site
 /* ---------- Header / nav ---------- */
 .site-head{background:var(--cream);border-bottom:1px solid var(--line);}
 .site-head .bar{display:flex;align-items:center;justify-content:space-between;
-  gap:16px;padding:16px 22px;max-width:var(--maxw);margin:0 auto;flex-wrap:wrap;}
+  gap:16px;padding:16px 24px;max-width:var(--maxw);margin:0 auto;flex-wrap:wrap;}
 .brand{display:flex;flex-direction:row;align-items:center;gap:12px;text-decoration:none;}
 .brand:hover{text-decoration:none;}
 .brandmark{height:88px;width:auto;display:block;}
@@ -35,9 +35,9 @@ h1,h2,h3,.hero h1,.section-head h2,.post h1,.post h2,.card h3,.cta-band h2,.site
   text-transform:uppercase;color:var(--muted);background:none;padding:0;margin-top:2px;
   border:0;border-radius:0;}
 .nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;
-  font-family:Helvetica,Arial,sans-serif;font-size:13px;text-transform:uppercase;
+  font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:13px;text-transform:uppercase;
   letter-spacing:1px;}
-.nav a{color:var(--ink);opacity:.82;}
+.nav a{color:var(--ink);opacity:.85;}
 .nav a:hover,.nav a.active{color:var(--navy);opacity:1;text-decoration:none;}
 .nav .search-link{border:1px solid var(--line);border-radius:20px;padding:6px 14px;color:var(--navy);opacity:1;}
 .nav .search-link:hover{border-color:var(--navy);color:var(--navy);}
