@@ -93,6 +93,12 @@ a{color:inherit}
 .news p{color:var(--muted);max-width:520px;margin:0 auto 24px;font-size:16px}
 .news form{display:flex;gap:8px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
 .news input{flex:1;min-width:220px;padding:13px 15px;border:1px solid var(--line);border-radius:7px;font-family:'Open Sans',sans-serif;font-size:14px;background:var(--card)}
+.shelf-pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:600px;margin:0 auto 22px}
+.pick{font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:.3px;padding:9px 15px;border-radius:22px;border:1px solid var(--line);background:var(--card);cursor:pointer;display:inline-flex;align-items:center;gap:7px;color:var(--ink)}
+.pick input{margin:0;accent-color:var(--green)}
+.pick.on{border-color:var(--green);background:#eef0e7;font-weight:700}
+.pick.soon{opacity:.6;cursor:default}
+.pick.soon span{font-size:9.5px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:1px 7px}
 
 /* footer */
 .site-foot{background:var(--green-deep);color:var(--cream);padding:52px 24px 30px}
@@ -286,11 +292,17 @@ a{color:inherit}
 </section>
 
 <section class="news" id="subscribe">
-  <h2>New books, chosen with care — in your inbox</h2>
-  <p>Pick a shelf and we'll send you the newest and most notable each week. Free, and no spam. Start with The Theology Shelf; more shelves are opening soon.</p>
-  <form onsubmit="location.href='https://thetheologyshelf.beehiiv.com/subscribe?email='+encodeURIComponent(this.em.value);return false;">
+  <h2>Get a shelf in your inbox</h2>
+  <p>Choose a shelf and we'll send you its newest and most notable each week — free, and no spam. Only The Theology Shelf is open right now; more are opening soon.</p>
+  <div class="shelf-pick" role="radiogroup" aria-label="Choose a shelf">
+    <label class="pick on"><input type="radio" name="shelf" value="theology" data-url="https://thetheologyshelf.beehiiv.com/subscribe" checked> The Theology Shelf</label>
+    <label class="pick soon"><input type="radio" name="shelf" disabled> The Fiction Shelf <span>soon</span></label>
+    <label class="pick soon"><input type="radio" name="shelf" disabled> The History Shelf <span>soon</span></label>
+    <label class="pick soon"><input type="radio" name="shelf" disabled> The Kids' Shelf <span>soon</span></label>
+  </div>
+  <form onsubmit="var r=this.querySelector('input[name=shelf]:checked')||document.querySelector('input[name=shelf]:checked');location.href=r.getAttribute('data-url')+'?email='+encodeURIComponent(this.em.value);return false;">
     <input type="email" name="em" placeholder="you@email.com" aria-label="Email address" required>
-    <button class="btn btn-green" type="submit">Get the weekly email</button>
+    <button class="btn btn-green" type="submit">Subscribe to The Theology Shelf</button>
   </form>
 </section>
 
