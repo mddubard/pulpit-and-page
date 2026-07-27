@@ -121,6 +121,10 @@
     background:var(--card);color:#4a423a;border-radius:20px;padding:5px 12px;text-decoration:none;}
   .monthjump a:hover{border-color:var(--accent2);color:var(--accent);text-decoration:none;}
   .month{scroll-margin-top:58px;}
+  .cal-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 0;padding-bottom:16px;border-bottom:1px solid var(--line);}
+  .cal-tab{font-family:Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:20px;border:1px solid var(--line);color:var(--ink);background:var(--card);text-decoration:none;cursor:pointer;display:inline-block;}
+  .cal-tab.on{background:var(--accent);color:#f4f1e9;border-color:var(--accent);}
+  .cal-tab.soon{opacity:.5;cursor:default;}
 </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -156,6 +160,13 @@
     <p id="weekly-email"><strong>Want it in your inbox?</strong> Every Thursday we send the week's new theology
        releases — <a href="index.html#subscribe">subscribe to the free email &rarr;</a></p>
   </section>
+
+  <div class="cal-tabs" aria-label="Choose a calendar">
+    <a class="cal-tab on">Theology</a>
+    <span class="cal-tab soon">Fiction · soon</span>
+    <span class="cal-tab soon">History · soon</span>
+    <span class="cal-tab soon">Kids · soon</span>
+  </div>
 
   <nav class="monthjump" aria-label="Jump to month">
     <span class="lbl">Jump to:</span>
