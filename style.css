@@ -27,14 +27,14 @@ h1,h2,h3,.hero h1,.section-head h2,.post h1,.post h2,.card h3,.cta-band h2,.site
   gap:16px;padding:16px 22px;max-width:var(--maxw);margin:0 auto;flex-wrap:wrap;}
 .brand{display:flex;flex-direction:row;align-items:center;gap:12px;text-decoration:none;}
 .brand:hover{text-decoration:none;}
-.brandmark{height:64px;width:auto;display:block;}
+.brandmark{height:88px;width:auto;display:block;}
 .brand-text{display:flex;flex-direction:column;gap:2px;}
-.brand .name{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;color:var(--navy);letter-spacing:2px;line-height:1;}
+.brand .name{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-weight:700;font-size:20px;color:var(--navy);letter-spacing:3px;line-height:1;}
 .brand .name .amp{color:var(--navy);font-style:normal;}
-.brand .tag{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:10.5px;letter-spacing:2px;
+.brand .tag{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:12.5px;letter-spacing:2px;
   text-transform:uppercase;color:var(--muted);background:none;padding:0;margin-top:2px;
   border:0;border-radius:0;}
-.nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+.nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;
   font-family:Helvetica,Arial,sans-serif;font-size:13px;text-transform:uppercase;
   letter-spacing:1px;}
 .nav a{color:var(--ink);opacity:.82;}
