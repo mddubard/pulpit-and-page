@@ -68,6 +68,14 @@ h1,h2,h3,.hero h1,.section-head h2,.post h1,.post h2,.card h3,.cta-band h2,.site
 .eyebrow{font-family:Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2px;
   text-transform:uppercase;color:var(--navy);margin-bottom:6px;}
 
+/* ---------- Shelf category tabs (reusable) ---------- */
+.shelf-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 22px;}
+.shelf-tab{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2px;
+  text-transform:uppercase;padding:8px 16px;border-radius:20px;border:1px solid var(--line);
+  color:var(--ink);background:var(--card);text-decoration:none;cursor:pointer;display:inline-block;}
+.shelf-tab.on{background:var(--navy);color:var(--cream);border-color:var(--navy);}
+.shelf-tab.soon{opacity:.5;cursor:default;}
+
 /* ---------- Cards grid ---------- */
 .grid{display:grid;gap:20px;}
 .grid-3{grid-template-columns:repeat(3,1fr);}
