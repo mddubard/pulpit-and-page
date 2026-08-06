@@ -49,6 +49,14 @@ a{color:inherit}
 .stacks .substack{margin-top:26px}
 .stacks .sub-lab{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:17px;color:#f4f1e9;margin-bottom:13px;padding-bottom:8px;border-bottom:1px solid rgba(244,241,233,.15)}
 .stacks .sub-lab .n{font-family:'Open Sans',sans-serif;font-weight:400;font-size:11px;letter-spacing:.4px;color:#93a08b;margin-left:9px}
+.stacks-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.stacks-tools input{flex:1;min-width:200px;height:34px;padding:0 12px;border-radius:6px;border:1px solid rgba(244,241,233,.22);background:rgba(255,255,255,.07);color:#f4f1e9;font-family:'Open Sans',sans-serif;font-size:13px;outline:none}
+.stacks-tools input::placeholder{color:#7f8b78}
+.stacks-tools input:focus{border-color:#c6b68e}
+.stacks-count{font-family:'Open Sans',sans-serif;font-size:11px;color:#93a08b;white-space:nowrap}
+.stacks-chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:2px}
+.stacks-chips button{font-family:'Open Sans',sans-serif;font-size:11.5px;padding:5px 11px;border-radius:14px;border:1px solid rgba(244,241,233,.22);background:transparent;color:#cbd3c4;cursor:pointer;transition:background .12s ease,color .12s ease}
+.stacks-empty{font-family:'Open Sans',sans-serif;font-size:13px;color:#93a08b;padding:18px 2px}
 .spine-row{display:flex;align-items:flex-end;gap:6px;overflow-x:auto;padding-bottom:4px}
 .spine{flex:0 0 auto;border-radius:2px 3px 3px 2px;border-left:2px solid rgba(0,0,0,.22);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:12px 0;color:#f4f1e9;transition:transform .15s ease}
 .spine:hover{transform:translateY(-10px)}
@@ -146,6 +154,11 @@ a{color:inherit}
   <section class="stacks">
     <div class="inner">
       <div class="lab">Browse the stacks — pull one off the shelf</div>
+      <div class="stacks-tools">
+        <input id="stacks-q" type="text" placeholder="Search title or author…" autocomplete="off" aria-label="Search the stacks">
+        <span id="stacks-count" class="stacks-count"></span>
+      </div>
+      <div id="stacks-chips" class="stacks-chips"></div>
       <!--STACKS-START-->
       <div class="substack">
         <div class="sub-lab">Systematic &amp; Doctrinal Theology<span class="n">20 books</span></div>
@@ -242,6 +255,7 @@ a{color:inherit}
         </div>
       </div>
       <!--STACKS-END-->
+      <div id="stacks-empty" class="stacks-empty" style="display:none">No books match — try another word.</div>
     </div>
   </section>
 
@@ -344,6 +358,57 @@ a{color:inherit}
       else{window.location.href=u;}
     };
   });
+})();
+</script>
+
+<script>
+(function(){
+  var q=document.getElementById('stacks-q');
+  if(!q) return;
+  var chipBox=document.getElementById('stacks-chips'),
+      countEl=document.getElementById('stacks-count'),
+      emptyEl=document.getElementById('stacks-empty');
+  var subs=[].map.call(document.querySelectorAll('.stacks .substack'), function(w){
+    var lab=w.querySelector('.sub-lab'), nEl=lab.querySelector('.n');
+    var name=lab.firstChild ? lab.firstChild.textContent.trim() : '';
+    var spines=[].map.call(w.querySelectorAll('.spine'), function(s){
+      return {el:s, hay:((s.getAttribute('data-t')||'')+' '+(s.getAttribute('data-a')||'')).toLowerCase()};
+    });
+    return {wrap:w, nEl:nEl, name:name, spines:spines};
+  });
+  var total=subs.reduce(function(t,s){return t+s.spines.length;},0);
+  var active='All';
+
+  var names=['All'].concat(subs.map(function(s){return s.name;}));
+  names.forEach(function(nm){
+    var b=document.createElement('button');
+    b.type='button'; b.textContent=(nm==='All'?'All sections':nm);
+    b.onclick=function(){active=nm; apply();};
+    b._n=nm; chipBox.appendChild(b);
+  });
+
+  function apply(){
+    var term=q.value.trim().toLowerCase(), shown=0;
+    subs.forEach(function(s){
+      var vis=0;
+      s.spines.forEach(function(sp){
+        var ok=(active==='All'||active===s.name)&&(term===''||sp.hay.indexOf(term)>-1);
+        sp.el.style.display=ok?'':'none'; if(ok){vis++; shown++;}
+      });
+      if(s.nEl) s.nEl.textContent=vis+(vis===1?' book':' books');
+      s.wrap.style.display=vis?'':'none';
+    });
+    countEl.textContent='Showing '+shown+' of '+total;
+    emptyEl.style.display=shown?'none':'block';
+    [].forEach.call(chipBox.children, function(c){
+      var on=c._n===active;
+      c.style.background=on?'#c6b68e':'transparent';
+      c.style.color=on?'#2c362b':'#cbd3c4';
+      c.style.borderColor=on?'#c6b68e':'rgba(244,241,233,.22)';
+    });
+  }
+  q.addEventListener('input', apply);
+  apply();
 })();
 </script>
 </body>
