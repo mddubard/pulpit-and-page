@@ -143,6 +143,10 @@ h1,h2,h3,.hero h1,.section-head h2,.post h1,.post h2,.card h3,.cta-band h2,.site
 .site-foot .col a{display:block;color:var(--slate);font-family:Helvetica,Arial,sans-serif;font-size:13px;
   margin:5px 0;}
 .site-foot .col a:hover{color:var(--cream);text-decoration:none;}
+.site-foot .social{display:flex;gap:20px;justify-content:center;align-items:center;padding:12px 22px 4px;max-width:var(--maxw);margin:0 auto;}
+.site-foot .social a{color:var(--slate);display:inline-flex;transition:color .15s ease;}
+.site-foot .social a:hover{color:var(--cream);}
+.site-foot .social svg{width:20px;height:20px;fill:currentColor;display:block;}
 .site-foot .legal{border-top:1px solid #35402f;padding:14px 22px;max-width:var(--maxw);margin:0 auto;
   font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#93a08b;text-align:center;}
 
