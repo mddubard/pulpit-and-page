@@ -125,6 +125,14 @@ a{color:inherit}
 /* header: cream, big P mark */
 .brandmark{height:88px;width:auto;display:block}
 .brand{display:flex;flex-direction:row;align-items:center;gap:12px}
+
+/* spine cover peek */
+#peek{position:fixed;z-index:60;width:200px;background:#f4f1e9;color:#2c362b;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.45);padding:11px;opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .13s ease,transform .13s ease}
+#peek.on{opacity:1;transform:translateY(0)}
+#peek img{width:100%;height:200px;object-fit:contain;border-radius:5px;display:block;background:#e8e3d6}
+#peek .pt{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:14.5px;line-height:1.2;margin-top:9px}
+#peek .pa{font-size:12px;color:#5b6357;margin-top:2px}
+#peek .pp{display:inline-block;font-size:10px;letter-spacing:.4px;text-transform:uppercase;color:#7a6a3f;background:rgba(198,182,142,.25);border-radius:20px;padding:3px 8px;margin-top:8px}
 </style>
 <link rel="alternate" type="application/rss+xml" title="The Picky Reader — New Releases" href="/rss.xml">
 </head>
@@ -171,7 +179,7 @@ a{color:inherit}
     <div class="inner">
       <div class="lab">Browse the stacks — pull one off the shelf</div>
       <div class="stacks-tools">
-        <input id="stacks-q" type="text" placeholder="Search title or author…" autocomplete="off" aria-label="Search the stacks">
+        <input id="stacks-q" type="text" placeholder="Search the library — title or author…" autocomplete="off" aria-label="Search the stacks">
         <span id="stacks-count" class="stacks-count"></span>
       </div>
       <div id="stacks-chips" class="stacks-chips"></div>
@@ -413,9 +421,13 @@ a{color:inherit}
     });
     return {wrap:w, nEl:nEl, name:name, spines:spines};
   });
-  var total=subs.reduce(function(t,s){return t+s.spines.length;},0);
+  var cards=[].map.call(document.querySelectorAll('.shelf-sec .book'), function(b){
+    return {el:b, hay:((b.getAttribute('data-t')||'')+' '+(b.getAttribute('data-a')||'')).toLowerCase()};
+  });
+  var shelfSecs=[].slice.call(document.querySelectorAll('.shelf-sec'));
+  var totalSpines=subs.reduce(function(t,s){return t+s.spines.length;},0);
+  var total=totalSpines+cards.length;
   var active='All';
-
   var names=['All'].concat(subs.map(function(s){return s.name;}));
   names.forEach(function(nm){
     var b=document.createElement('button');
@@ -423,7 +435,6 @@ a{color:inherit}
     b.onclick=function(){active=nm; apply();};
     b._n=nm; chipBox.appendChild(b);
   });
-
   function apply(){
     var term=q.value.trim().toLowerCase(), shown=0;
     subs.forEach(function(s){
@@ -435,7 +446,15 @@ a{color:inherit}
       if(s.nEl) s.nEl.textContent=vis+(vis===1?' book':' books');
       s.wrap.style.display=vis?'':'none';
     });
-    countEl.textContent='Showing '+shown+' of '+total;
+    cards.forEach(function(c){
+      var ok=(term===''||c.hay.indexOf(term)>-1);
+      c.el.style.display=ok?'':'none'; if(ok) shown++;
+    });
+    shelfSecs.forEach(function(sec){
+      var anyVis=[].some.call(sec.querySelectorAll('.book'), function(b){return b.style.display!=='none';});
+      sec.style.display=anyVis?'':'none';
+    });
+    countEl.textContent='Showing '+shown+' of '+total+' across the library';
     emptyEl.style.display=shown?'none':'block';
     [].forEach.call(chipBox.children, function(c){
       var on=c._n===active;
@@ -446,6 +465,31 @@ a{color:inherit}
   }
   q.addEventListener('input', apply);
   apply();
+})();
+</script>
+<div id="peek" aria-hidden="true"><img id="peek-img" alt=""><div class="pt" id="peek-t"></div><div class="pa" id="peek-a"></div><span class="pp" id="peek-p"></span></div>
+<script>
+(function(){
+  var peek=document.getElementById('peek'); if(!peek) return;
+  var pi=document.getElementById('peek-img'),pt=document.getElementById('peek-t'),pa=document.getElementById('peek-a'),pp=document.getElementById('peek-p');
+  var hideT;
+  function show(sp){
+    var img=sp.getAttribute('data-img'); if(!img) return;
+    clearTimeout(hideT);
+    pi.src=img; pt.innerHTML=sp.getAttribute('data-t')||''; pa.textContent=sp.getAttribute('data-a')||'';
+    var p=sp.getAttribute('data-p')||''; pp.innerHTML=p; pp.style.display=p?'':'none';
+    peek.style.left='-9999px'; peek.classList.add('on');
+    var r=sp.getBoundingClientRect(),pw=200,ph=peek.offsetHeight||300;
+    var x=Math.max(10,Math.min(r.left+r.width/2-pw/2, window.innerWidth-pw-10));
+    var y=r.top-ph-12; if(y<10) y=r.bottom+12;
+    peek.style.left=x+'px'; peek.style.top=y+'px';
+  }
+  function hide(){hideT=setTimeout(function(){peek.classList.remove('on');},80);}
+  document.querySelectorAll('.spine').forEach(function(sp){
+    sp.addEventListener('mouseenter',function(){show(sp);});
+    sp.addEventListener('mouseleave',hide);
+  });
+  window.addEventListener('scroll',function(){peek.classList.remove('on');},true);
 })();
 </script>
 </body>
