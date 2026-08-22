@@ -133,6 +133,10 @@ a{color:inherit}
 #peek .pt{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:14.5px;line-height:1.2;margin-top:9px}
 #peek .pa{font-size:12px;color:#5b6357;margin-top:2px}
 #peek .pp{display:inline-block;font-size:10px;letter-spacing:.4px;text-transform:uppercase;color:#7a6a3f;background:rgba(198,182,142,.25);border-radius:20px;padding:3px 8px;margin-top:8px}
+
+#peek .pv{display:none;margin-top:10px;font-family:'Open Sans',sans-serif;font-size:12.5px;font-weight:700;color:#fff;background:#3d4b3b;border-radius:7px;padding:9px 14px;text-align:center;text-decoration:none}
+#peek.touch{pointer-events:auto}
+#peek.touch .pv{display:block}
 </style>
 <link rel="alternate" type="application/rss+xml" title="The Picky Reader — New Releases" href="/rss.xml">
 </head>
@@ -393,7 +397,7 @@ a{color:inherit}
 
 <script>
 (function(){
-  var els=document.querySelectorAll('.book,.spine');
+  var els=document.querySelectorAll('.book');
   els.forEach(function(el){
     var u=el.getAttribute('data-url');
     if(!u){el.style.cursor='default';return;}
@@ -467,29 +471,49 @@ a{color:inherit}
   apply();
 })();
 </script>
-<div id="peek" aria-hidden="true"><img id="peek-img" alt=""><div class="pt" id="peek-t"></div><div class="pa" id="peek-a"></div><span class="pp" id="peek-p"></span></div>
+<div id="peek" aria-hidden="true"><img id="peek-img" alt=""><div class="pt" id="peek-t"></div><div class="pa" id="peek-a"></div><span class="pp" id="peek-p"></span><a class="pv" id="peek-link" href="#">View book &rarr;</a></div>
 <script>
 (function(){
   var peek=document.getElementById('peek'); if(!peek) return;
-  var pi=document.getElementById('peek-img'),pt=document.getElementById('peek-t'),pa=document.getElementById('peek-a'),pp=document.getElementById('peek-p');
+  var pi=document.getElementById('peek-img'),pt=document.getElementById('peek-t'),
+      pa=document.getElementById('peek-a'),pp=document.getElementById('peek-p'),
+      pl=document.getElementById('peek-link');
+  var touch=window.matchMedia('(hover: none)').matches;
+  if(touch) peek.classList.add('touch');
   var hideT;
+  function place(sp){
+    var r=sp.getBoundingClientRect(),pw=peek.offsetWidth||200,ph=peek.offsetHeight||320;
+    var x=Math.max(10,Math.min(r.left+r.width/2-pw/2, window.innerWidth-pw-10));
+    var y=r.top-ph-12; if(y<10) y=Math.min(r.bottom+12, window.innerHeight-ph-10); if(y<10) y=10;
+    peek.style.left=x+'px'; peek.style.top=y+'px';
+  }
   function show(sp){
     var img=sp.getAttribute('data-img'); if(!img) return;
     clearTimeout(hideT);
     pi.src=img; pt.innerHTML=sp.getAttribute('data-t')||''; pa.textContent=sp.getAttribute('data-a')||'';
     var p=sp.getAttribute('data-p')||''; pp.innerHTML=p; pp.style.display=p?'':'none';
-    peek.style.left='-9999px'; peek.classList.add('on');
-    var r=sp.getBoundingClientRect(),pw=200,ph=peek.offsetHeight||300;
-    var x=Math.max(10,Math.min(r.left+r.width/2-pw/2, window.innerWidth-pw-10));
-    var y=r.top-ph-12; if(y<10) y=r.bottom+12;
-    peek.style.left=x+'px'; peek.style.top=y+'px';
+    var u=sp.getAttribute('data-url'); if(pl) pl.href=u||'#';
+    peek.style.left='-9999px'; peek.classList.add('on'); place(sp);
   }
-  function hide(){hideT=setTimeout(function(){peek.classList.remove('on');},80);}
+  function hide(){ hideT=setTimeout(function(){peek.classList.remove('on');},80); }
   document.querySelectorAll('.spine').forEach(function(sp){
-    sp.addEventListener('mouseenter',function(){show(sp);});
-    sp.addEventListener('mouseleave',hide);
+    if(touch){
+      sp.addEventListener('click', function(e){ e.preventDefault(); show(sp); });
+    } else {
+      sp.addEventListener('mouseenter', function(){show(sp);});
+      sp.addEventListener('mouseleave', hide);
+      sp.addEventListener('click', function(){
+        var u=sp.getAttribute('data-url'); if(!u) return;
+        if(/^https?:/.test(u)) window.open(u,'_blank','noopener'); else window.location.href=u;
+      });
+    }
   });
-  window.addEventListener('scroll',function(){peek.classList.remove('on');},true);
+  if(touch){
+    document.addEventListener('click', function(e){
+      if(!peek.contains(e.target) && !e.target.closest('.spine')) peek.classList.remove('on');
+    });
+  }
+  window.addEventListener('scroll', function(){ peek.classList.remove('on'); }, true);
 })();
 </script>
 </body>
