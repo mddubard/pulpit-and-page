@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<title>The Shelves — The Picky Reader</title>
+<meta name="description" content="Browse The Picky Reader by shelf — Theology, History, and more. Each shelf is its own corner of the store and its own weekly newsletter.">
+<style>
+  :root{--green:#3d4b3b;--accent:#a8562f;}
+  .shelves-hero{margin:26px 0 4px;max-width:66ch;}
+  .shelves-hero h1{font-size:34px;margin:6px 0 10px;}
+  .shelves-hero p{color:#4a423a;font-size:15.5px;line-height:1.55;margin:6px 0;}
+  .shelf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:24px;}
+  .shelf-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 24px;display:flex;flex-direction:column;min-height:200px;transition:transform .15s ease,box-shadow .15s ease;}
+  .shelf-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(38,41,31,.08);}
+  .shelf-card .sname{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:23px;margin:0 0 6px;color:var(--green);}
+  .shelf-card .sdesc{color:var(--muted);font-size:15px;flex:1;margin:0 0 18px;}
+  .badge{align-self:flex-start;font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:14px;}
+  .badge.live{background:var(--accent);color:#fff;}
+  .badge.soon{background:var(--chip);color:var(--muted);}
+  .shelf-card .link{font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:.5px;text-decoration:none;color:var(--green);font-weight:700;}
+  .shelf-card.disabled{opacity:.7;}
+  .shelf-card.disabled:hover{transform:none;box-shadow:none;}
+</style>
+<link rel="alternate" type="application/rss+xml" title="The Picky Reader — New Releases" href="/rss.xml">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img class="brandmark" src="logo.svg" alt="The Picky Reader">
+      <span class="brand-text">
+        <span class="name">THE PICKY READER</span>
+        <span class="tag">A curated bookstore</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="shelves.html" class="active">Shelves</a>
+      <a href="used.html">Used Books</a>
+      <a href="visit.html">Visit</a>
+      <a href="search.html" class="search-link">Search</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="shelves-hero">
+    <div class="eyebrow">Browse</div>
+    <h1>The Shelves</h1>
+    <p>Each shelf is its own corner of the store and its own weekly newsletter — good books, chosen
+       with care, one shelf at a time. Start with the ones that are open.</p>
+  </section>
+
+  <section class="section" style="padding-top:8px;">
+    <div class="shelf-grid">
+
+      <div class="shelf-card">
+        <span class="badge live">Now open</span>
+        <h3 class="sname">The Theology Shelf</h3>
+        <p class="sdesc">New and notable theology, tracked every week — biblical studies, apologetics, ministry, church history, and the backlist worth pulling down.</p>
+        <a class="link" href="theology.html">Visit the shelf &rarr;</a>
+      </div>
+
+      <div class="shelf-card">
+        <span class="badge live">Now open</span>
+        <h3 class="sname">The History Shelf</h3>
+        <p class="sdesc">The past, told well — church, world, American &amp; military history, new and used, chosen with care.</p>
+        <a class="link" href="history.html">Visit the shelf &rarr;</a>
+      </div>
+
+      <div class="shelf-card disabled">
+        <span class="badge soon">Coming soon</span>
+        <h3 class="sname">The Fiction Shelf</h3>
+        <p class="sdesc">Novels and short stories worth the hours — literary picks and story-first recommendations for careful readers.</p>
+        <a class="link" href="index.html#subscribe">Notify me &rarr;</a>
+      </div>
+
+      <div class="shelf-card disabled">
+        <span class="badge soon">Coming soon</span>
+        <h3 class="sname">The Kids' Shelf</h3>
+        <p class="sdesc">Books worth reading aloud — picture books and early readers chosen with the same picky care.</p>
+        <a class="link" href="index.html#subscribe">Notify me &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="cols">
+    <div class="col">
+      <div class="name">The Picky Reader</div>
+      <p class="sans" style="color:var(--slate);font-size:13px;max-width:36ch;margin-top:8px;">A curated bookstore and a family of newsletters — good books, chosen with care, one shelf at a time.</p>
+    </div>
+    <div class="col"><h4>Explore</h4>
+      <a href="shelves.html">The Shelves</a>
+      <a href="used.html">Used Books</a>
+      <a href="visit.html">Visit</a><a href="search.html">Search</a></div>
+    <div class="col"><h4>About</h4>
+      <a href="pages.html#about">About</a><a href="pages.html#disclosure">Affiliate Disclosure</a>
+      <a href="pages.html#privacy">Privacy</a></div>
+    <div class="col"><h4>Newsletter</h4>
+      <a href="index.html#subscribe">The weekly email</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
