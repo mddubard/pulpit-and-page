@@ -49,6 +49,17 @@
   .foot-note{font-size:13px;color:#6b6259;font-style:italic;border-top:1px solid #e6e0d8;margin-top:30px;padding:16px 0 40px;max-width:70ch;}
   @media(max-width:900px){.ugrid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:560px){.ugrid{grid-template-columns:1fr;}}
+
+/* used-shelf category filter + sections (added for v2 sync) */
+.ucats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+.ucats button{font-family:Helvetica,Arial,sans-serif;font-size:12.5px;padding:6px 13px;border-radius:20px;border:1px solid #e0d8c9;background:transparent;color:#5a5245;cursor:pointer}
+.utools{display:flex;gap:10px;align-items:center;margin:6px 0 4px}
+.utools input{flex:1;max-width:360px;height:38px;padding:0 14px;border-radius:8px;border:1px solid #e0d8c9;background:#fff;font-family:Helvetica,Arial,sans-serif;font-size:14px;outline:none}
+.utools input:focus{border-color:#c6b68e}
+.usec{margin-top:26px}
+.usec-lab{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:20px;color:#3d4b3b;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid #e6e0d8}
+.usec-lab .n{font-family:Helvetica,Arial,sans-serif;font-weight:400;font-size:12px;color:#8a8073;margin-left:6px}
+.uempty{font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#8a8073;padding:16px 2px}
 </style>
 <link rel="alternate" type="application/rss+xml" title="The Picky Reader — New Releases" href="/rss.xml">
 </head>
@@ -79,15 +90,15 @@
   <section class="used-intro">
     <div class="eyebrow">The Used Shelf</div>
     <h1>Used &amp; Vintage Books</h1>
-    <p>Alongside the new releases we track, we sell individual used and out-of-print theology titles &mdash;
-       Reformed, Puritan, patristic, and classic works, many long out of print. Each is a single copy, graded and
+    <p>Alongside the new releases we track, we sell individual used and out-of-print books &mdash; theology and
+       church history for now, with the wider history shelf on the way. Each is a single copy, graded and
        photographed, and shipped from Chattanooga. Checkout is handled securely through eBay.</p>
   </section>
 
   <div class="shelf-tabs" aria-label="Choose a shelf">
     <a class="shelf-tab on">Theology</a>
+    <a class="shelf-tab on">History</a>
     <span class="shelf-tab soon">Fiction · soon</span>
-    <span class="shelf-tab soon">History · soon</span>
     <span class="shelf-tab soon">Kids · soon</span>
   </div>
 
@@ -98,23 +109,18 @@
     <span>Secure checkout via <b>eBay</b></span>
   </div>
 
-  <p class="ucount">Showing 31 titles · updated as copies sell</p>
+  <div class="ucats" id="ucats"></div>
+  <div class="utools">
+    <input id="uq" type="text" placeholder="Search the shelf — title or author…" aria-label="Search used books">
+    <span id="ucount" class="ucount"></span>
+  </div>
+  <div id="uempty" class="uempty" style="display:none">No books match — try another word.</div>
 
-  <div class="ugrid">
+  <section class="usec" data-cat="Theology">
+    <h2 class="usec-lab">Theology <span class="n"></span></h2>
+    <div class="ugrid">
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/NpkAAeSw6o1pwyAQ/s-l500.webp" alt="Primitive Theology by John Gerstner" loading="lazy"></div>
-      <div class="ub">
-        <h3>Primitive Theology</h3>
-        <p class="auth">John Gerstner</p>
-        <p class="det">Soli Deo Gloria</p>
-        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$25.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306841402596" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/-ZAAAeSwwtlp6o1Y/s-l500.webp" alt="The Church by Hans Küng" loading="lazy"></div>
       <div class="ub">
         <h3>The Church</h3>
@@ -126,19 +132,7 @@
       </div>
     </article>
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/B8QAAeSw16ZpzcXf/s-l500.webp" alt="Payday Everyday by Robert G. Lee" loading="lazy"></div>
-      <div class="ub">
-        <h3>Payday Everyday</h3>
-        <p class="auth">Robert G. Lee</p>
-        <p class="det">1974 · Memoirs of a Pulpit Giant · Broadman Press</p>
-        <div class="row"><span class="cond cused">Good</span><span class="price">$12.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306856222863" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/1FIAAeSwcM9p8~tI/s-l500.webp" alt="A Scientific Investigation of the Old Testament by Robert Dick Wilson" loading="lazy"></div>
       <div class="ub">
         <h3>A Scientific Investigation of the Old Testament</h3>
@@ -150,54 +144,7 @@
       </div>
     </article>
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/qGgAAeSwsAhos5eb/s-l500.webp" alt="The Fathers of the Latin Church by Hans von Campenhausen" loading="lazy"></div>
-      <div class="ub">
-        <h3>The Fathers of the Latin Church</h3>
-        <p class="auth">Hans von Campenhausen</p>
-        <p class="det">Stanford · 1969</p>
-        <div class="row"><span class="cond cused">Good</span><span class="price">$18.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306475249760" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/i8IAAeSw3Hxp8-mW/s-l500.webp" alt="Evangelistic Sermons by Clovis G. Chappell" loading="lazy"></div>
-      <div class="ub">
-        <h3>Evangelistic Sermons</h3>
-        <p class="auth">Clovis G. Chappell</p>
-        <p class="det">Hardcover w/ dust jacket · Abingdon Press</p>
-        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$18.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306911253534" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/~-QAAeSwICVqFGYC/s-l500.webp" alt="Nicene and Post-Nicene Fathers, Vol. 13 (Series 2)" loading="lazy"></div>
-      <div class="ub">
-        <h3>Nicene &amp; Post-Nicene Fathers, Vol. 13 (Series 2)</h3>
-        <p class="det">1994 · 1st printing</p>
-        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$35.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306961499499" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/wm0AAeSwPkZo~rMy/s-l500.webp" alt="Creeds of Christendom, Vol. 3 by Philip Schaff" loading="lazy"></div>
-      <div class="ub">
-        <h3>Creeds of Christendom, Vol. 3</h3>
-        <p class="auth">Philip Schaff</p>
-        <p class="det">Limited Editions Library · Baker · 1966</p>
-        <div class="row"><span class="cond cused">Good</span><span class="price">$15.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306569033862" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/o1sAAeSw5vBp~ojo/s-l500.webp" alt="Starlit Paths for Pilgrim Feet by Merrill F. Unger" loading="lazy"></div>
       <div class="ub">
         <h3>Starlit Paths for Pilgrim Feet</h3>
@@ -209,7 +156,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/MgUAAeSwBeNp~opv/s-l500.webp" alt="Revolt Against Maturity by R. J. Rushdoony" loading="lazy"></div>
       <div class="ub">
         <h3>Revolt Against Maturity</h3>
@@ -221,7 +168,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/hr4AAeSwRxtp~puv/s-l500.webp" alt="New Testament History by Ben Witherington III" loading="lazy"></div>
       <div class="ub">
         <h3>New Testament History</h3>
@@ -233,7 +180,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/G8UAAeSwIaRpmRU0/s-l500.webp" alt="Roman Catholicism by Loraine Boettner" loading="lazy"></div>
       <div class="ub">
         <h3>Roman Catholicism</h3>
@@ -245,7 +192,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/DpAAAeSwhPFp8~iL/s-l500.webp" alt="An Exposition of Jude by William Jenkyn" loading="lazy"></div>
       <div class="ub">
         <h3>An Exposition of Jude</h3>
@@ -257,19 +204,7 @@
       </div>
     </article>
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/NGIAAeSwrhBpmSUs/s-l500.webp" alt="32 Christians Who Changed Their World by Glenn S. Sunshine" loading="lazy"></div>
-      <div class="ub">
-        <h3>32 Christians Who Changed Their World</h3>
-        <p class="auth">Glenn S. Sunshine</p>
-        <p class="det">Canon Press</p>
-        <div class="row"><span class="cond cgood">Like New</span><span class="price">$15.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306782413957" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/tB0AAeSw7pFqFGhv/s-l500.webp" alt="Habakkuk, Zephaniah and Haggai by John Calvin" loading="lazy"></div>
       <div class="ub">
         <h3>Habakkuk, Zephaniah &amp; Haggai</h3>
@@ -281,7 +216,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/GbQAAeSwNw1p8~aZ/s-l500.webp" alt="The Epistle to the Hebrews: The Greek Text by B. F. Westcott" loading="lazy"></div>
       <div class="ub">
         <h3>The Epistle to the Hebrews: The Greek Text</h3>
@@ -293,19 +228,7 @@
       </div>
     </article>
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/n7cAAeSwnhhpwyq8/s-l500.webp" alt="The European Reformations by Carter Lindberg" loading="lazy"></div>
-      <div class="ub">
-        <h3>The European Reformations</h3>
-        <p class="auth">Carter Lindberg</p>
-        <p class="det">2nd edition · Hardcover</p>
-        <div class="row"><span class="cond cnew">Brand New</span><span class="price">$65.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306841468430" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/2GsAAeSwyv9o8ELW/s-l500.webp" alt="The Bible in the Contemporary World by Richard Bauckham" loading="lazy"></div>
       <div class="ub">
         <h3>The Bible in the Contemporary World</h3>
@@ -317,7 +240,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/QSwAAeSwEJpp~pf2/s-l500.webp" alt="The Epistle to the Hebrews by William Manson" loading="lazy"></div>
       <div class="ub">
         <h3>The Epistle to the Hebrews</h3>
@@ -329,7 +252,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/~KkAAeSwJSpp6pFp/s-l500.webp" alt="Reinhold Niebuhr: Religious, Social and Political Thought by ed. Kegley and Bretall" loading="lazy"></div>
       <div class="ub">
         <h3>Reinhold Niebuhr: Religious, Social &amp; Political Thought</h3>
@@ -341,7 +264,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/lkwAAeSwwplp~plB/s-l500.webp" alt="Coming Events in Prophecy by M. R. DeHaan" loading="lazy"></div>
       <div class="ub">
         <h3>Coming Events in Prophecy</h3>
@@ -353,7 +276,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/MJEAAeSw~Rxp~o57/s-l500.webp" alt="The Rule of the Community (Dead Sea Scrolls) by James H. Charlesworth" loading="lazy"></div>
       <div class="ub">
         <h3>The Rule of the Community (Dead Sea Scrolls)</h3>
@@ -365,7 +288,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/~gwAAeSwZU5qFHes/s-l500.webp" alt="Zechariah and Malachi by John Calvin" loading="lazy"></div>
       <div class="ub">
         <h3>Zechariah &amp; Malachi</h3>
@@ -377,30 +300,7 @@
       </div>
     </article>
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/WnsAAeSw8P5p8qiD/s-l500.webp" alt="The Journal of John Wesley by ed. Percy Livingstone Parker" loading="lazy"></div>
-      <div class="ub">
-        <h3>The Journal of John Wesley</h3>
-        <p class="auth">ed. Percy Livingstone Parker</p>
-        <p class="det">Moody Press</p>
-        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$30.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306909534565" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/DCQAAeSwp~xo8RnU/s-l500.webp" alt="Dictionary of the Presbyterian and Reformed Tradition in America by D. G. Hart and Mark Noll" loading="lazy"></div>
-      <div class="ub">
-        <h3>Dictionary of the Presbyterian &amp; Reformed Tradition in America</h3>
-        <p class="auth">D. G. Hart &amp; Mark Noll</p>
-        <div class="row"><span class="cond cused">Good</span><span class="price">$8.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/306552811972" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/qb4AAeSwm6Zp8-rx/s-l500.webp" alt="Exegetical Commentary on Matthew by Spiros Zodhiates" loading="lazy"></div>
       <div class="ub">
         <h3>Exegetical Commentary on Matthew</h3>
@@ -412,7 +312,156 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/qtMAAeSwj8NqikQx/s-l500.jpg" alt="Anthropology in Theological Perspective by Wolfhart Pannenberg" loading="lazy"></div>
+      <div class="ub">
+        <h3>Anthropology in Theological Perspective</h3>
+        <p class="auth">Wolfhart Pannenberg</p>
+        <p class="det">1st edition · Hardcover</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$50.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141373525" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/DmEAAeSw92lqig2x/s-l500.jpg" alt="Foundations of Pentecostal Theology by Guy P. Duffield &amp; Nathaniel M. Van Cleave" loading="lazy"></div>
+      <div class="ub">
+        <h3>Foundations of Pentecostal Theology</h3>
+        <p class="auth">Guy P. Duffield &amp; Nathaniel M. Van Cleave</p>
+        <p class="det">Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cgood">Like New</span><span class="price">$35.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141157978" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/iTIAAeSwwTlqifdE/s-l500.jpg" alt="Calvin's Commentaries: John 11–21 by John Calvin" loading="lazy"></div>
+      <div class="ub">
+        <h3>Calvin's Commentaries: John 11–21</h3>
+        <p class="auth">John Calvin</p>
+        <p class="det">Oliver &amp; Boyd · Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$20.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141080244" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+    </div>
+  </section>
+
+  <section class="usec" data-cat="Church History">
+    <h2 class="usec-lab">Church History <span class="n"></span></h2>
+    <div class="ugrid">
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/B8QAAeSw16ZpzcXf/s-l500.webp" alt="Payday Everyday by Robert G. Lee" loading="lazy"></div>
+      <div class="ub">
+        <h3>Payday Everyday</h3>
+        <p class="auth">Robert G. Lee</p>
+        <p class="det">1974 · Memoirs of a Pulpit Giant · Broadman Press</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$12.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306856222863" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/qGgAAeSwsAhos5eb/s-l500.webp" alt="The Fathers of the Latin Church by Hans von Campenhausen" loading="lazy"></div>
+      <div class="ub">
+        <h3>The Fathers of the Latin Church</h3>
+        <p class="auth">Hans von Campenhausen</p>
+        <p class="det">Stanford · 1969</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$18.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306475249760" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/i8IAAeSw3Hxp8-mW/s-l500.webp" alt="Evangelistic Sermons by Clovis G. Chappell" loading="lazy"></div>
+      <div class="ub">
+        <h3>Evangelistic Sermons</h3>
+        <p class="auth">Clovis G. Chappell</p>
+        <p class="det">Hardcover w/ dust jacket · Abingdon Press</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$18.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306911253534" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/~-QAAeSwICVqFGYC/s-l500.webp" alt="Nicene and Post-Nicene Fathers, Vol. 13 (Series 2)" loading="lazy"></div>
+      <div class="ub">
+        <h3>Nicene &amp; Post-Nicene Fathers, Vol. 13 (Series 2)</h3>
+        <p class="det">1994 · 1st printing</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$35.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306961499499" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/wm0AAeSwPkZo~rMy/s-l500.webp" alt="Creeds of Christendom, Vol. 3 by Philip Schaff" loading="lazy"></div>
+      <div class="ub">
+        <h3>Creeds of Christendom, Vol. 3</h3>
+        <p class="auth">Philip Schaff</p>
+        <p class="det">Limited Editions Library · Baker · 1966</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$15.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306569033862" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/NGIAAeSwrhBpmSUs/s-l500.webp" alt="32 Christians Who Changed Their World by Glenn S. Sunshine" loading="lazy"></div>
+      <div class="ub">
+        <h3>32 Christians Who Changed Their World</h3>
+        <p class="auth">Glenn S. Sunshine</p>
+        <p class="det">Canon Press</p>
+        <div class="row"><span class="cond cgood">Like New</span><span class="price">$15.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306782413957" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/n7cAAeSwnhhpwyq8/s-l500.webp" alt="The European Reformations by Carter Lindberg" loading="lazy"></div>
+      <div class="ub">
+        <h3>The European Reformations</h3>
+        <p class="auth">Carter Lindberg</p>
+        <p class="det">2nd edition · Hardcover</p>
+        <div class="row"><span class="cond cnew">Brand New</span><span class="price">$65.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306841468430" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/WnsAAeSw8P5p8qiD/s-l500.webp" alt="The Journal of John Wesley by ed. Percy Livingstone Parker" loading="lazy"></div>
+      <div class="ub">
+        <h3>The Journal of John Wesley</h3>
+        <p class="auth">ed. Percy Livingstone Parker</p>
+        <p class="det">Moody Press</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$30.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306909534565" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/DCQAAeSwp~xo8RnU/s-l500.webp" alt="Dictionary of the Presbyterian and Reformed Tradition in America by D. G. Hart and Mark Noll" loading="lazy"></div>
+      <div class="ub">
+        <h3>Dictionary of the Presbyterian &amp; Reformed Tradition in America</h3>
+        <p class="auth">D. G. Hart &amp; Mark Noll</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$8.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306552811972" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/xmIAAeSw8fBp8-eD/s-l500.webp" alt="William Winans: Methodist Leader in Antebellum Mississippi by Ray Holder" loading="lazy"></div>
       <div class="ub">
         <h3>William Winans: Methodist Leader in Antebellum Mississippi</h3>
@@ -424,7 +473,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/5lUAAeSw371qcpK2/s-l500.webp" alt="Christ in Christian Tradition by Aloys Grillmeier" loading="lazy"></div>
       <div class="ub">
         <h3>Christ in Christian Tradition</h3>
@@ -436,7 +485,7 @@
       </div>
     </article>
 
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/AR8AAeSwDF1qZ9O3/s-l500.webp" alt="Our Southern Zion: A History of Calvinism in the South Carolina Low Country by Erskine Clarke" loading="lazy"></div>
       <div class="ub">
         <h3>Our Southern Zion</h3>
@@ -448,19 +497,7 @@
       </div>
     </article>
 
-    <article class="ucard">
-      <div class="ph"><img src="https://i.ebayimg.com/images/g/47wAAeSwvw1qcppS/s-l500.webp" alt="The Great Revival in the Southern Armies by W. W. Bennett" loading="lazy"></div>
-      <div class="ub">
-        <h3>The Great Revival in the Southern Armies</h3>
-        <p class="auth">W. W. Bennett</p>
-        <p class="det">Sprinkle Publications · 1989 · Hardcover</p>
-        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$15.00</span></div>
-        <p class="ship">+ shipping · ships from Chattanooga</p>
-        <a class="ebtn" href="https://www.ebay.com/itm/307107692565" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
-      </div>
-    </article>
-
-    <article class="ucard">
+      <article class="ucard">
       <div class="ph"><img src="https://i.ebayimg.com/images/g/8LIAAeSwj5BpDqln/s-l500.webp" alt="A History of the Chattanooga District of the United Methodist Church" loading="lazy"></div>
       <div class="ub">
         <h3>A History of the Chattanooga District of the United Methodist Church</h3>
@@ -470,7 +507,188 @@
       </div>
     </article>
 
-  </div>
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/zhoAAeSwPXdqif~e/s-l500.jpg" alt="The School of Faith: The Catechisms of the Reformed Church by T. F. Torrance" loading="lazy"></div>
+      <div class="ub">
+        <h3>The School of Faith: The Catechisms of the Reformed Church</h3>
+        <p class="auth">T. F. Torrance</p>
+        <p class="det">Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$100.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141103709" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/uZMAAeSw02JqikFD/s-l500.jpg" alt="Presbyterian Worship in America by Julius Melton" loading="lazy"></div>
+      <div class="ub">
+        <h3>Presbyterian Worship in America</h3>
+        <p class="auth">Julius Melton</p>
+        <p class="det">1967 · 1st edition · John Knox Press</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$20.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141367093" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/pIcAAeSwfPFqifzY/s-l500.jpg" alt="The Massacre of St. Bartholomew: Reappraisals and Documents by ed. Alfred Soman" loading="lazy"></div>
+      <div class="ub">
+        <h3>The Massacre of St. Bartholomew: Reappraisals and Documents</h3>
+        <p class="auth">ed. Alfred Soman</p>
+        <p class="det">Nijhoff · Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$40.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141092665" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/DeIAAeSwYQVqijYe/s-l500.jpg" alt="Canons and Decrees of the Council of Trent by H. J. Schroeder" loading="lazy"></div>
+      <div class="ub">
+        <h3>Canons and Decrees of the Council of Trent</h3>
+        <p class="auth">H. J. Schroeder</p>
+        <p class="det">1960 · 4th printing · Hardcover</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$45.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141319509" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/XbYAAeSwTgpqijoc/s-l500.jpg" alt="The Huguenots by A. J. Grant" loading="lazy"></div>
+      <div class="ub">
+        <h3>The Huguenots</h3>
+        <p class="auth">A. J. Grant</p>
+        <p class="det">Archon Books · 1969 · Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$20.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141339886" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+    </div>
+  </section>
+
+  <section class="usec" data-cat="World History">
+    <h2 class="usec-lab">World History <span class="n"></span></h2>
+    <div class="ugrid">
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/S-4AAeSwEQFqifUE/s-l500.jpg" alt="Consuming Splendor: Society and Culture in Seventeenth-Century England by Linda Levy Peck" loading="lazy"></div>
+      <div class="ub">
+        <h3>Consuming Splendor: Society and Culture in Seventeenth-Century England</h3>
+        <p class="auth">Linda Levy Peck</p>
+        <p class="det">Cambridge · Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$20.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141068986" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/E8YAAeSwtD9qcpAI/s-l500.jpg" alt="Scots and Britons: Scottish Political Thought and the Union of 1603 by ed. Roger A. Mason" loading="lazy"></div>
+      <div class="ub">
+        <h3>Scots and Britons: Scottish Political Thought and the Union of 1603</h3>
+        <p class="auth">ed. Roger A. Mason</p>
+        <p class="det">Cambridge · Hardcover</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$20.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307107634603" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/Cm0AAeSwJfhqihBc/s-l500.jpg" alt="Corruption and the Decline of Rome by Ramsay MacMullen" loading="lazy"></div>
+      <div class="ub">
+        <h3>Corruption and the Decline of Rome</h3>
+        <p class="auth">Ramsay MacMullen</p>
+        <p class="det">Yale · Hardcover</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$18.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141168514" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/N4oAAeSw3mlqZ9jA/s-l500.jpg" alt="Hellenistic Civilisation by W. W. Tarn" loading="lazy"></div>
+      <div class="ub">
+        <h3>Hellenistic Civilisation</h3>
+        <p class="auth">W. W. Tarn</p>
+        <p class="det">Edward Arnold · 1927 · Hardcover</p>
+        <div class="row"><span class="cond cused">Good</span><span class="price">$18.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307090366649" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/BgsAAeSwbjZpDpzO/s-l500.jpg" alt="Encyclopedia of Exploration to 1800 by Raymond John Howgego" loading="lazy"></div>
+      <div class="ub">
+        <h3>Encyclopedia of Exploration to 1800</h3>
+        <p class="auth">Raymond John Howgego</p>
+        <p class="det">Hordern House · Hardcover</p>
+        <div class="row"><span class="cond cgood">Like New</span><span class="price">$85.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306590080927" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/Ku0AAeSwLUpp8qHo/s-l500.jpg" alt="Pandemic Re-Awakenings: The Spanish Flu of 1918-19" loading="lazy"></div>
+      <div class="ub">
+        <h3>Pandemic Re-Awakenings</h3>
+        <p class="det">The Forgotten &amp; Unforgotten 'Spanish' Flu of 1918–19 · Hardcover</p>
+        <div class="row"><span class="cond cgood">Like New</span><span class="price">$25.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306909498681" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/v3UAAeSwcIBp8-7n/s-l500.jpg" alt="Travels into the Poor Man's Country: The Work of Henry Mayhew by Anne Humpherys" loading="lazy"></div>
+      <div class="ub">
+        <h3>Travels into the Poor Man's Country: The Work of Henry Mayhew</h3>
+        <p class="auth">Anne Humpherys</p>
+        <p class="det">Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$15.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306911284261" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+    </div>
+  </section>
+
+  <section class="usec" data-cat="American History">
+    <h2 class="usec-lab">American History <span class="n"></span></h2>
+    <div class="ugrid">
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/pdgAAeSwUdhp8qBJ/s-l500.jpg" alt="Old Kentucky Entries and Deeds by Willard Rouse Jillson" loading="lazy"></div>
+      <div class="ub">
+        <h3>Old Kentucky Entries and Deeds</h3>
+        <p class="auth">Willard Rouse Jillson</p>
+        <p class="det">Early Land Entries, Deeds &amp; Military Warrants · Hardcover</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$25.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/306909494769" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+      <article class="ucard">
+      <div class="ph"><img src="https://i.ebayimg.com/images/g/yP8AAeSw5rdqigjW/s-l500.jpg" alt="Five Miles Away: The Story of the Lawrenceville School" loading="lazy"></div>
+      <div class="ub">
+        <h3>Five Miles Away: The Story of the Lawrenceville School</h3>
+        <p class="det">Hardcover w/ dust jacket</p>
+        <div class="row"><span class="cond cgood">Very Good</span><span class="price">$50.00</span></div>
+        <p class="ship">+ shipping · ships from Chattanooga</p>
+        <a class="ebtn" href="https://www.ebay.com/itm/307141139490" target="_blank" rel="noopener">Buy on eBay &rarr;</a>
+      </div>
+    </article>
+
+    </div>
+  </section>
 
   <p style="margin:18px 0 0;">
     <a class="btn btn-gold" href="https://www.ebay.com/sch/thepickyreader/m.html" target="_blank" rel="noopener">See all our listings on eBay &rarr;</a>
@@ -505,5 +723,45 @@
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
 
+<script>
+(function(){
+  var q=document.getElementById('uq'); if(!q) return;
+  var chips=document.getElementById('ucats'), countEl=document.getElementById('ucount'),
+      empty=document.getElementById('uempty');
+  var secs=[].map.call(document.querySelectorAll('.usec'), function(s){
+    var cards=[].map.call(s.querySelectorAll('.ucard'), function(c){
+      return {el:c, hay:(c.querySelector('h3').textContent+' '+((c.querySelector('.auth')||{}).textContent||'')).toLowerCase()};
+    });
+    return {el:s, cat:s.getAttribute('data-cat'), nEl:s.querySelector('.n'), cards:cards};
+  });
+  var total=secs.reduce(function(t,s){return t+s.cards.length;},0), active='All';
+  ['All'].concat(secs.map(function(s){return s.cat;})).forEach(function(nm){
+    var b=document.createElement('button'); b.type='button';
+    b.textContent=(nm==='All'?'All':nm); b._n=nm;
+    b.onclick=function(){active=nm; apply();}; chips.appendChild(b);
+  });
+  function apply(){
+    var term=q.value.trim().toLowerCase(), shown=0;
+    secs.forEach(function(s){
+      var vis=0;
+      s.cards.forEach(function(c){
+        var ok=(active==='All'||active===s.cat)&&(term===''||c.hay.indexOf(term)>-1);
+        c.el.style.display=ok?'':'none'; if(ok){vis++; shown++;}
+      });
+      if(s.nEl) s.nEl.textContent='· '+vis;
+      s.el.style.display=vis?'':'none';
+    });
+    countEl.textContent='Showing '+shown+' of '+total;
+    empty.style.display=shown?'none':'block';
+    [].forEach.call(chips.children,function(c){
+      var on=c._n===active;
+      c.style.background=on?'#3d4b3b':'transparent';
+      c.style.color=on?'#f4f1e9':'#5a5245';
+      c.style.borderColor=on?'#3d4b3b':'#e0d8c9';
+    });
+  }
+  q.addEventListener('input',apply); apply();
+})();
+</script>
 </body>
 </html>
