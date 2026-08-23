@@ -49,39 +49,39 @@
        seasonal previews, best-of lists, and guides for pastors, students, and lay readers.</p>
 
     <div class="shelf-tabs" aria-label="Choose a shelf">
-      <a class="shelf-tab on">Theology</a>
+      <a class="shelf-tab on" data-shelf="Theology">Theology</a>
+      <a class="shelf-tab" data-shelf="History">History</a>
       <span class="shelf-tab soon">Fiction · soon</span>
-      <a class="shelf-tab" href="history.html">History</a>
       <span class="shelf-tab soon">Kids · soon</span>
     </div>
 
     <div class="grid grid-2" style="margin-top:24px;">
 
-      <a class="card" href="list-fall-2026.html"><div class="body">
+      <a class="card" data-shelf="Theology" href="list-fall-2026.html"><div class="body">
         <div class="tags"><span class="tag date">Featured</span><span class="tag">Seasonal preview</span></div>
         <h3 style="margin-top:10px;">Most Anticipated Theology Books of Fall 2026</h3>
         <p>The ten new releases we're most excited about this season.</p>
       </div></a>
 
-      <a class="card" href="list-church-history.html"><div class="body">
+      <a class="card" data-shelf="History" href="list-church-history.html"><div class="body">
         <div class="tags"><span class="tag date">History</span><span class="tag">Church history</span></div>
         <h3 style="margin-top:10px;">Essential Church History</h3>
         <p>Where to start with the story of the church — surveys, the Reformation, and the classics worth owning.</p>
       </div></a>
 
-      <div class="card"><div class="body">
+      <div class="card" data-shelf="Theology"><div class="body">
         <div class="tags"><span class="tag">Coming soon</span></div>
         <h3 style="margin-top:10px;">Best New Books for Pastors</h3>
         <p class="muted">Preaching, ministry, and pastoral care titles worth a place on the study shelf.</p>
       </div></div>
 
-      <div class="card"><div class="body">
+      <div class="card" data-shelf="Theology"><div class="body">
         <div class="tags"><span class="tag">Coming soon</span></div>
         <h3 style="margin-top:10px;">New Academic Theology to Watch</h3>
         <p class="muted">Seminary-level releases in systematic, biblical, and historical theology.</p>
       </div></div>
 
-      <div class="card"><div class="body">
+      <div class="card" data-shelf="Theology"><div class="body">
         <div class="tags"><span class="tag">Coming soon</span></div>
         <h3 style="margin-top:10px;">Christian Gift Guide 2026</h3>
         <p class="muted">The best new books to give this Advent and Christmas.</p>
@@ -117,5 +117,25 @@
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
 
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.shelf-tab[data-shelf]'));
+  var cards=[].slice.call(document.querySelectorAll('.grid .card'));
+  if(!tabs.length) return;
+  function apply(shelf){
+    tabs.forEach(function(t){ t.classList.toggle('on', t.getAttribute('data-shelf')===shelf); });
+    cards.forEach(function(c){ c.style.display=(c.getAttribute('data-shelf')===shelf)?'':'none'; });
+  }
+  tabs.forEach(function(t){
+    t.style.cursor='pointer';
+    t.addEventListener('click', function(e){
+      e.preventDefault(); var sh=t.getAttribute('data-shelf');
+      apply(sh);
+      try{ history.replaceState(null,'', sh==='History'?'#history':'#theology'); }catch(_){}
+    });
+  });
+  apply(location.hash==='#history' ? 'History' : 'Theology');
+})();
+</script>
 </body>
 </html>
