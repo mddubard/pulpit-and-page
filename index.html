@@ -100,8 +100,15 @@ a{color:inherit}
 .store .inner{max-width:var(--maxw);margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
 .store h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:32px;margin:0 0 14px}
 .store p{color:#e0dccf;font-size:17px;margin:0 0 24px}
-.spines{display:flex;align-items:flex-end;gap:6px;justify-content:center}
-.sp{border-radius:2px 3px 3px 2px;border-left:2px solid rgba(0,0,0,.2)}
+.bookshelf{display:flex;flex-direction:column;align-items:center;width:100%}
+.bookrow{display:flex;align-items:flex-end;justify-content:center;gap:3px}
+.bookspine{width:var(--w);height:var(--h);background:var(--c);position:relative;display:flex;align-items:center;justify-content:center;border-radius:2px 2px 0 0;box-shadow:inset -3px 0 5px rgba(0,0,0,.32),inset 3px 0 4px rgba(255,255,255,.06),0 10px 15px rgba(0,0,0,.3)}
+.bookspine::before,.bookspine::after{content:"";position:absolute;left:2px;right:2px;height:2px;background:rgba(244,241,233,.35)}
+.bookspine::before{top:9px}
+.bookspine::after{bottom:11px}
+.bookspine span{writing-mode:vertical-rl;font-family:'Fraunces',Georgia,serif;font-size:9px;letter-spacing:.5px;color:rgba(244,241,233,.85);white-space:nowrap;text-transform:uppercase;text-shadow:0 1px 1px rgba(0,0,0,.4)}
+.faceout{width:var(--w);height:var(--h);object-fit:cover;border-radius:2px 4px 4px 2px;border-left:3px solid rgba(0,0,0,.2);box-shadow:0 12px 18px rgba(0,0,0,.42)}
+.shelf-board{width:100%;max-width:440px;height:8px;background:linear-gradient(180deg,#efe9dc,#cfc6b2);border-radius:0 0 3px 3px;box-shadow:0 12px 18px rgba(0,0,0,.34)}
 
 /* newsletter */
 .news{text-align:center;padding:66px 24px}
@@ -153,6 +160,13 @@ a{color:inherit}
   #picks-grid .card .by{font-size:12px;margin:0 0 6px}
   #picks-grid .card p.desc{font-size:13.5px;margin:0 0 9px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   #picks-grid .card .tags{font-size:10.5px}
+  .bookrow{gap:2px}
+  .bookspine{width:calc(var(--w)*.62);height:calc(var(--h)*.62)}
+  .bookspine span{font-size:7px}
+  .bookspine::before{top:6px}
+  .bookspine::after{bottom:7px}
+  .faceout{width:calc(var(--w)*.62);height:calc(var(--h)*.62)}
+  .shelf-board{max-width:300px}
 }
 
 /* header: cream, big P mark */
@@ -361,17 +375,25 @@ a{color:inherit}
   <div class="inner">
     <div>
       <h2>Step into the bookstore</h2>
-      <p>Browse the shelves like you would in the shop — covers face-out, grouped by section, with a few spines tucked in for good measure. Click any book for the details and where to buy, new or used.</p>
+      <p>Browse the shelves like you would in the shop — spines lined up by section, with a few covers turned face-out to catch your eye. Click any book for the details and where to buy, new or used.</p>
       <a href="library.html" class="btn btn-cream">Enter the bookstore</a>
     </div>
-    <div class="spines">
-      <div class="sp" style="background:#6b4f3a;width:26px;height:120px"></div>
-      <div class="sp" style="background:#2f4858;width:30px;height:140px"></div>
-      <div class="sp" style="background:#a8562f;width:24px;height:128px"></div>
-      <div class="sp" style="background:#9a7b33;width:28px;height:150px"></div>
-      <div class="sp" style="background:#f4f1e9;width:96px;height:150px;border-radius:2px 5px 5px 2px;border-left:4px solid rgba(0,0,0,.2)"></div>
-      <div class="sp" style="background:#5b3a58;width:24px;height:132px"></div>
-      <div class="sp" style="background:#455a3e;width:30px;height:146px"></div>
+    <div class="bookshelf">
+      <div class="bookrow">
+        <div class="bookspine" style="--w:30px;--h:150px;--c:#2c362b"><span>Habermas</span></div>
+        <div class="bookspine" style="--w:24px;--h:138px;--c:#3d4b3b"><span>Happiness</span></div>
+        <div class="bookspine" style="--w:34px;--h:146px;--c:#a8562f"><span>Turning Points</span></div>
+        <div class="bookspine" style="--w:22px;--h:128px;--c:#5b6b4f"><span>Watson</span></div>
+        <div class="bookspine" style="--w:26px;--h:142px;--c:#2f3d39"><span>Reeves</span></div>
+        <img class="faceout" style="--w:98px;--h:150px" src="bound-and-free.webp" alt="Bound and Free">
+        <div class="bookspine" style="--w:20px;--h:132px;--c:#a8562f"><span>Noll</span></div>
+        <div class="bookspine" style="--w:30px;--h:148px;--c:#3d4b3b"><span>Bainton</span></div>
+        <div class="bookspine" style="--w:24px;--h:136px;--c:#4a5a44"><span>Piper</span></div>
+        <div class="bookspine" style="--w:28px;--h:144px;--c:#2c362b"><span>Packer</span></div>
+        <div class="bookspine" style="--w:22px;--h:126px;--c:#8a5a2b"><span>Luther</span></div>
+        <div class="bookspine" style="--w:32px;--h:140px;--c:#3d4b3b"><span>Gonz&aacute;lez</span></div>
+      </div>
+      <div class="shelf-board"></div>
     </div>
   </div>
 </section>
