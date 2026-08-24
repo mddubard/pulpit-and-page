@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Bookstore — The Picky Reader</title>
+<title>The Library — The Picky Reader</title>
 <meta name="description" content="Browse the stacks — new releases, recent titles, and the backlist worth pulling down, grouped shelf by shelf.">
 <link rel="canonical" href="https://thepickyreader.com/library">
 <meta property="og:site_name" content="The Picky Reader">
-<meta property="og:title" content="The Bookstore">
+<meta property="og:title" content="The Library">
 <meta property="og:description" content="Browse the stacks — new releases, recent titles, and the backlist worth pulling down, grouped shelf by shelf.">
 <meta property="og:url" content="https://thepickyreader.com/library">
 <meta property="og:image" content="https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/e0da866d-62b4-4611-a9e4-dfe25ffbaf48/pr-mark-cream.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Bookstore">
+<meta name="twitter:title" content="The Library">
 <meta name="twitter:description" content="Browse the stacks — new releases, recent titles, and the backlist worth pulling down, grouped shelf by shelf.">
 <meta name="twitter:image" content="https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/e0da866d-62b4-4611-a9e4-dfe25ffbaf48/pr-mark-cream.png">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -163,7 +163,7 @@ a{color:inherit}
 
 <section class="lib-hero">
   <div class="inner">
-    <div class="kicker">The Theology Shelf · Bookstore</div>
+    <div class="kicker">The Theology Shelf · Library</div>
     <h1>Step into the stacks.</h1>
     <p>Browse the shelves like you would in the shop — covers face-out, grouped by section, with a wall of spines to run your eye across. Click any book for the details and where to buy.</p>
   </div>
@@ -182,7 +182,7 @@ a{color:inherit}
     <div class="inner">
       <div class="lab">Browse the stacks — pull one off the shelf</div>
       <div class="stacks-tools">
-        <input id="stacks-q" type="text" placeholder="Search the bookstore — title or author…" autocomplete="off" aria-label="Search the stacks">
+        <input id="stacks-q" type="text" placeholder="Search the library — title or author…" autocomplete="off" aria-label="Search the stacks">
         <span id="stacks-count" class="stacks-count"></span>
       </div>
       <div id="stacks-chips" class="stacks-chips"></div>
@@ -457,7 +457,7 @@ a{color:inherit}
       var anyVis=[].some.call(sec.querySelectorAll('.book'), function(b){return b.style.display!=='none';});
       sec.style.display=anyVis?'':'none';
     });
-    countEl.textContent='Showing '+shown+' of '+total+' across the bookstore';
+    countEl.textContent='Showing '+shown+' of '+total+' across the library';
     emptyEl.style.display=shown?'none':'block';
     [].forEach.call(chipBox.children, function(c){
       var on=c._n===active;
