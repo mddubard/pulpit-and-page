@@ -92,6 +92,9 @@ a{color:inherit}
 .card .tags{font-family:'Open Sans',sans-serif;font-size:11px;display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
 .tag{background:var(--chip);color:var(--muted);padding:3px 10px;border-radius:20px}
 .tag.date{background:transparent;border:1px solid var(--line)}
+/* New across the shelves — compact cards, matched to the recent-releases row */
+#picks-grid{max-width:620px;margin-left:auto;margin-right:auto;gap:16px}
+#picks-grid .card p.desc{font-size:13.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 
 /* bookstore teaser */
 .store{background:var(--green-deep);color:var(--cream)}
@@ -341,7 +344,7 @@ a{color:inherit}
     <div>
       <h2>Step into the bookstore</h2>
       <p>Browse the shelves like you would in the shop — covers face-out, grouped by section, with a few spines tucked in for good measure. Click any book for the details and where to buy, new or used.</p>
-      <a href="library.html" class="btn btn-cream">Enter the library</a>
+      <a href="library.html" class="btn btn-cream">Enter the bookstore</a>
     </div>
     <div class="spines">
       <div class="sp" style="background:#6b4f3a;width:26px;height:120px"></div>
