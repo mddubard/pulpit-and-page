@@ -125,5 +125,62 @@
   </div>
 </footer>
 
+<!-- Newsletter signup modal — The Theology Shelf (shows once, remembered) -->
+<div id="ts-modal" class="ts-modal" role="dialog" aria-modal="true" aria-labelledby="ts-modal-h" hidden>
+  <div class="ts-backdrop" data-close></div>
+  <div class="ts-card">
+    <button class="ts-x" data-close aria-label="Dismiss">&times;</button>
+    <div class="ts-eyebrow">The Theology Shelf</div>
+    <h2 id="ts-modal-h">Make your inbox<br>worth reading.</h2>
+    <p class="ts-sub">New and notable theology, chosen with care and sent free every Friday &mdash; a few of the week&rsquo;s best releases, where to buy, and a find from the used shelf. No spam; unsubscribe anytime.</p>
+    <form class="ts-form" id="ts-form">
+      <input type="email" name="email" id="ts-email" placeholder="Your email address" autocomplete="email" required>
+      <button type="submit" class="btn btn-navy">Subscribe free &rarr;</button>
+    </form>
+    <button class="ts-decline" data-close>No thanks, maybe later</button>
+  </div>
+</div>
+<style>
+  .ts-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+  .ts-modal[hidden]{display:none}
+  .ts-backdrop{position:absolute;inset:0;background:rgba(20,24,17,.62);animation:ts-fade .25s ease}
+  .ts-card{position:relative;background:var(--card);border-radius:16px;max-width:440px;width:100%;padding:38px 34px 28px;box-shadow:0 24px 60px rgba(0,0,0,.38);text-align:center;animation:ts-pop .3s cubic-bezier(.2,.8,.3,1)}
+  @keyframes ts-fade{from{opacity:0}to{opacity:1}}
+  @keyframes ts-pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+  .ts-x{position:absolute;top:10px;right:12px;background:none;border:none;font-size:26px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 9px;border-radius:6px}
+  .ts-x:hover{color:var(--ink)}
+  .ts-eyebrow{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:12px}
+  .ts-card h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:29px;line-height:1.12;color:var(--ink);margin:0 0 12px}
+  .ts-sub{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;color:var(--muted);margin:0 auto 22px;max-width:40ch}
+  .ts-form{display:flex;flex-direction:column;gap:10px}
+  .ts-form input{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:8px;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:15px;background:#fff;color:var(--ink);box-sizing:border-box}
+  .ts-form input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(61,75,59,.12)}
+  .ts-form .btn{width:100%;padding:13px;border-radius:8px;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.5px;cursor:pointer;border:none}
+  .ts-decline{margin-top:14px;background:none;border:none;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:12.5px;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+  .ts-decline:hover{color:var(--ink)}
+  @media(max-width:480px){.ts-card{padding:32px 22px 24px}.ts-card h2{font-size:25px}}
+</style>
+<script>
+(function(){
+  var KEY='pr_ts_signup', DAYS=45, DELAY=4000, SUB='https://thetheologyshelf.beehiiv.com/subscribe';
+  function seen(){try{var v=localStorage.getItem(KEY);if(!v)return false;var t=parseInt(v,10);return !isNaN(t)&&(Date.now()-t)<DAYS*864e5;}catch(e){return false;}}
+  function remember(){try{localStorage.setItem(KEY,String(Date.now()));}catch(e){}}
+  if(seen())return;
+  var m=document.getElementById('ts-modal'); if(!m)return;
+  var shown=false;
+  function open(){if(shown)return;shown=true;m.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){var e=document.getElementById('ts-email');if(e)e.focus();},60);}
+  function close(){m.hidden=true;document.body.style.overflow='';remember();document.removeEventListener('keydown',onKey);}
+  function onKey(e){if(e.key==='Escape')close();}
+  m.addEventListener('click',function(e){if(e.target.hasAttribute('data-close'))close();});
+  document.addEventListener('keydown',onKey);
+  document.getElementById('ts-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(document.getElementById('ts-email').value||'').trim();
+    remember();
+    window.location.href=SUB+(email?('?email='+encodeURIComponent(email)):'');
+  });
+  setTimeout(open,DELAY);
+})();
+</script>
 </body>
 </html>
