@@ -40,6 +40,9 @@
   .hist-book .by{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:12.5px;
     color:var(--muted);margin:0 0 8px;}
   .hist-book .desc{font-size:14px;line-height:1.5;margin:0 0 10px;}
+  .hist-book{display:flex;flex-direction:column;}
+  .hist-book .hist-meta{display:flex;flex-direction:column;flex:1;}
+  .hist-book .desc{flex:1;}
   .hist-book .buy{margin-top:10px;}
   @media(max-width:980px){.hist-books{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:760px){.hist-books{grid-template-columns:repeat(2,1fr);gap:22px 16px;}
@@ -197,7 +200,7 @@
           <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780593702093.jpg?width=600" alt="Fear and Fury by Heather Ann Thompson" loading="lazy"></div>
           <div class="hist-meta">
             <h4>Fear and Fury</h4>
-            <p class="hist-sub">Bernie Goetz, the Reagan 80s, and the Rebirth of White Rage</p>
+            <p class="hist-sub">The Reagan Eighties, the Bernie Goetz Shootings, and the Rebirth of White Rage</p>
             <p class="by">Heather Ann Thompson</p>
             <p class="desc">A 1984 subway shooting as the hinge of a decade. Thompson's Pulitzer-winning eye on how fear hardened into a political inheritance.</p>
             <div class="tags"><span class="tag date">January 27, 2026</span><span class="tag">Pantheon</span></div>
