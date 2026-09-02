@@ -142,6 +142,41 @@ a{color:inherit}
 .foot-social a:hover{color:var(--cream)}
 .foot-social svg{width:20px;height:20px;fill:currentColor;display:block}
 .foot-note{max-width:var(--maxw);margin:34px auto 0;border-top:1px solid rgba(244,241,233,.15);padding-top:20px;font-family:'Open Sans',sans-serif;font-size:11px;color:#8f9a86;text-align:center}
+/* featured band - one book we want out front (hand-maintained) */
+.featured{padding:44px 0 0}
+.feat{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;
+  background:var(--green);color:var(--cream);border-radius:14px;padding:28px 32px;
+  box-shadow:0 14px 34px rgba(38,41,31,.16)}
+.feat .fcover{aspect-ratio:2/3;border-radius:8px;overflow:hidden;background:#2c362b;
+  box-shadow:0 10px 24px rgba(0,0,0,.28)}
+.feat .fcover img{width:100%;height:100%;object-fit:cover;display:block}
+.feat .fkicker{font-family:'Open Sans',sans-serif;font-size:11.5px;letter-spacing:2.4px;
+  text-transform:uppercase;color:var(--accent-l,#e6b98f);margin:0 0 10px;font-weight:700}
+.feat h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:34px;line-height:1.15;
+  margin:0 0 6px;color:var(--cream)}
+.feat .fby{font-family:'Open Sans',sans-serif;font-size:13.5px;color:rgba(244,241,233,.78);
+  margin:0 0 12px}
+.feat .fdesc{font-size:16px;line-height:1.62;margin:0 0 18px;color:rgba(244,241,233,.94);max-width:62ch}
+.feat .fbuy{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.feat .fbtn{display:inline-block;font-family:'Open Sans',sans-serif;font-size:13.5px;
+  letter-spacing:.6px;text-decoration:none;padding:11px 20px;border-radius:7px}
+.feat .fbtn-solid{background:var(--cream);color:var(--green);font-weight:700}
+.feat .fbtn-ghost{border:1px solid rgba(244,241,233,.45);color:var(--cream)}
+.feat .fmore{font-family:'Open Sans',sans-serif;font-size:12px;text-transform:uppercase;
+  letter-spacing:1px;color:rgba(244,241,233,.72);text-decoration:none;margin-left:4px}
+.feat .fmore:hover{color:var(--cream)}
+@media(max-width:760px){
+  .featured{padding:32px 0 0}
+  .feat{grid-template-columns:120px 1fr;gap:18px;padding:20px;align-items:start}
+  .feat h2{font-size:24px}
+  .feat .fdesc{font-size:14.5px;margin-bottom:14px}
+  .feat .fbtn{padding:10px 16px;font-size:13px}
+}
+@media(max-width:460px){
+  .feat{grid-template-columns:1fr}
+  .feat .fcover{width:132px}
+}
+
 @media(max-width:980px){
   .grid5{grid-template-columns:repeat(3,1fr)}
   .grid3{grid-template-columns:repeat(2,1fr)}
@@ -218,6 +253,26 @@ a{color:inherit}
 </section>
 
 <main class="wrap">
+<section class="featured" aria-label="Featured release">
+  <div class="feat">
+    <a class="fcover" href="book-spurgeon-the-man-beyond-the-pulpit.html">
+      <img src="spurgeon-the-man-beyond-the-pulpit.webp" alt="Spurgeon: The Man Beyond the Pulpit by Ray Rhodes">
+    </a>
+    <div class="fbody">
+      <p class="fkicker">Out today &middot; The Theology Shelf</p>
+      <h2><a href="book-spurgeon-the-man-beyond-the-pulpit.html" style="text-decoration:none;color:inherit">Spurgeon: The Man Beyond the Pulpit</a></h2>
+      <p class="fby">Ray Rhodes &middot; B&amp;H Academic &middot; Historical Theology</p>
+      <p class="fdesc">Biographer Ray Rhodes focuses less on the thunder of the metropolitan pulpit and more on Spurgeon at home, tracing his inner strength back to the simple, quiet pastures of rural England.</p>
+      <div class="fbuy">
+        <a class="fbtn fbtn-solid" href="https://www.amazon.com/dp/1087760631?tag=pulpitandpage-20">Amazon &rarr;</a>
+        <a class="fbtn fbtn-ghost" href="https://bookshop.org/a/127643/9781087760636">Bookshop &rarr;</a>
+        <a class="fmore" href="book-spurgeon-the-man-beyond-the-pulpit.html">Read our take &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <section class="section" id="picks">
     <div class="section-head"><h2>New across the shelves</h2><a class="more" href="library.html">Browse the stacks &rarr;</a></div>
     <div class="grid5" id="picks-grid">
