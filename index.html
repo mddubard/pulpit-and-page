@@ -471,16 +471,16 @@ a{color:inherit}
 
 <section class="news" id="subscribe">
   <h2>Get a shelf in your inbox</h2>
-  <p>Choose a shelf and we'll send you its newest and most notable each week — free, and no spam. Only The Theology Shelf is open right now; more are opening soon.</p>
+  <p>Choose a shelf and we'll send you its newest and most notable — free, and no spam. Theology lands weekly; History every other Friday. More shelves are opening soon.</p>
   <div class="shelf-pick" role="radiogroup" aria-label="Choose a shelf">
     <label class="pick on"><input type="radio" name="shelf" value="theology" data-url="https://thetheologyshelf.beehiiv.com/subscribe" checked> The Theology Shelf</label>
     <label class="pick soon"><input type="radio" name="shelf" disabled> The Fiction Shelf <span>soon</span></label>
-    <label class="pick soon"><input type="radio" name="shelf" disabled> The History Shelf <span>soon</span></label>
+    <label class="pick on"><input type="radio" name="shelf" value="history" data-url="https://thehistoryshelf.beehiiv.com/subscribe"> The History Shelf</label>
     <label class="pick soon"><input type="radio" name="shelf" disabled> The Kids' Shelf <span>soon</span></label>
   </div>
   <form onsubmit="var r=this.querySelector('input[name=shelf]:checked')||document.querySelector('input[name=shelf]:checked');location.href=r.getAttribute('data-url')+'?email='+encodeURIComponent(this.em.value);return false;">
     <input type="email" name="em" placeholder="you@email.com" aria-label="Email address" required>
-    <button class="btn btn-green" type="submit">Subscribe to The Theology Shelf</button>
+    <button class="btn btn-green" type="submit">Subscribe</button>
   </form>
 </section>
 
