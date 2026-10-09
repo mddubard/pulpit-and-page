@@ -56,6 +56,7 @@
     justify-content:center;font-family:Helvetica,Arial,sans-serif;font-size:9px;
     color:#9a8f80;text-align:center;padding:4px;overflow:hidden;}
   .cover img{width:100%;height:100%;object-fit:cover;border-radius:3px;}
+  .book[data-shelf="kids"] .cover img{object-fit:contain;}  /* square/landscape picture books */
   .cover svg{width:100%;height:100%;display:block;border-radius:3px;}
   .meta h4{margin:0 0 3px;font-size:18px;line-height:1.25;}
   .meta .by{color:var(--muted);font-size:14px;margin:0 0 6px;}
@@ -163,6 +164,9 @@
     <p data-shelf-copy="fiction" hidden>New and forthcoming fiction &mdash; mysteries, historical fiction, fantasy,
        and literary novels &mdash; organized by month. Every book is checked for explicit content first;
        <a href="fiction.html#how-we-choose">here's how we choose</a>.</p>
+    <p data-shelf-copy="kids" hidden>New and forthcoming books for children and teenagers &mdash; picture books,
+       early and chapter books, middle grade, and young adult &mdash; organized by month, each with its age range.
+       Every book is checked before it goes up; <a href="kids.html#how-we-choose">here's how we choose</a>.</p>
     <p id="weekly-email" data-shelf-copy="theology"><strong>Want it in your inbox?</strong> Every Friday we send the week's new theology
        releases — <a href="index.html#subscribe">subscribe to the free email &rarr;</a></p>
   </section>
@@ -171,7 +175,7 @@
     <button type="button" class="cal-tab on" data-shelf="theology" aria-pressed="true">Theology</button>
     <button type="button" class="cal-tab" data-shelf="history" aria-pressed="false">History</button>
     <button type="button" class="cal-tab" data-shelf="fiction" aria-pressed="false">Fiction</button>
-    <span class="cal-tab soon">Kids · soon</span>
+    <button type="button" class="cal-tab" data-shelf="kids" aria-pressed="false">Kids</button>
   </div>
 
   <nav class="monthjump" aria-label="Jump to month">
@@ -213,6 +217,15 @@
     <button class="fbtn" data-terms="|literary fiction|">Literary Fiction</button>
   </div>
 
+  <div class="topicbar" id="topicbar-kids" data-shelf-bar="kids" hidden>
+    <span class="lbl">Filter by age:</span>
+    <button class="fbtn active" data-terms="">All</button>
+    <button class="fbtn" data-terms="|picture books|">Picture Books</button>
+    <button class="fbtn" data-terms="|early &amp; chapter books|">Early &amp; Chapter Books</button>
+    <button class="fbtn" data-terms="|middle grade|">Middle Grade</button>
+    <button class="fbtn" data-terms="|young adult|">Young Adult</button>
+  </div>
+
     <p class="pub-note" style="font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:13px;color:var(--muted);margin:10px 0 2px;">Looking for a specific publisher? <a href="publishers.html" style="color:var(--navy);font-weight:600;text-decoration:none;">Browse by publisher &rarr;</a></p>
 
   <!-- ============ RECENTLY RELEASED / STILL NOTABLE ============ -->
@@ -221,6 +234,7 @@
     <p class="note" data-shelf-copy="theology">Newer Reformed &amp; academic titles that landed earlier this year and still belong on the shelf.</p>
     <p class="note" data-shelf-copy="history" hidden>History released earlier this year that still belongs on the shelf.</p>
     <p class="note" data-shelf-copy="fiction" hidden>Fiction released earlier this fall that still belongs on the shelf.</p>
+    <p class="note" data-shelf-copy="kids" hidden>Kids' books released earlier this year that still belong on the shelf.</p>
     <!--INSERT:recent-->
 <!--ADDED:book-a-heart-aflame-for-god-->
     <article class="book" data-shelf="theology">
@@ -1791,6 +1805,97 @@
   <section class="month" id="aug">
     <h3>August 2026</h3>
     <!--INSERT:aug-->
+<!--ADDED:book-god-and-me-the-first-story-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781645076377.jpg?width=600" alt="God and Me: The First Story by Marty Machowski" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-god-and-me-the-first-story.html" style="color:inherit;">God and Me: The First Story</a></h4>
+        <p class="by">Marty Machowski</p>
+        <p class="desc">Fifteen lessons on Genesis 1-3 that a child can work through alone.</p>
+        <div class="tags"><span class="tag date">August 31, 2026</span><span class="tag">New Growth Press</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-11</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1645076377?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781645076377">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-deep-dive-into-the-old-testament-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781802544305.jpg?width=600" alt="Deep Dive into the Old Testament by Claire Sims" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-deep-dive-into-the-old-testament.html" style="color:inherit;">Deep Dive into the Old Testament</a></h4>
+        <p class="by">Claire Sims</p>
+        <p class="desc">A pencil-in-hand study of Genesis and Exodus for kids who are ready to move past storybook Bibles.</p>
+        <div class="tags"><span class="tag date">August 01, 2026</span><span class="tag">The Good Book Company</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1802544305?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781802544305">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-escape-from-rome-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781433599620.jpg?width=600" alt="Escape from Rome by Kathryn Butler" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-escape-from-rome.html" style="color:inherit;">Escape from Rome</a></h4>
+        <p class="by">Kathryn Butler</p>
+        <p class="desc">A glowing lamp sends the reader to Rome just before the Great Fire, and the reader chooses what happens next.</p><p class="content-note"><strong>Content note:</strong> Peril, including gladiators, prison, and Nero&#x27;s Rome.</p>
+        <div class="tags"><span class="tag date">August 04, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1433599627?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781433599620">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-story-of-phillis-wheatley-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781433593246.jpg?width=600" alt="The Story of Phillis Wheatley by K. A. Ellis" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-story-of-phillis-wheatley.html" style="color:inherit;">The Story of Phillis Wheatley</a></h4>
+        <p class="by">K. A. Ellis</p>
+        <p class="desc">A biography of the enslaved poet who came to faith in Christ and wrote and spoke against injustice.</p><p class="content-note"><strong>Content note:</strong> Deals directly with slavery.</p>
+        <div class="tags"><span class="tag date">August 18, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-13</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1433593246?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781433593246">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-story-of-eric-liddell-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781433583452.jpg?width=600" alt="The Story of Eric Liddell by Champ Thornton" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-story-of-eric-liddell.html" style="color:inherit;">The Story of Eric Liddell</a></h4>
+        <p class="by">Champ Thornton</p>
+        <p class="desc">A short biography of the Olympic runner who became a missionary to China.</p><p class="content-note"><strong>Content note:</strong> Covers his internment and death in a wartime camp in China.</p>
+        <div class="tags"><span class="tag date">August 18, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-13</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1433583453?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781433583452">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-god-returns-for-me-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798874902360.jpg?width=600" alt="God Returns for Me by Kristen Wetherell, illus. Grace Habib" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-god-returns-for-me.html" style="color:inherit;">God Returns for Me</a></h4>
+        <p class="by">Kristen Wetherell, illus. Grace Habib</p>
+        <p class="desc">A board book about Christ&#x27;s promise to come back, take away sin, and make the world new.</p>
+        <div class="tags"><span class="tag date">August 25, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 0-4</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798874902360&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798874902360">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-god-changes-me-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798874902353.jpg?width=600" alt="God Changes Me by Kristen Wetherell, illus. Grace Habib" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-god-changes-me.html" style="color:inherit;">God Changes Me</a></h4>
+        <p class="by">Kristen Wetherell, illus. Grace Habib</p>
+        <p class="desc">A board book about how the Holy Spirit makes children more like Jesus, from their need for a Savior to the fruit of the Spirit.</p>
+        <div class="tags"><span class="tag date">August 25, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 0-4</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798874902353&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798874902353">Bookshop &rarr;</a></div>
+    </article>
+
 <!--ADDED:book-the-wisdom-of-sleep-->
     <article class="book" data-shelf="theology">
       <div class="cover"><img src="the-wisdom-of-sleep.jpg" alt="The Wisdom of Sleep by Brett McCracken" loading="lazy"></div>
@@ -2152,6 +2257,149 @@
     <h3>September 2026 &nbsp;·&nbsp; Coming Soon</h3>
     <p class="note">Pre-order season — the titles readers are watching for.</p>
     <!--INSERT:sep-->
+<!--ADDED:book-the-forgotten-war-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798225004361.jpg?width=600" alt="The Forgotten War by Candace Fleming" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-forgotten-war.html" style="color:inherit;">The Forgotten War</a></h4>
+        <p class="by">Candace Fleming</p>
+        <p class="desc">The 1942 Japanese occupation of Attu in the Aleutian Islands and the costly American effort to take it back.</p><p class="content-note"><strong>Content note:</strong> Battle deaths.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">Scholastic Focus</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 9-13</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798225004361&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798225004361">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-building-903-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780063515109.jpg?width=600" alt="Building 903 by Lois Lowry" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-building-903.html" style="color:inherit;">Building 903</a></h4>
+        <p class="by">Lois Lowry</p>
+        <p class="desc">Books are against the law, and Tessa&#x27;s twin brother has vanished. An elderly neighbor leaves her the key to a hidden room full of books.</p>
+        <div class="tags"><span class="tag date">September 29, 2026</span><span class="tag">Clarion Books</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 9-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/0063515105?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9780063515109">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-new-morning-mercies-for-kids-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798874906801.jpg?width=600" alt="New Morning Mercies for Kids by Paul David Tripp" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-new-morning-mercies-for-kids.html" style="color:inherit;">New Morning Mercies for Kids</a></h4>
+        <p class="by">Paul David Tripp</p>
+        <p class="desc">Sixty short devotions for children, arranged over twenty weeks, with puzzles.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798874906801&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798874906801">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-gods-story-our-story-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781802544404.jpg?width=600" alt="God&#x27;s Story, Our Story by Charlotte and Andrew Ollerton" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-gods-story-our-story.html" style="color:inherit;">God&#x27;s Story, Our Story</a></h4>
+        <p class="by">Charlotte and Andrew Ollerton</p>
+        <p class="desc">Nine weeks of fifteen-minute family devotions through the whole Bible, with audio by QR code.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">The Good Book Company</span>
+          <span class="tag">Early &amp; Chapter Books</span><span class="tag age">Ages 5+</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1802544402?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781802544404">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-biggest-story-scripture-journal-for-kids-genesis-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798874911386.jpg?width=600" alt="The Biggest Story Scripture Journal for Kids: Genesis by ESV, illus. Don Clark" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-biggest-story-scripture-journal-for-kids-genesis.html" style="color:inherit;">The Biggest Story Scripture Journal for Kids: Genesis</a></h4>
+        <p class="by">ESV, illus. Don Clark</p>
+        <p class="desc">The full ESV text of Genesis with a journaling page across from every page of Scripture.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Early &amp; Chapter Books</span><span class="tag age">Ages 4-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798874911386&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798874911386">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-stella-marigold-past-and-presents-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781797219721.jpg?width=600" alt="Stella &amp; Marigold: Past and Presents by Annie Barrows, illus. Sophie Blackall" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-stella-marigold-past-and-presents.html" style="color:inherit;">Stella &amp; Marigold: Past and Presents</a></h4>
+        <p class="by">Annie Barrows, illus. Sophie Blackall</p>
+        <p class="desc">Sisters Stella and Marigold learn that a girl once lived in their house, wrote on its walls, and left presents behind.</p>
+        <div class="tags"><span class="tag date">September 29, 2026</span><span class="tag">Chronicle Books</span>
+          <span class="tag">Early &amp; Chapter Books</span><span class="tag age">Ages 6-9</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1797219723?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781797219721">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-tom-nancy-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781774885710.jpg?width=600" alt="Tom Nancy by Mac Barnett, illus. X. Fang" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-tom-nancy.html" style="color:inherit;">Tom Nancy</a></h4>
+        <p class="by">Mac Barnett, illus. X. Fang</p>
+        <p class="desc">A sheep tricks a farm boy named Felix into a brain-swapping machine and takes his place in the family.</p>
+        <div class="tags"><span class="tag date">September 22, 2026</span><span class="tag">Tundra Books</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-8</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1774885719?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781774885710">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-zara-and-the-mean-girl-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781645076339.jpg?width=600" alt="Zara and the Mean Girl by Rebekah Hannah and Jocelyn Flenders, illus. Lee Wildish" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-zara-and-the-mean-girl.html" style="color:inherit;">Zara and the Mean Girl</a></h4>
+        <p class="by">Rebekah Hannah and Jocelyn Flenders, illus. Lee Wildish</p>
+        <p class="desc">Zara stands up for a classmate who is being teased and becomes the next target. Includes a note for parents.</p><p class="content-note"><strong>Content note:</strong> Deals with bullying.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">New Growth Press</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-7</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1645076334?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781645076339">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-all-kinds-of-weather-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798384529767.jpg?width=600" alt="All Kinds of Weather by Abbey Wedgeworth, illus. Simon Tidwell" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-all-kinds-of-weather.html" style="color:inherit;">All Kinds of Weather</a></h4>
+        <p class="by">Abbey Wedgeworth, illus. Simon Tidwell</p>
+        <p class="desc">A boy tries to stay dry as the rain and his family&#x27;s troubles keep coming. A rhyming picture book about worry and trusting God.</p><p class="content-note"><strong>Content note:</strong> Touches on grief, family changes, and bullying.</p>
+        <div class="tags"><span class="tag date">September 15, 2026</span><span class="tag">B&amp;H Kids</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-8</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798384529767&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798384529767">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-made-like-me-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781802544466.jpg?width=600" alt="Made Like Me by Jen Wilkin, illus. Rommel Ruiz" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-made-like-me.html" style="color:inherit;">Made Like Me</a></h4>
+        <p class="by">Jen Wilkin, illus. Rommel Ruiz</p>
+        <p class="desc">A rhyming retelling of Genesis 2, showing that God made people to need and help one another.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">The Good Book Company</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-7</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1802544461?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781802544466">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-god-gives-sleep-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798384534747.jpg?width=600" alt="God Gives Sleep by Betsy Childs Howard" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-god-gives-sleep.html" style="color:inherit;">God Gives Sleep</a></h4>
+        <p class="by">Betsy Childs Howard</p>
+        <p class="desc">A bedtime rhyme about sleeping animals and the God who gives rest, with a note of encouragement for tired parents.</p>
+        <div class="tags"><span class="tag date">September 01, 2026</span><span class="tag">B&amp;H Kids</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 0-3</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798384534747&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798384534747">Bookshop &rarr;</a></div>
+    </article>
+
 <!--ADDED:book-we-chase-shadows-->
     <article class="book" data-shelf="fiction">
       <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798217060399.jpg?width=600" alt="We Chase Shadows by Richard Osman" loading="lazy"></div>
@@ -2926,6 +3174,188 @@
     <h3>October 2026 &nbsp;·&nbsp; Coming Soon</h3>
     <p class="note">Pre-order season — the titles readers are watching for.</p>
     <!--INSERT:oct-->
+<!--ADDED:book-where-the-wild-horses-are-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780823462360.jpg?width=600" alt="Where the Wild Horses Are by Amy Alznauer" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-where-the-wild-horses-are.html" style="color:inherit;">Where the Wild Horses Are</a></h4>
+        <p class="by">Amy Alznauer</p>
+        <p class="desc">Twelve-year-old Nash, the hearing daughter of a Deaf family, enters a contest to gentle a wild mustang in one hundred days.</p>
+        <div class="tags"><span class="tag date">October 13, 2026</span><span class="tag">Neal Porter Books</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 10+</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/0823462366?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9780823462360">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-this-is-a-door-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781464246029.jpg?width=600" alt="This Is a Door by Daniel Nayeri" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-this-is-a-door.html" style="color:inherit;">This Is a Door</a></h4>
+        <p class="by">Daniel Nayeri</p>
+        <p class="desc">An orphan named Ing sets out with his dog and mouse on a twelve-stage quest, while the words on the page change shape around him.</p><p class="content-note"><strong>Content note:</strong> An invented Land of the Dead, a ghost, and a monster fight; the hero has lost his parents.</p>
+        <div class="tags"><span class="tag date">October 27, 2026</span><span class="tag">Stonefruit Studio</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1464246025?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781464246029">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-bible-infographics-for-kids-bible-handbook-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780736992152.jpg?width=600" alt="Bible Infographics for Kids Bible Handbook by Harvest House" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-bible-infographics-for-kids-bible-handbook.html" style="color:inherit;">Bible Infographics for Kids Bible Handbook</a></h4>
+        <p class="by">Harvest House</p>
+        <p class="desc">An infographic survey of the whole Bible, with timelines and maps.</p>
+        <div class="tags"><span class="tag date">October 01, 2026</span><span class="tag">Harvest House</span>
+          <span class="tag">Middle Grade</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/0736992154?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9780736992152">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-where-wonder-leads-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781645076216.jpg?width=600" alt="Where Wonder Leads by Eryn Lynum, illus. Chiara Fedele" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-where-wonder-leads.html" style="color:inherit;">Where Wonder Leads</a></h4>
+        <p class="by">Eryn Lynum, illus. Chiara Fedele</p>
+        <p class="desc">A young naturalist named Willow explores the outdoors, and each chapter pairs science with Scripture.</p>
+        <div class="tags"><span class="tag date">October 01, 2026</span><span class="tag">New Growth Press</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1645076210?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781645076216">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-10-questions-about-growing-in-christ-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798874900670.jpg?width=600" alt="10 Questions About Growing in Christ by William R. Osborne" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-10-questions-about-growing-in-christ.html" style="color:inherit;">10 Questions About Growing in Christ</a></h4>
+        <p class="by">William R. Osborne</p>
+        <p class="desc">Thirty readings on prayer, Bible reading, church, hard times, and feeling not good enough.</p>
+        <div class="tags"><span class="tag date">October 20, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-14</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798874900670&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798874900670">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-covenants-for-kids-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://cdn.shopify.com/s/files/1/0021/5210/3983/files/9798887792279.jpg?v=1779907610&amp;width=600" alt="Covenants for Kids by O. Palmer Robertson, illus. Joe Hox" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-covenants-for-kids.html" style="color:inherit;">Covenants for Kids</a></h4>
+        <p class="by">O. Palmer Robertson, illus. Joe Hox</p>
+        <p class="desc">A color-coded walk through the covenants of the Bible, showing how each one points to Christ.</p>
+        <div class="tags"><span class="tag date">October 15, 2026</span><span class="tag">P&amp;R Publishing</span>
+          <span class="tag">Early &amp; Chapter Books</span><span class="tag age">Ages 4-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798887792279&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798887792279">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-greatest-project-in-space-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781536250121.jpg?width=600" alt="The Greatest Project in Space by Markus Motum" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-greatest-project-in-space.html" style="color:inherit;">The Greatest Project in Space</a></h4>
+        <p class="by">Markus Motum</p>
+        <p class="desc">How the International Space Station was built piece by piece in orbit and how astronauts live and work there.</p>
+        <div class="tags"><span class="tag date">October 20, 2026</span><span class="tag">Candlewick</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 7-10</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1536250120?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781536250121">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-what-marcel-found-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781665941419.jpg?width=600" alt="What Marcel Found by Cedar Pruitt, illus. David Litchfield" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-what-marcel-found.html" style="color:inherit;">What Marcel Found</a></h4>
+        <p class="by">Cedar Pruitt, illus. David Litchfield</p>
+        <p class="desc">In 1940 a French teenager named Marcel finds a hidden cave full of ancient animal paintings.</p><p class="content-note"><strong>Content note:</strong> Dates the cave paintings to about 17,000 years ago.</p>
+        <div class="tags"><span class="tag date">October 13, 2026</span><span class="tag">Beach Lane Books</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-8</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1665941413?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781665941419">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-whale-song-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781536251913.jpg?width=600" alt="Whale Song by Nicola Davies, illus. Britta Teckentrup" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-whale-song.html" style="color:inherit;">Whale Song</a></h4>
+        <p class="by">Nicola Davies, illus. Britta Teckentrup</p>
+        <p class="desc">How humpback whales learn songs from one another and carry them across the oceans.</p>
+        <div class="tags"><span class="tag date">October 20, 2026</span><span class="tag">Candlewick</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 3-7</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1536251917?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781536251913">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-igloo-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780063315488.jpg?width=600" alt="Igloo by Ann Kim Ha" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-igloo.html" style="color:inherit;">Igloo</a></h4>
+        <p class="by">Ann Kim Ha</p>
+        <p class="desc">A chickadee caught in a snowstorm is joined by geese, a fox, and a bear, and they huddle together through the night.</p>
+        <div class="tags"><span class="tag date">October 06, 2026</span><span class="tag">Greenwillow Books</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-8</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/0063315483?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9780063315488">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-cow-and-sow-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781774882603.jpg?width=600" alt="Cow and Sow by Matthew Farina, illus. Doug Salati" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-cow-and-sow.html" style="color:inherit;">Cow and Sow</a></h4>
+        <p class="by">Matthew Farina, illus. Doug Salati</p>
+        <p class="desc">Two farm friends stuck indoors in winter discover ice skating on the frozen pond and invite the other animals to join them.</p>
+        <div class="tags"><span class="tag date">October 06, 2026</span><span class="tag">Tundra Books</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 3-7</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1774882604?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781774882603">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-i-wonder-if-im-growing-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781774888858.jpg?width=600" alt="I Wonder If I&#x27;m Growing by Raffi, illus. Jon Klassen" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-i-wonder-if-im-growing.html" style="color:inherit;">I Wonder If I&#x27;m Growing</a></h4>
+        <p class="by">Raffi, illus. Jon Klassen</p>
+        <p class="desc">A young child is told they are growing but can&#x27;t see it happening, and watches for signs of it at home. Based on Raffi&#x27;s song.</p>
+        <div class="tags"><span class="tag date">October 20, 2026</span><span class="tag">Tundra Books</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 2-5</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1774888858?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781774888858">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-boy-behind-the-wardrobe-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780802855169.jpg?width=600" alt="The Boy Behind the Wardrobe by Suzanne Poulter Harris, illus. Mira Miroslavova" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-boy-behind-the-wardrobe.html" style="color:inherit;">The Boy Behind the Wardrobe</a></h4>
+        <p class="by">Suzanne Poulter Harris, illus. Mira Miroslavova</p>
+        <p class="desc">A picture-book biography of C.S. Lewis, from his childhood and school years to his friendship with Tolkien and the writing of Narnia.</p><p class="content-note"><strong>Content note:</strong> Mentions his mother&#x27;s death and World War I.</p>
+        <div class="tags"><span class="tag date">October 20, 2026</span><span class="tag">Eerdmans Books for Young Readers</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 6-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/0802855164?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9780802855169">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-upside-down-inside-out-cant-believe-it-kingdom-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://cdn.shopify.com/s/files/1/0021/5210/3983/files/9798887792217.jpg?v=1779904148&amp;width=600" alt="The Upside-Down, Inside-Out, Can&#x27;t-Believe-It Kingdom by Jonathan Landry Cruse, illus. Joe Hox" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-upside-down-inside-out-cant-believe-it-kingdom.html" style="color:inherit;">The Upside-Down, Inside-Out, Can&#x27;t-Believe-It Kingdom</a></h4>
+        <p class="by">Jonathan Landry Cruse, illus. Joe Hox</p>
+        <p class="desc">A father explains to his son, in rhyme, how God&#x27;s kingdom works in backward ways: grace, the cross, and being made right with God.</p>
+        <div class="tags"><span class="tag date">October 15, 2026</span><span class="tag">P&amp;R Publishing</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-7</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798887792217&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798887792217">Bookshop &rarr;</a></div>
+    </article>
+
 <!--ADDED:book-the-story-baker-->
     <article class="book" data-shelf="fiction">
       <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781335000996.jpg?width=600" alt="The Story Baker by Carsten Henn" loading="lazy"></div>
@@ -3563,6 +3993,84 @@
     <h3>November 2026 &nbsp;·&nbsp; On Preorder</h3>
     <p class="note">Further out, but open for preorder now.</p>
     <!--INSERT:nov-->
+<!--ADDED:book-pilgrims-progress-the-graphic-novel-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781433593963.jpg?width=600" alt="Pilgrim&#x27;s Progress: The Graphic Novel by John Bunyan, adapted by Jeremy Patenaude, illus. Brent McKee" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-pilgrims-progress-the-graphic-novel.html" style="color:inherit;">Pilgrim&#x27;s Progress: The Graphic Novel</a></h4>
+        <p class="by">John Bunyan, adapted by Jeremy Patenaude, illus. Brent McKee</p>
+        <p class="desc">Bunyan&#x27;s allegory in graphic-novel form, keeping his own language, with a short reflection after each chapter.</p><p class="content-note"><strong>Content note:</strong> Dark imagery and peril, as in the original.</p>
+        <div class="tags"><span class="tag date">November 15, 2026</span><span class="tag">Crossway</span>
+          <span class="tag">Young Adult</span><span class="tag age">Ages 13+</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1433593963?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781433593963">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-accidental-world-slip-of-astrid-verity-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781646147625.jpg?width=600" alt="The Accidental World-Slip of Astrid Verity by Jaclyn Moriarty" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-accidental-world-slip-of-astrid-verity.html" style="color:inherit;">The Accidental World-Slip of Astrid Verity</a></h4>
+        <p class="by">Jaclyn Moriarty</p>
+        <p class="desc">A misfired spell drops ten-year-old Astrid out of a tournament and into a Sydney suburb, where a girl named Echo takes her in.</p><p class="content-note"><strong>Content note:</strong> Grief over a mother&#x27;s death; peril in the wilderness.</p>
+        <div class="tags"><span class="tag date">November 03, 2026</span><span class="tag">Levine Querido</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 9-13</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1646147626?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781646147625">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-totally-true-tales-from-world-war-ii-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781665986809.jpg?width=600" alt="Totally True Tales from World War II by Stuart Gibbs, illus. Ward Jenkins" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-totally-true-tales-from-world-war-ii.html" style="color:inherit;">Totally True Tales from World War II</a></h4>
+        <p class="by">Stuart Gibbs, illus. Ward Jenkins</p>
+        <p class="desc">True stories of commando raids, codebreaking, and deception, told by the narrator of the Spy School series.</p><p class="content-note"><strong>Content note:</strong> Wartime raids and combat.</p>
+        <div class="tags"><span class="tag date">November 10, 2026</span><span class="tag">Simon &amp; Schuster Books for Young Readers</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1665986808?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781665986809">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-backpack-boy-berlin-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9781536239461.jpg?width=600" alt="Backpack, Boy, Berlin by Kip Wilson, illus. Matt Schu" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-backpack-boy-berlin.html" style="color:inherit;">Backpack, Boy, Berlin</a></h4>
+        <p class="by">Kip Wilson, illus. Matt Schu</p>
+        <p class="desc">In 1938, ten-year-old Don moves to Berlin with his diplomat father and begins carrying secret messages for the resistance. A novel in verse.</p><p class="content-note"><strong>Content note:</strong> Nazi persecution and danger to members of the resistance.</p>
+        <div class="tags"><span class="tag date">November 03, 2026</span><span class="tag">Candlewick</span>
+          <span class="tag">Middle Grade</span><span class="tag age">Ages 8-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/1536239461?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9781536239461">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-salvation-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9798886863321.jpg?width=600" alt="Salvation by Joel R. Beeke and Nick Thompson" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-salvation.html" style="color:inherit;">Salvation</a></h4>
+        <p class="by">Joel R. Beeke and Nick Thompson</p>
+        <p class="desc">Ninety family-worship readings from Romans through Philemon.</p>
+        <div class="tags"><span class="tag date">November 05, 2026</span><span class="tag">Reformation Heritage Books</span>
+          <span class="tag">Early &amp; Chapter Books</span><span class="tag age">Ages 5-12</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/s?k=9798886863321&amp;tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9798886863321">Bookshop &rarr;</a></div>
+    </article>
+
+<!--ADDED:book-the-snow-loves-->
+    <article class="book" data-shelf="kids">
+      <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780593904312.jpg?width=600" alt="The Snow Loves by Kirsten Hall, illus. Marc Martin" loading="lazy"></div>
+      <div class="meta">
+        <h4><a href="book-the-snow-loves.html" style="color:inherit;">The Snow Loves</a></h4>
+        <p class="by">Kirsten Hall, illus. Marc Martin</p>
+        <p class="desc">A poem about winter in a snowy forest and the animals that live there.</p>
+        <div class="tags"><span class="tag date">November 10, 2026</span><span class="tag">Random House Studio</span>
+          <span class="tag">Picture Books</span><span class="tag age">Ages 4-8</span></div>
+      </div>
+      <div class="buy"><a class="amz" href="https://www.amazon.com/dp/0593904311?tag=pulpitandpage-20">Amazon &rarr;</a><a href="https://bookshop.org/a/127643/9780593904312">Bookshop &rarr;</a></div>
+    </article>
+
 <!--ADDED:book-the-home-front-sisters-->
     <article class="book" data-shelf="fiction">
       <div class="cover"><img src="https://images-us.bookshop.org/ingram/9780764243004.jpg?width=600" alt="The Home Front Sisters by Amy Lynn Green" loading="lazy"></div>
@@ -5751,7 +6259,7 @@
   });
   // deep link: calendar.html?shelf=history
   var want = (location.search.match(/[?&]shelf=([a-z]+)/) || [])[1];
-  selectShelf(want === 'history' || want === 'fiction' ? want : 'theology');
+  selectShelf(want === 'history' || want === 'fiction' || want === 'kids' ? want : 'theology');
 
   // top-nav links: smooth-scroll to a section, optionally reset the filter
   document.querySelectorAll('.nav-link').forEach(function(link){

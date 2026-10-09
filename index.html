@@ -85,6 +85,7 @@ a{color:inherit}
 .card a{text-decoration:none;color:inherit;display:block}
 .card .cover{aspect-ratio:2/3;background:linear-gradient(135deg,#efe9df,#ded4c6);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .card .cover img{width:100%;height:100%;object-fit:cover;display:block}
+#shelf-grid-kids .card .cover img{object-fit:contain}
 .card .body{padding:16px 18px 18px}
 .card .by{font-family:'Open Sans',sans-serif;font-size:12.5px;color:var(--muted);margin:0 0 6px}
 .card h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;margin:0 0 6px;line-height:1.22;color:var(--ink)}
@@ -347,11 +348,11 @@ a{color:inherit}
         <p class="sdesc">The past, told well — church, world, American &amp; military history, new and used, chosen with care.</p>
         <a class="link" href="history.html">Visit the shelf &rarr;</a>
       </div>
-      <div class="shelf-card disabled">
-        <span class="badge soon">Coming soon</span>
+      <div class="shelf-card">
+        <span class="badge live">Now open</span>
         <h3 class="sname">The Kids' Shelf</h3>
-        <p class="sdesc">Books worth reading aloud — picture books and early readers chosen with the same picky care.</p>
-        <a class="link" href="#subscribe">Notify me →</a>
+        <p class="sdesc">Picture books to young adult, checked before they're shelved, with an age range on every book.</p>
+        <a class="link" href="kids.html">Visit the shelf &rarr;</a>
       </div>
     </div>
   </section>
@@ -409,6 +410,23 @@ a{color:inherit}
       </noscript>
     </div>
     </div>
+
+    <div class="shelfrow" data-shelf-row="kids">
+      <div class="shelfrow-head">
+        <h3>The Kids' Shelf</h3>
+        <a class="more" href="kids.html">Visit the shelf &rarr;</a>
+      </div>
+      <p class="shelfrow-sub">New books for children and teenagers, with an age range on every one.</p>
+      <div class="grid5" id="shelf-grid-kids">
+      <noscript>
+        <article class="card"><a href="book-igloo.html"><div class="cover"><img src="https://images-us.bookshop.org/ingram/9780063315488.jpg?width=600" alt="Igloo"></div><div class="body"><p class="by">Greenwillow Books · Picture Books</p><h3>Igloo</h3><p class="desc">A chickadee caught in a snowstorm is joined by geese, a fox, and a bear, and they huddle together through the night.</p></div></a></article>
+        <article class="card"><a href="book-cow-and-sow.html"><div class="cover"><img src="https://images-us.bookshop.org/ingram/9781774882603.jpg?width=600" alt="Cow and Sow"></div><div class="body"><p class="by">Tundra Books · Picture Books</p><h3>Cow and Sow</h3><p class="desc">Two farm friends stuck indoors in winter discover ice skating on the frozen pond and invite the other animals to join them.</p></div></a></article>
+        <article class="card"><a href="book-bible-infographics-for-kids-bible-handbook.html"><div class="cover"><img src="https://images-us.bookshop.org/ingram/9780736992152.jpg?width=600" alt="Bible Infographics for Kids Bible Handbook"></div><div class="body"><p class="by">Harvest House · Middle Grade</p><h3>Bible Infographics for Kids Bible Handbook</h3><p class="desc">An infographic survey of the whole Bible, with timelines and maps.</p></div></a></article>
+        <article class="card"><a href="book-where-wonder-leads.html"><div class="cover"><img src="https://images-us.bookshop.org/ingram/9781645076216.jpg?width=600" alt="Where Wonder Leads"></div><div class="body"><p class="by">New Growth Press · Middle Grade</p><h3>Where Wonder Leads</h3><p class="desc">A young naturalist named Willow explores the outdoors, and each chapter pairs science with Scripture.</p></div></a></article>
+        <article class="card"><a href="book-building-903.html"><div class="cover"><img src="https://images-us.bookshop.org/ingram/9780063515109.jpg?width=600" alt="Building 903"></div><div class="body"><p class="by">Clarion Books · Middle Grade</p><h3>Building 903</h3><p class="desc">Books are against the law, and Tessa's twin brother has vanished.</p></div></a></article>
+      </noscript>
+    </div>
+    </div>
   </section>
 
   <script>
@@ -446,7 +464,19 @@ a{color:inherit}
      {t:"Target Down",by:"Tyndale · Mystery &amp; Suspense",img:"https://images-us.bookshop.org/ingram/9798400510908.jpg?width=600",u:"book-target-down.html",dt:"2026-09-08",sh:"fiction",d:"A former operative who faked his death is found by a Russian mafia hit team, and Matthew Redd hides his children while hunting…"},
      {t:"On the Edge of the Dark Sea of Darkness",by:"WaterBrook · Fantasy",img:"https://images-us.bookshop.org/ingram/9780593581124.jpg?width=600",u:"book-on-the-edge-of-the-dark-sea-of-darkness.html",dt:"2026-09-08",sh:"fiction",d:"The first Wingfeather book retold as a graphic novel."},
      {t:"Every Given Day",by:"Tyndale · Historical Fiction",img:"https://images-us.bookshop.org/ingram/9798400508608.jpg?width=600",u:"book-every-given-day.html",dt:"2026-09-08",sh:"fiction",d:"New York, 1918."},
-     {t:"Murders in the Marquee",by:"Love Inspired Trade · Mystery &amp; Suspense",img:"https://images-us.bookshop.org/ingram/9781335002730.jpg?width=600",u:"book-murders-in-the-marquee.html",dt:"2026-09-01",sh:"fiction",d:"San Francisco, 1905."}
+     {t:"Murders in the Marquee",by:"Love Inspired Trade · Mystery &amp; Suspense",img:"https://images-us.bookshop.org/ingram/9781335002730.jpg?width=600",u:"book-murders-in-the-marquee.html",dt:"2026-09-01",sh:"fiction",d:"San Francisco, 1905."},
+     {t:"Igloo",by:"Greenwillow Books · Picture Books",img:"https://images-us.bookshop.org/ingram/9780063315488.jpg?width=600",u:"book-igloo.html",dt:"2026-10-06",sh:"kids",d:"A chickadee caught in a snowstorm is joined by geese, a fox, and a bear, and they huddle together through the night."},
+     {t:"Cow and Sow",by:"Tundra Books · Picture Books",img:"https://images-us.bookshop.org/ingram/9781774882603.jpg?width=600",u:"book-cow-and-sow.html",dt:"2026-10-06",sh:"kids",d:"Two farm friends stuck indoors in winter discover ice skating on the frozen pond and invite the other animals to join them."},
+     {t:"Bible Infographics for Kids Bible Handbook",by:"Harvest House · Middle Grade",img:"https://images-us.bookshop.org/ingram/9780736992152.jpg?width=600",u:"book-bible-infographics-for-kids-bible-handbook.html",dt:"2026-10-01",sh:"kids",d:"An infographic survey of the whole Bible, with timelines and maps."},
+     {t:"Where Wonder Leads",by:"New Growth Press · Middle Grade",img:"https://images-us.bookshop.org/ingram/9781645076216.jpg?width=600",u:"book-where-wonder-leads.html",dt:"2026-10-01",sh:"kids",d:"A young naturalist named Willow explores the outdoors, and each chapter pairs science with Scripture."},
+     {t:"Building 903",by:"Clarion Books · Middle Grade",img:"https://images-us.bookshop.org/ingram/9780063515109.jpg?width=600",u:"book-building-903.html",dt:"2026-09-29",sh:"kids",d:"Books are against the law, and Tessa's twin brother has vanished."},
+     {t:"Stella & Marigold: Past and Presents",by:"Chronicle Books · Early &amp; Chapter Books",img:"https://images-us.bookshop.org/ingram/9781797219721.jpg?width=600",u:"book-stella-marigold-past-and-presents.html",dt:"2026-09-29",sh:"kids",d:"Sisters Stella and Marigold learn that a girl once lived in their house, wrote on its walls, and left presents behind."},
+     {t:"Tom Nancy",by:"Tundra Books · Picture Books",img:"https://images-us.bookshop.org/ingram/9781774885710.jpg?width=600",u:"book-tom-nancy.html",dt:"2026-09-22",sh:"kids",d:"A sheep tricks a farm boy named Felix into a brain-swapping machine and takes his place in the family."},
+     {t:"All Kinds of Weather",by:"B&amp;H Kids · Picture Books",img:"https://images-us.bookshop.org/ingram/9798384529767.jpg?width=600",u:"book-all-kinds-of-weather.html",dt:"2026-09-15",sh:"kids",d:"A boy tries to stay dry as the rain and his family's troubles keep coming."},
+     {t:"The Forgotten War",by:"Scholastic Focus · Middle Grade",img:"https://images-us.bookshop.org/ingram/9798225004361.jpg?width=600",u:"book-the-forgotten-war.html",dt:"2026-09-01",sh:"kids",d:"The 1942 Japanese occupation of Attu in the Aleutian Islands and the costly American effort to take it back."},
+     {t:"New Morning Mercies for Kids",by:"Crossway · Middle Grade",img:"https://images-us.bookshop.org/ingram/9798874906801.jpg?width=600",u:"book-new-morning-mercies-for-kids.html",dt:"2026-09-01",sh:"kids",d:"Sixty short devotions for children, arranged over twenty weeks, with puzzles."},
+     {t:"God's Story, Our Story",by:"The Good Book Company · Early &amp; Chapter Books",img:"https://images-us.bookshop.org/ingram/9781802544404.jpg?width=600",u:"book-gods-story-our-story.html",dt:"2026-09-01",sh:"kids",d:"Nine weeks of fifteen-minute family devotions through the whole Bible, with audio by QR code."},
+     {t:"The Biggest Story Scripture Journal for Kids: Genesis",by:"Crossway · Early &amp; Chapter Books",img:"https://images-us.bookshop.org/ingram/9798874911386.jpg?width=600",u:"book-the-biggest-story-scripture-journal-for-kids-genesis.html",dt:"2026-09-01",sh:"kids",d:"The full ESV text of Genesis with a journaling page across from every page of Scripture."}
     ];
     function norm(s){return (s||"").replace(/&amp;/g,"&").replace(/\s+/g," ").trim().toLowerCase();}
     function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
@@ -458,7 +488,7 @@ a{color:inherit}
       var title=b.t.replace(/&/g,'&amp;');
       return '<article class="card"><a href="'+b.u+'"><div class="cover"><img src="'+b.img+'" alt="'+title+'" loading="lazy"></div><div class="body"><p class="by">'+b.by+'</p><h3>'+title+'</h3><p class="desc">'+b.d+'</p></div></a></article>';
     }
-    ['theology','history','fiction'].forEach(function(shelf){
+    ['theology','history','fiction','kids'].forEach(function(shelf){
       var grid=document.getElementById('shelf-grid-'+shelf);
       var row=document.querySelector('[data-shelf-row="'+shelf+'"]');
       if(!grid) return;
@@ -526,7 +556,7 @@ a{color:inherit}
       <a href="https://thetheologyshelf.beehiiv.com/subscribe">The Theology Shelf</a>
       <a href="fiction.html">The Fiction Shelf</a>
       <a href="https://thehistoryshelf.beehiiv.com/subscribe">The History Shelf</a>
-      <a href="#subscribe">The Kids' Shelf</a>
+      <a href="kids.html">The Kids' Shelf</a>
     </div>
     <div class="col">
       <h4>Store</h4>
