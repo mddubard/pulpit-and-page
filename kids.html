@@ -28,7 +28,11 @@
   .sub-band .ss{font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:13.5px;color:#cdd4c6;margin-top:4px;}
   .sub-band .btn{white-space:nowrap;}
   /* picture books are often square or landscape - show the whole cover, no crop */
-  .hist-book .cover img{object-fit:contain;background:var(--card);}
+  .hist-book{min-width:0;}
+  .hist-book .cover{aspect-ratio:4/5;position:relative;background:none;box-shadow:none;border-radius:0;overflow:visible;}
+  .hist-book .cover img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+    width:auto;height:auto;max-width:100%;max-height:100%;object-fit:initial;
+    border-radius:3px;box-shadow:0 10px 20px rgba(38,41,31,.18);}
 </style>
 <link rel="alternate" type="application/rss+xml" title="The Picky Reader — New Releases" href="/rss.xml">
 </head>
