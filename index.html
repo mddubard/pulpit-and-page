@@ -36,7 +36,7 @@ a{color:inherit}
 .brand-text{display:flex;flex-direction:column;gap:2px}
 .brand .name{font-family:'Open Sans',sans-serif;font-weight:700;letter-spacing:3px;font-size:20px;color:var(--green);line-height:1}
 .brand .tag{font-family:'Open Sans',sans-serif;font-size:12.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px;display:block;background:none;padding:0;border-radius:0;border:0}
-.nav{display:flex;align-items:center;gap:22px;font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.nav{display:flex;align-items:center;flex-wrap:wrap;gap:22px;font-family:'Open Sans',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase}
 .nav a{text-decoration:none;color:var(--ink);opacity:.85}
 .nav a:hover{opacity:1}
 .nav a.active{color:var(--green);opacity:1;font-weight:700}
@@ -533,12 +533,10 @@ a{color:inherit}
 
 <section class="news" id="subscribe">
   <h2>Get a shelf in your inbox</h2>
-  <p>Choose a shelf and we'll send you its newest and most notable — free, and no spam. Theology lands weekly; History every other Friday. More shelves are opening soon.</p>
+  <p>Choose a shelf and we'll send you its newest and most notable — free, and no spam. Theology lands weekly; History every other Friday.</p>
   <div class="shelf-pick" role="radiogroup" aria-label="Choose a shelf">
     <label class="pick on"><input type="radio" name="shelf" value="theology" data-url="https://thetheologyshelf.beehiiv.com/subscribe" checked> The Theology Shelf</label>
-    <label class="pick soon"><input type="radio" name="shelf" disabled> The Fiction Shelf <span>soon</span></label>
     <label class="pick on"><input type="radio" name="shelf" value="history" data-url="https://thehistoryshelf.beehiiv.com/subscribe"> The History Shelf</label>
-    <label class="pick soon"><input type="radio" name="shelf" disabled> The Kids' Shelf <span>soon</span></label>
   </div>
   <form onsubmit="var r=this.querySelector('input[name=shelf]:checked')||document.querySelector('input[name=shelf]:checked');location.href=r.getAttribute('data-url')+'?email='+encodeURIComponent(this.em.value);return false;">
     <input type="email" name="em" placeholder="you@email.com" aria-label="Email address" required>
@@ -554,9 +552,9 @@ a{color:inherit}
     </div>
     <div class="col">
       <h4>Shelves</h4>
-      <a href="https://thetheologyshelf.beehiiv.com/subscribe">The Theology Shelf</a>
+      <a href="theology.html">The Theology Shelf</a>
       <a href="fiction.html">The Fiction Shelf</a>
-      <a href="https://thehistoryshelf.beehiiv.com/subscribe">The History Shelf</a>
+      <a href="history.html">The History Shelf</a>
       <a href="kids.html">The Kids' Shelf</a>
     </div>
     <div class="col">

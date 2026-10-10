@@ -52,7 +52,7 @@
       <h1>The Bible&#x27;s Converging Story</h1>
       <p class="sub">How the Authors of the New Testament Interpreted the Old to Tell the Story of Jesus</p>
       <p class="authors">Andreas J. Köstenberger</p>
-      <p class="facts">Baker Books · Biblical Theology<br>Released March 23, 2027 · ISBN 9781540971456</p>
+      <p class="facts">Baker Books · Biblical Theology<br><span class="relword" data-date="2027-03-23">Releases</span> March 23, 2027 · ISBN 9781540971456</p>
       <div class="buy">
         <a class="amz" href="https://www.amazon.com/dp/1540971457?tag=pulpitandpage-20">Buy at Amazon</a>
         <a class="alt" href="https://bookshop.org/a/127643/9781540971456">Bookshop</a>
@@ -64,8 +64,6 @@
     <p>Köstenberger explains how the New Testament writers read and used the Old Testament, and how the two together form one story that centers on Jesus. Written for general readers at 208 pages, it also gives guidance on reading the Bible in context.</p>
   </section>
 
-  
-  
   <section class="related" style="max-width:760px;margin:34px 0 8px;border-top:1px solid var(--line);padding-top:22px;">
   <h3 style="color:var(--navy);font-family:Caladea,Georgia,serif;font-size:20px;margin:0 0 14px;">You might also like</h3>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -75,7 +73,7 @@
   </div>
 </section>
   <p style="margin:24px 0 8px;">
-    <a class="btn btn-navy" href="calendar.html">← Back to the calendar</a>
+    <a class="btn btn-navy back-btn" href="theology.html" data-cal="calendar.html?shelf=theology">← Back to the Theology Shelf</a>
     &nbsp;<a class="btn btn-gold" href="index.html#subscribe">Get the weekly email</a></p>
   <p class="muted" style="font-size:13px;font-style:italic;border-top:1px solid var(--line);padding-top:14px;max-width:760px;">
      Disclosure: The Picky Reader may earn a commission from purchases made through our links, at no extra cost to you.</p>
@@ -91,5 +89,16 @@
   </div>
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
+<!--PR-PAGE-JS-->
+<script>
+(function(){
+  var t=new Date();t.setHours(0,0,0,0);
+  document.querySelectorAll('.relword[data-date]').forEach(function(e){
+    var p=e.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    e.textContent=d>t?'Releases':'Released';});
+  var b=document.querySelector('.back-btn[data-cal]');
+  if(b&&/\/calendar(\.html)?(\?|#|$)/.test(document.referrer)){b.href=b.getAttribute('data-cal');b.textContent='\u2190 Back to the calendar';}
+})();
+</script>
 </body>
 </html>

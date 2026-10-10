@@ -52,7 +52,7 @@
       <h1>A Heart Aflame for God</h1>
       <p class="sub">A Reformed Approach to Spiritual Formation</p>
       <p class="authors">Matthew C. Bingham</p>
-      <p class="facts">Crossway · Christian Living<br>Released April 15, 2025 · ISBN 9781433592621</p>
+      <p class="facts">Crossway · Christian Living<br><span class="relword" data-date="2025-04-15">Released</span> April 15, 2025 · ISBN 9781433592621</p>
       <div class="buy">
         <a class="amz" href="https://www.amazon.com/dp/1433592622?tag=pulpitandpage-20">Buy at Amazon</a>
         <a class="alt" href="https://bookshop.org/a/127643/9781433592621">Bookshop</a>
@@ -73,7 +73,7 @@
   </div>
 </section>
   <p style="margin:24px 0 8px;">
-    <a class="btn btn-navy" href="calendar.html">← Back to the calendar</a>
+    <a class="btn btn-navy back-btn" href="theology.html" data-cal="calendar.html?shelf=theology">← Back to the Theology Shelf</a>
     &nbsp;<a class="btn btn-gold" href="index.html#subscribe">Get the weekly email</a></p>
   <p class="muted" style="font-size:13px;font-style:italic;border-top:1px solid var(--line);padding-top:14px;max-width:760px;">
      Disclosure: The Picky Reader may earn a commission from purchases made through our links, at no extra cost to you.</p>
@@ -89,5 +89,16 @@
   </div>
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
+<!--PR-PAGE-JS-->
+<script>
+(function(){
+  var t=new Date();t.setHours(0,0,0,0);
+  document.querySelectorAll('.relword[data-date]').forEach(function(e){
+    var p=e.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    e.textContent=d>t?'Releases':'Released';});
+  var b=document.querySelector('.back-btn[data-cal]');
+  if(b&&/\/calendar(\.html)?(\?|#|$)/.test(document.referrer)){b.href=b.getAttribute('data-cal');b.textContent='\u2190 Back to the calendar';}
+})();
+</script>
 </body>
 </html>

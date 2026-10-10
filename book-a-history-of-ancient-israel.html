@@ -52,7 +52,7 @@
       <h1>A History of Ancient Israel</h1>
       <p class="sub">From Abraham to Exile</p>
       <p class="authors">Michael Alan Grisanti &amp; Todd Bolen</p>
-      <p class="facts">Zondervan Academic · Biblical Studies<br>Released October 27, 2026 · ISBN 9780310259077</p>
+      <p class="facts">Zondervan Academic · Biblical Studies<br><span class="relword" data-date="2026-10-27">Releases</span> October 27, 2026 · ISBN 9780310259077</p>
       <div class="buy">
         <a class="amz" href="https://www.amazon.com/dp/031025907X?tag=pulpitandpage-20">Buy at Amazon</a>
         <a class="alt" href="https://bookshop.org/a/127643/9780310259077">Bookshop</a>
@@ -64,8 +64,6 @@
     <p>A full-scale conservative evangelical history of Israel from Abraham to the exile, with archaeology and geography woven in by two Master&#x27;s University scholars. Nearly 800 pages, and the kind of reference that will sit beside the commentaries for decades.</p>
   </section>
 
-  
-  
   <section class="related" style="max-width:760px;margin:34px 0 8px;border-top:1px solid var(--line);padding-top:22px;">
   <h3 style="color:var(--navy);font-family:Caladea,Georgia,serif;font-size:20px;margin:0 0 14px;">You might also like</h3>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -75,7 +73,7 @@
   </div>
 </section>
   <p style="margin:24px 0 8px;">
-    <a class="btn btn-navy" href="calendar.html">← Back to the calendar</a>
+    <a class="btn btn-navy back-btn" href="theology.html" data-cal="calendar.html?shelf=theology">← Back to the Theology Shelf</a>
     &nbsp;<a class="btn btn-gold" href="index.html#subscribe">Get the weekly email</a></p>
   <p class="muted" style="font-size:13px;font-style:italic;border-top:1px solid var(--line);padding-top:14px;max-width:760px;">
      Disclosure: The Picky Reader may earn a commission from purchases made through our links, at no extra cost to you.</p>
@@ -91,5 +89,16 @@
   </div>
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
+<!--PR-PAGE-JS-->
+<script>
+(function(){
+  var t=new Date();t.setHours(0,0,0,0);
+  document.querySelectorAll('.relword[data-date]').forEach(function(e){
+    var p=e.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    e.textContent=d>t?'Releases':'Released';});
+  var b=document.querySelector('.back-btn[data-cal]');
+  if(b&&/\/calendar(\.html)?(\?|#|$)/.test(document.referrer)){b.href=b.getAttribute('data-cal');b.textContent='\u2190 Back to the calendar';}
+})();
+</script>
 </body>
 </html>

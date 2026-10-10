@@ -71,7 +71,7 @@
       <p class="authors">Edited by Bruce W. Longenecker, Marieke Dhont &amp; James K. Aitken</p>
       <p class="facts">
         Zondervan Academic · Biblical Studies · Hardcover<br>
-        Released August 11, 2026 · ISBN 9780310495529
+        <span class="relword" data-date="2026-08-11">Released</span> August 11, 2026 · ISBN 9780310495529
       </p>
       <div class="buy">
         <a class="amz" href="https://www.amazon.com/Apocrypha-Septuagint-Ancient-Literature-Testament/dp/0310495520?tag=pulpitandpage-20">Buy at Amazon</a>
@@ -129,12 +129,6 @@
        Numbering and availability per Zondervan Academic.</p>
   </div>
 
-  
-  
-  
-  
-  
-  
   <section class="related" style="max-width:760px;margin:34px 0 8px;border-top:1px solid var(--line);padding-top:22px;">
   <h3 style="color:var(--navy);font-family:Caladea,Georgia,serif;font-size:20px;margin:0 0 14px;">You might also like</h3>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -144,7 +138,7 @@
   </div>
 </section>
   <p style="margin:24px 0 8px;">
-    <a class="btn btn-navy" href="calendar.html">← Back to the calendar</a>
+    <a class="btn btn-navy back-btn" href="theology.html" data-cal="calendar.html?shelf=theology">← Back to the Theology Shelf</a>
     &nbsp;<a class="btn btn-gold" href="index.html#subscribe">Get the weekly email</a></p>
   <p class="muted" style="font-size:13px;font-style:italic;border-top:1px solid var(--line);padding-top:14px;max-width:760px;">
      Disclosure: The Picky Reader may earn a commission from purchases made through our links, at no extra cost to you.</p>
@@ -173,5 +167,16 @@
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
 
+<!--PR-PAGE-JS-->
+<script>
+(function(){
+  var t=new Date();t.setHours(0,0,0,0);
+  document.querySelectorAll('.relword[data-date]').forEach(function(e){
+    var p=e.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    e.textContent=d>t?'Releases':'Released';});
+  var b=document.querySelector('.back-btn[data-cal]');
+  if(b&&/\/calendar(\.html)?(\?|#|$)/.test(document.referrer)){b.href=b.getAttribute('data-cal');b.textContent='\u2190 Back to the calendar';}
+})();
+</script>
 </body>
 </html>

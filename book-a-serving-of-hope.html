@@ -52,7 +52,7 @@
       <h1>A Serving of Hope</h1>
       
       <p class="authors">Hisashi Kashiwai</p>
-      <p class="facts">Putnam · Literary Fiction<br>Released October 06, 2026 · ISBN 9798217045372</p>
+      <p class="facts">Putnam · Literary Fiction<br><span class="relword" data-date="2026-10-06">Released</span> October 06, 2026 · ISBN 9798217045372</p>
       <div class="buy">
         <a class="amz" href="https://www.amazon.com/dp/B0GFDBGB43?tag=pulpitandpage-20">Buy at Amazon</a>
         <a class="alt" href="https://bookshop.org/a/127643/9798217045372">Bookshop</a>
@@ -63,8 +63,16 @@
     <h2 style="font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px;">About the book</h2>
     <p>A father and daughter who run a small Kyoto diner recreate dishes from their customers&#x27; pasts.</p>
   </section>
+  <section class="related" style="max-width:760px;margin:34px 0 8px;border-top:1px solid var(--line);padding-top:22px;">
+  <h3 style="color:var(--navy);font-family:Caladea,Georgia,serif;font-size:20px;margin:0 0 14px;">You might also like</h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+    <a href="book-vaim-hotel.html" style="text-decoration:none;color:inherit;"><img src="https://images-us.bookshop.org/ingram/9798893380804.jpg?width=600" alt="Vaim Hotel" loading="lazy" style="width:100%;height:180px;object-fit:contain;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px;box-sizing:border-box;"><div style="font-weight:600;font-size:14px;margin-top:8px;line-height:1.3;">Vaim Hotel</div><div style="color:var(--muted);font-size:12.5px;margin-top:2px;">Jon Fosse</div></a>
+    <a href="book-the-story-baker.html" style="text-decoration:none;color:inherit;"><img src="https://images-us.bookshop.org/ingram/9781335000996.jpg?width=600" alt="The Story Baker" loading="lazy" style="width:100%;height:180px;object-fit:contain;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px;box-sizing:border-box;"><div style="font-weight:600;font-size:14px;margin-top:8px;line-height:1.3;">The Story Baker</div><div style="color:var(--muted);font-size:12.5px;margin-top:2px;">Carsten Henn</div></a>
+    <a href="book-numb-were-the-beadsman-s-fingers.html" style="text-decoration:none;color:inherit;"><img src="https://images-us.bookshop.org/ingram/9780593724545.jpg?width=600" alt="Numb Were the Beadsman&#x27;s Fingers" loading="lazy" style="width:100%;height:180px;object-fit:contain;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px;box-sizing:border-box;"><div style="font-weight:600;font-size:14px;margin-top:8px;line-height:1.3;">Numb Were the Beadsman&#x27;s Fingers</div><div style="color:var(--muted);font-size:12.5px;margin-top:2px;">Alan Bradley</div></a>
+  </div>
+</section>
   <p style="margin:24px 0 8px;">
-    <a class="btn btn-navy" href="fiction.html">← Back to the Fiction Shelf</a>
+    <a class="btn btn-navy back-btn" href="fiction.html" data-cal="calendar.html?shelf=fiction">← Back to the Fiction Shelf</a>
     &nbsp;<a class="btn btn-gold" href="index.html#subscribe">Get the weekly email</a></p>
   <p class="muted" style="font-size:13px;font-style:italic;border-top:1px solid var(--line);padding-top:14px;max-width:760px;">
      Disclosure: The Picky Reader may earn a commission from purchases made through our links, at no extra cost to you.</p>
@@ -80,5 +88,16 @@
   </div>
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
+<!--PR-PAGE-JS-->
+<script>
+(function(){
+  var t=new Date();t.setHours(0,0,0,0);
+  document.querySelectorAll('.relword[data-date]').forEach(function(e){
+    var p=e.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    e.textContent=d>t?'Releases':'Released';});
+  var b=document.querySelector('.back-btn[data-cal]');
+  if(b&&/\/calendar(\.html)?(\?|#|$)/.test(document.referrer)){b.href=b.getAttribute('data-cal');b.textContent='\u2190 Back to the calendar';}
+})();
+</script>
 </body>
 </html>

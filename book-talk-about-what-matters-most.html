@@ -56,7 +56,7 @@
       <h1>Talk About What Matters Most</h1>
       <p class="sub">A Christian Man&#x27;s Guide to Forging Friendships</p>
       <p class="authors">J. Alasdair Groves</p>
-      <p class="facts">P&amp;R Publishing · Christian Living<br>Released September 16, 2026 · ISBN 9781629958293</p>
+      <p class="facts">P&amp;R Publishing · Christian Living<br><span class="relword" data-date="2026-09-16">Released</span> September 16, 2026 · ISBN 9781629958293</p>
       <div class="buy">
         <a class="amz" href="https://www.amazon.com/dp/1629958298?tag=pulpitandpage-20">Buy at Amazon</a>
         <a class="alt" href="https://bookshop.org/a/127643/9781629958293">Bookshop</a>
@@ -68,11 +68,7 @@
     <p>Practical help for men to move past isolation and build real, honest friendships.</p>
   </section>
   <p style="max-width:760px;"><em>The Picky Reader note:</em> Most men have plenty of acquaintances and few real friends. Groves, a counselor, works patiently against the habit of staying pleasant but unknown. He shows how to start the conversation, stay in it, and let someone actually know you. It&rsquo;s practical, and a good pick for a men&rsquo;s group looking for its next book.</p>
-  
-  
-  
-  
-  
+
   <section class="related" style="max-width:760px;margin:34px 0 8px;border-top:1px solid var(--line);padding-top:22px;">
   <h3 style="color:var(--navy);font-family:Caladea,Georgia,serif;font-size:20px;margin:0 0 14px;">You might also like</h3>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -82,7 +78,7 @@
   </div>
 </section>
   <p style="margin:24px 0 8px;">
-    <a class="btn btn-navy" href="calendar.html">← Back to the calendar</a>
+    <a class="btn btn-navy back-btn" href="theology.html" data-cal="calendar.html?shelf=theology">← Back to the Theology Shelf</a>
     &nbsp;<a class="btn btn-gold" href="index.html#subscribe">Get the weekly email</a></p>
   <p class="muted" style="font-size:13px;font-style:italic;border-top:1px solid var(--line);padding-top:14px;max-width:760px;">
      Disclosure: The Picky Reader may earn a commission from purchases made through our links, at no extra cost to you.</p>
@@ -98,5 +94,16 @@
   </div>
   <div class="legal">© 2026 The Picky Reader · As an Amazon Associate we earn from qualifying purchases.</div>
 </footer>
+<!--PR-PAGE-JS-->
+<script>
+(function(){
+  var t=new Date();t.setHours(0,0,0,0);
+  document.querySelectorAll('.relword[data-date]').forEach(function(e){
+    var p=e.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    e.textContent=d>t?'Releases':'Released';});
+  var b=document.querySelector('.back-btn[data-cal]');
+  if(b&&/\/calendar(\.html)?(\?|#|$)/.test(document.referrer)){b.href=b.getAttribute('data-cal');b.textContent='\u2190 Back to the calendar';}
+})();
+</script>
 </body>
 </html>
